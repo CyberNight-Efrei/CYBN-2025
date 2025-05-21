@@ -1,0 +1,6 @@
+.ctf
+venv/
+.obsidian/
+.idea/
+*.burp
+*.bak
