@@ -4,9 +4,11 @@
 # Required sections
 name: "Template challenge"
 category: "category"
-description: "This is a sample description"
+description: "This is a sample description
+
+on multiple lines."
 attribution: "author"
-value: 100
+#value: 500
 type: dynamic
 
 # The extra field provides additional fields for data during the install/sync commands/
@@ -55,17 +57,17 @@ attempts: 5
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - flag{3xampl3}
+    - CYBN{REDACTED}
     # A static case sensitive flag created with a dictionary
     - {
         type: "static",
-        content: "flag{wat}",
+        content: "CYBN{REDACTED}",
         data: "case_sensitive",
     }
     # A static case insensitive flag
     - {
         type: "static",
-        content: "flag{wat}",
+        content: "CYBN{REDACTED}",
         data: "case_insensitive",
     }
     # A regex case insensitive flag
