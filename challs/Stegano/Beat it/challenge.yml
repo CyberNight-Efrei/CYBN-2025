@@ -2,7 +2,7 @@ name: Beat it
 category: Stegano
 description: |-
   Beat it, beat it, find the secret
-  Format : CYBN{phrase_composée_de_mots}
+  Format : CYBN{phrase_composÃ©e_de_mots}
 attribution: NozZy
 value: 500
 type: dynamic
@@ -21,6 +21,6 @@ files:
 - dist/hidden_beat_message.png
 
 tags:
-- Stegano
+- Easy
 
 version: '0.1'
