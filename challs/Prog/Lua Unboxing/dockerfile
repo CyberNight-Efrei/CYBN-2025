@@ -1,0 +1,10 @@
+FROM ubuntu:24.04
+
+RUN apt-get update && apt-get install -y lua5.3 lua-socket
+
+WORKDIR /app
+COPY server_prod.lua /app/
+
+EXPOSE 23456
+
+CMD ["lua5.3", "server_prod.lua"]
