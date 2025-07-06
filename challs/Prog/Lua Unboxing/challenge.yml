@@ -1,48 +1,28 @@
 name: Lua Unboxing - Sandbox escape
 category: Prog
-description: Le flag est là, sous vos yeux, allez le chercher !
-
+description: Le flag est l?, sous vos yeux, allez le chercher !
 attribution: Mathu_lmn
 value: 500
 type: dynamic
 
 extra:
-    initial: 500
-    decay: 30
-    minimum: 100
-
+  initial: 500
+  decay: 30
+  minimum: 100
 
 image: .
-
 protocol: tcp
-
 host: null
-
-# Optional settings
-
-# # connection_info is used to provide a link, hostname, or instructions on how to connect to a challenge
-# connection_info: nc hostname 12345
-
-# # healthcheck is a tool/script used to check a challenge
-# # If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
-# # ./writeup/exploit.sh --connection-info "nc hostname 12345"
-# healthcheck: writeup/exploit.sh
 
 flags:
 - content: CYBN{3sc4p3d_fr0m_lu4}
   type: static
   data: case_sensitive
 
+files:
+- dist/server.lua
 
 tags:
-    - Medium
+- Medium
 
-files:
-    - src/server.lua
-
-# hints:
-#     - title: Titled Hint
-#       content: This hint has a title and costs points
-#       cost: 10
-
-version: "0.1"
+version: '0.1'

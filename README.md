@@ -9,7 +9,7 @@
 Exemple : ``Web/Challenge 1``
 
 Structure des fichiers d'un challenge :
-```json
+```shell
 challs
 ╰―<nom de la catégorie>
     ╰―<nom du challenge>
