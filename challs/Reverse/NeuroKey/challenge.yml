@@ -1,0 +1,24 @@
+name: NeuroKey
+category: Reverse
+description: This AI Engineer I know went on and on about how his neural network is infallible at protecting files, you wanna prove him wrong?
+attribution: oldschool125
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- content: CYBN{N3Ur4L_N37W0rK_S0_W43k}
+  type: static
+  data: case_sensitive
+
+files:
+- dist/NeuroKey.zip
+
+tags:
+- Easy
+
+version: '0.1'

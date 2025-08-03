@@ -1,0 +1,24 @@
+name: BinJutsu
+category: Reverse
+description: Sure, you may know what NinJutsu is, but have you ever heard of BinJutsu?
+attribution: oldschool125
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- content: CYBN{7h4t_W4s_S0M3_c00l_B1nJu7Su}
+  type: static
+  data: case_sensitive
+
+files:
+- dist/BinJutsu.zip
+
+tags:
+- Medium
+
+version: '0.1'
