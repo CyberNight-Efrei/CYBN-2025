@@ -1,0 +1,8 @@
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\acrobat\shell\open\command]
+@="\"C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe\" /u \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document.DC\shell\Open\command]
+@="\"C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe\" \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AcroExch.Document.DC\shell\Read\command]
+@="\"C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe\" \"%1\""
