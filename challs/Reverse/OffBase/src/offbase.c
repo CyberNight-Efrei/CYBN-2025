@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-const char BASE64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+const char BASE64[] = "ZYXABCDEFGHIJKLMNOPQRSTUVWzyxabcdefghijklmnopqrstuvw0123456789-_";
 
 void base64_encode(const char *in, const unsigned long in_len, char *out) {
     int in_index = 0;
@@ -44,9 +44,9 @@ void join_chunks(char *dest, const char **chunks, int count) {
 
 int main(int argc, char *argv[]) {
     const char *chunks[] = {
-        "Q1lC", "Tntu", "MFRf", "UzBf",
-        "SDRy", "RF90", "MF9G", "MW5E",
-        "X0h1", "SH0="
+    "N1iX", "Qkqr", "JCOc", "RwYc",
+    "PAOv", "OC90", "JC9D", "JT5B",
+    "U0e1", "PE0="
     };
     char expected_b64[128];
 
@@ -55,14 +55,13 @@ int main(int argc, char *argv[]) {
     if (argc == 2) {
         char encoded[256];
         base64_encode(argv[1], strlen(argv[1]), encoded);
-
         if (strcmp(encoded, expected_b64) == 0) {
             printf("Yay\n");
         } else {
             printf("Nay\n");
         }
     } else {
-        printf("Nothing to see here.\n");
+        return 0;
     }
 
     return 0;
