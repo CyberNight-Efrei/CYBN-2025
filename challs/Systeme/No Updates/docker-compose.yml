@@ -1,0 +1,9 @@
+services:
+  sudo-cve:
+    build: .
+    container_name: sudo_cve
+    ports:
+      - "2222:2222"
+    environment:
+      - USER=user
+      - PASSWORD=user
