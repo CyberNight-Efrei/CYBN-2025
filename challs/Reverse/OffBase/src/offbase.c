@@ -44,9 +44,9 @@ void join_chunks(char *dest, const char **chunks, int count) {
 
 int main(int argc, char *argv[]) {
     const char *chunks[] = {
-    "N1iX", "Qkqr", "JCOc", "RwYc",
-    "PAOv", "OC90", "JC9D", "JT5B",
-    "U0e1", "PE0="
+        "N1iX", "Qkqr", "JCOc", "RwYc",
+        "PAOv", "OC90", "JC9D", "JT5B",
+        "U0e1", "PE0="
     };
     char expected_b64[128];
 
