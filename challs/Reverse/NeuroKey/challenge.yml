@@ -16,7 +16,7 @@ flags:
   data: case_sensitive
 
 files:
-- dist/NeuroKey.zip
+- src/NeuroKey.zip
 
 tags:
 - Easy

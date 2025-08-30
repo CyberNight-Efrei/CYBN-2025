@@ -16,9 +16,9 @@ flags:
   data: case_sensitive
 
 files:
-- dist/offbase
+- src/offbase
 
 tags:
-- Very Easy
+- Intro
 
 version: '0.1'

@@ -1,66 +1,35 @@
-# This file represents the base specification of your challenge. It is used by
-# other tools to install and deploy your challenge.
+name: No Updates?
+category: System
+description: |-
+  Je viens d'arriver dans l'entreprise NeuillCORP, et voil‡† ce qu'on me dit :
+  > Ici on bosse bien, et de maniËre sÈcurisÈe !
+  > Pour cette raison, nos serveurs n'ont pas accËs ‡ internet, et ne l'ont jamais eu.
+  > On met pas non plus ‡ jour, on ne doit pas faire confinace ‡ ce qui ne provient pas de l'entreprise !
 
-# Required sections
-name: "No Updates?"
-category: "System"
-description: "Je viens d'arriver dans l'entreprise NeuillCORP, et voil√† ce qu'on me dit :
-> Ici on bosse bien, et de mani√®re s√©curis√©e !
-> Pour cette raison, nos serveurs n'ont pas acc√®s √† internet, et ne l'ont jamais eu.
-> On met pas non plus √† jour, on ne doit pas faire confinace √† ce qui ne provient pas de l'entreprise !
-
-Du coup je dois bosser sur un serveur, mais je compte bien leur prouver qu'il est vuln√©rable.
+  Du coup je dois bosser sur un serveur, mais je compte bien leur prouver qu'il est vulnarable.
 
 
----
+  ---
 
-User : `user`
-Mot de passe : `user`
-Port : `2222`
-Host : *Dynamic*"
-attribution: "NozZy"
+  User : `user`
+  Mot de passe : `user`
+  Port : `2222`
+  Host : *Dynamic*
+attribution: NozZy
 value: 500
 type: dynamic
 
-# The extra field provides additional fields for data during the install/sync commands/
-# Fields in extra can be used to supply additional information for other challenge types
-# For example the follow extra field is for dynamic challenges. To use these following
-# extra fields, set the type to "dynamic" and uncomment the "extra" section below
 extra:
-    initial: 500
-    decay: 30
-    minimum: 100
-
-
-# Specify a protocol that should be used to connect to the running image
-# For example if the image is a website you can specify http or https
-# Otherwise you can specify tcp
+  initial: 500
+  decay: 30
+  minimum: 100
 protocol: ssh
-
-
-# Optional settings
-
-# connection_info is used to provide a link, hostname, or instructions on how to connect to a challenge
 connection_info: ssh user@<ip> -p 2222
 
-# Flags specify answers that your challenge use. You should generally provide at least one.
-# Can be removed if unused
-# Accepts strings or dictionaries of CTFd API data
 flags:
-    # A static case sensitive flag
-    - CYBN{Mak3_SUr3_T0_uPD4T3_yOuR_SYst3m_4Nd_PAck4G35}
+- CYBN{Mak3_SUr3_T0_uPD4T3_yOuR_SYst3m_4Nd_PAck4G35}
 
-# Tags are used to provide additional public tagging to a challenge
-# Can be removed if unused
-# Accepts strings
 tags:
-    - Easy
+- Easy
 
-# The state of the challenge.
-# If the field is omitted, the challenge is visible by default.
-# If provided, the field can take one of two values: hidden, visible.
-state: visible
-
-# Specifies what version of the challenge specification was used.
-# Subject to change until ctfcli v1.0.0
-version: "0.1"
+version: '0.1'

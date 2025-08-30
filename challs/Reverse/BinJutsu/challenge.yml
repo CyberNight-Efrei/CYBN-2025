@@ -16,7 +16,7 @@ flags:
   data: case_sensitive
 
 files:
-- dist/BinJutsu.zip
+- src/BinJutsu.zip
 
 tags:
 - Medium
