@@ -1,12 +1,12 @@
 name: Singe et renard
 category: Forensics
 description: |-
-    D'habitude j'aime bien cacher mes secrets de maniÃ¨re un peu loufoque, comme Ã§a y'a que moi qui sait les retrouver, mais aujourd'hui j'ai un problÃ¨me...
+  D'habitude j'aime bien cacher mes secrets de manière un peu loufoque, comme ça y'a que moi qui sait les retrouver, mais aujourd'hui j'ai un problème...
 
-    J'ai cachÃ© un secret en plusieurs morceaux dans mon navigateur, mais ce dernier a plantÃ©, et toutes les donnÃ©es ont Ã©tÃ© rÃ©initialisÃ©es.
-    Heureusement, ce dernier m'a fait une backup avant, mais je ne saurais pas l'exploiter...
+  J'ai caché un secret en plusieurs morceaux dans mon navigateur, mais ce dernier a planté, et toutes les données ont été réinitialisées.
+  Heureusement, ce dernier m'a fait une backup avant, mais je ne saurais pas l'exploiter...
 
-    Je te mets au dÃ©fi (et t'implore stp) de retrouver mon secret pour moi.
+  Je te mets au défi (et t'implore stp) de retrouver mon secret pour moi.
 attribution: NozZy
 value: 500
 type: dynamic

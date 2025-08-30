@@ -1,12 +1,12 @@
-# This file represents the base specification of your challenge. It is used by
-# other tools to install and deploy your challenge.
-
-# Required sections
-name: "XorPass"
-category: "Crypto"
+name: XorPass
+category: Crypto
 description: |-
-    lol
-attribution: "NozZy"
+  Je fais de la cybersécurité, donc je stocke *évidemment* mes mots de passe dans un gestionnaire de mot de passe.
+  Puisque je fais de la cybersécurité, je suis *infailliblement* souverain de mes données, et je ne mets rien dans le cloud (berk).
+  Etant donnée que je fais de la cybersécurité, je fais *incontestablement* des backup régulières de mon gestionnaire de mot de passe, que je sécurise **moi-même**, avec ma petite clé personnelle.
+
+  J'ai tellement confiance dans mon mécanisme, que je te donne ma dernière backup. Impossible que tu arrives à la lire !
+attribution: NozZy
 value: 500
 type: dynamic
 
@@ -15,29 +15,13 @@ extra:
   decay: 30
   minimum: 100
 
-# Flags specify answers that your challenge use. You should generally provide at least one.
-# Can be removed if unused
-# Accepts strings or dictionaries of CTFd API data
 flags:
-    # A static case sensitive flag
-    - CYBN{X0R_yOU_ShoULd_N0T_YouR_B1Ckup5}
+- CYBN{X0R_yOU_ShoULd_N0T_YouR_B1Ckup5}
 
-# Tags are used to provide additional public tagging to a challenge
-# Can be removed if unused
-# Accepts strings
-tags:
-    - Easy
-
-# Provide paths to files from the same directory that this file is in
-# Accepts strings
 files:
-    - src/backup.xml.enc
+- dist/backup.xml.enc
 
-# The state of the challenge.
-# If the field is omitted, the challenge is visible by default.
-# If provided, the field can take one of two values: hidden, visible.
-state: visible
+tags:
+- Easy
 
-# Specifies what version of the challenge specification was used.
-# Subject to change until ctfcli v1.0.0
-version: "0.1"
+version: '0.1'
