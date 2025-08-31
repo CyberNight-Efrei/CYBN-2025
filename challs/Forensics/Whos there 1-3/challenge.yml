@@ -1,0 +1,29 @@
+name: Who's there ? 1-3
+category: Forensics
+description: """Un attaquant à réussi à s'introduire sur notre machine, cependant, étant donné la criticité des services hebergés sur cette machine, nous ne pouvons pas nous permettre de l'eteindre pour investiguer...
+Connect toi à la machine en ssh pour l'investiguer en live ! dans un premier temps, trouve le nom du fichier malveillant que l'utilisateur à ajouté sur la machine
+
+Flag: CYBN{<nom du fichier>}
+"""
+
+attribution: Romain
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- content: CYBN{goodboi.ko}
+  type: static
+  data: case_sensitive
+
+files:
+- src/whos_ed25519
+
+tags:
+- Easy
+
+version: '0.1'
