@@ -1,0 +1,1 @@
+bruteforce d'options UART en cherchant le mot-clef `CYBN{`

@@ -1,0 +1,22 @@
+name: "NextGen!"
+category: Hardware
+description: |- 
+    <i>Vous venez de lire un article sur Hedy Lamarr, c'est fou ce que les
+    technologies ont évoluées depuis !</i>
+attribution: grégoire
+#value: 500
+type: static
+
+image: null
+protocol: null
+host: null
+
+flags:
+    - CYBN{REDACTED}
+
+tags:
+    - Hard, Unfinished
+
+state: hidden
+
+version: "0.1"

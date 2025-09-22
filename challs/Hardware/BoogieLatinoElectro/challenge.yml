@@ -1,0 +1,22 @@
+name: "Boogie Latino Electro"
+category: Hardware
+description: |- 
+    Inspecteur, j'écoutais tranquillement de la musique sur mon enceinte sans fil,
+    lorsque la machine s'est allumée et a brouillé ma musique !
+attribution: grégoire
+#value: 500
+type: static
+
+image: null
+protocol: null
+host: null
+
+flags:
+    - CYBN{unencrypted_communication_baby}
+
+tags:
+    - Easy
+
+state: hidden
+
+version: "0.1"

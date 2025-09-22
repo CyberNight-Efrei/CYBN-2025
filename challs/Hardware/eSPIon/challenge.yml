@@ -1,0 +1,22 @@
+name: "eSPIon"
+category: Hardware
+description: |- 
+    Oh, je reconnais ce composant !
+    On m'a dit qu'on pouvait lire dedans comme dans un livre ouvert...
+attribution: grégoire, Baptiste-LC
+#value: 500
+type: static
+
+image: null
+protocol: null
+host: null
+
+flags:
+    - CYBN{i_like_dumping_fw}
+
+tags:
+    - Medium
+
+state: hidden
+
+version: "0.1"

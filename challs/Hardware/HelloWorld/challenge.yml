@@ -1,0 +1,28 @@
+name: "Hello, World!"
+category: Hardware
+description: |- 
+    Inspecteur, vous voilà en possession d'un bien drôle d'objet. 
+    Serait-il possible qu'il essaye de vous transmettre des informations par USB ? 
+    Branchez-le donc pour savoir !
+attribution: grégoire, Baptiste-LC
+#value: 500
+type: static
+
+image: null
+protocol: null
+host: null
+
+flags:
+    - CYBN{serial_dot_println_is_the_way}
+
+tags:
+    - Intro
+
+hints:
+    - title: I am speed
+      content: Vérifiez les vitesses de base pour le protocole série...
+      cost: 5
+
+state: hidden
+
+version: "0.1"

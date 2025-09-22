@@ -1,0 +1,32 @@
+name: "Titanic"
+category: Hardware
+description: |- 
+    <i>Extrait des notes de votre acolyte : </i>
+    Appuyer sur le bouton du pin 4 déclenche apparemment tout un processus
+    dans la machine. Aucune idée de ce que cela signifie.
+attribution: grégoire, Baptiste-LC
+#value: 500
+type: static
+
+image: null
+protocol: null
+host: null
+
+flags:
+    - {
+        type: "static",
+        content: "CYBN{m0rs3isaw3s0me}",
+        data: "case_insensitive",
+    }
+    - {
+        type: "static",
+        content: "m0rs3isaw3s0me",
+        data: "case_insensitive",
+    }
+
+tags:
+    - Medium
+
+state: hidden
+
+version: "0.1"
