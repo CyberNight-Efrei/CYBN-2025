@@ -58,7 +58,6 @@ block content
                             a(href=`/#x=${pixel.point.x}&y=${pixel.point.y}`) (#{pixel.point.x.toLocaleString()}, #{pixel.point.y.toLocaleString()})
                         . 
                             .
-            //- Disable this section for OAuth users because they cannot deactivate or change passwords at this time.
             if user && user.admin
                 hr
                 h1 Access Data
@@ -74,7 +73,7 @@ block content
                 ul
                     each ua in profileUser.keys
                         li= ua
-            if isSelf && !profileUser.isOauth
+            if isSelf
                 hr
                 h1 My account
                 | #[a.btn.btn-success(data-toggle="modal", id=`${has2FA ? "dis" : "en"}ableTwoFactorAuth`) #{has2FA ? "Dis" : "En"}able Two-Factor Authentication]
@@ -85,7 +84,7 @@ block content
                 hr
                 h1 Moderator tools
                 #profile-mod-tools-ctn
-    if isSelf && !profileUser.isOauth
+    if isSelf
         .modal.fade#changePassword(tabindex="-1", role="dialog")
             .modal-dialog(role="document")
                 .modal-content

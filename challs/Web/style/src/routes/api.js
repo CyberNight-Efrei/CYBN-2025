@@ -26,7 +26,7 @@ function APIRouter(app) {
     })
 
     router.use(function(req, res, next) {
-        if (req.user && !req.user.usernameSet && req.user.OAuthName) return res.status(401).json({
+        if (req.user && !req.user.usernameSet) return res.status(401).json({
             success: false,
             error: {
                 message: "Please create a username for your account before continuing.",
@@ -40,7 +40,7 @@ function APIRouter(app) {
                 code: "forced_password_reset"
             }
         });
-        if(!req.user) return next();
+        next();
     });
 
     const requireUser = (req, res, next) => {

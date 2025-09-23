@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var table = $("#users").DataTable({
+    $("#users").DataTable({
         processing: true,
         serverSide: true,
         aaSorting: [[2, "desc"]],

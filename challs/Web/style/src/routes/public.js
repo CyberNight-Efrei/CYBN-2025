@@ -2,7 +2,6 @@ const express = require("express");
 
 const UsernamePickerController = require("../controllers/UsernamePickerController");
 const PasswordChangeController = require("../controllers/PasswordChangeController");
-const GuidelineController = require("../controllers/GuidelineController");
 const AccountPageController = require("../controllers/AccountPageController");
 const AuthController = require("../controllers/AuthController");
 
@@ -16,28 +15,11 @@ function PublicRouter(app) {
 
     router.use(function(req, res, next) {
         if (req.path == "/signout") return next(); // Allow the user to sign out
-        if (req.user && !req.user.usernameSet && req.user.OAuthName) { // If the user has no username...
-            if (req.path == "/pick-username" && req.method == "POST") return next(); // Allow the user to POST their new username
-            
-            const config = req.place.config;
-            if (config.maintenance && !config.maintenance.allowSignups) {
-                req.logout();
-                return res.redirect(403, "/");
-            }
-            
-            return req.responseFactory.sendRenderedResponse("public/pick-username", {
-                captcha: req.place.enableCaptcha,
-                username: req.user.OAuthName.replace(/[^[a-zA-Z0-9-_]/g, "-").substring(0, 20),
-                user: {
-                    name: ""
-                }
-            });
-        }
         if (req.user && req.user.passwordResetKey) {
             if (req.path == "/force-pw-reset" && req.method == "POST") return next(); // Allow the user to POST their new password
             return req.responseFactory.sendRenderedResponse("public/force-pw-reset");
         }
-        if(!req.user) return next();
+        next();
     });
 
     router.post("/pick-username", [requireUser, UsernamePickerController.postUsername]);

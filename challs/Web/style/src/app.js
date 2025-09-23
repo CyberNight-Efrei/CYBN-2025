@@ -32,12 +32,6 @@ app.loadConfig = (path = "./config/config") => {
         app.logger.log("Configuration", "We are stopping the Place server because the database URL, secret, and/or board image size has been changed, which will require restarting the entire server.");
         process.exit(0);
     }
-    if(oldConfig && (oldConfig.oauth != app.config.oauth)) {
-        app.stopServer();
-        app.recreateServer();
-        app.restartServer();
-        app.recreateRoutes();
-    }
     if(oldConfig && (oldConfig.port != app.config.port || oldConfig.onlyListenLocal != app.config.onlyListenLocal)) app.restartServer();
 }
 app.loadConfig();

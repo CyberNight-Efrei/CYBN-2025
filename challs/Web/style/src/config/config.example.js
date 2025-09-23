@@ -28,44 +28,5 @@ module.exports = {
         "siteKey": "",
         "secretKey": ""
     },
-    "oauth": {
-        // No field here is required.
-        // To use an oauth option, set enabled to true, and drop your keys in.
-        "google": {
-            "enabled": false,
-            "clientID": "",
-            "clientSecret": ""
-        },
-        "reddit": {
-            "enabled": false,
-            "clientID": "",
-            "clientSecret": ""
-        },
-        "discord": {
-            "enabled": false,
-            "clientID": "",
-            "clientSecret": ""
-        },
-        "twitter": {
-            "enabled": false,
-            "clientID": "",
-            "clientSecret": ""
-        },
-        "github": {
-            "enabled": false,
-            "clientID": "",
-            "clientSecret": ""
-        },
-        "facebook": {
-            "enabled": false,
-            "clientID": "",
-            "clientSecret": ""
-        },
-        "microsoft": {
-            "enabled": false,
-            "clientID": "",
-            "clientSecret": ""
-        }
-    },
     "pixelFlags": []
 };

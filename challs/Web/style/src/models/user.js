@@ -24,10 +24,6 @@ var UserSchema = new Schema({
         type: Date,
         required: false
     },
-    isOauth: {
-        type: Boolean,
-        required: false
-    },
     passwordResetKey: {
         type: String,
         required: false
@@ -36,14 +32,6 @@ var UserSchema = new Schema({
         type: Boolean,
         required: true,
         default: true
-    },
-    OAuthID: {
-        type: String,
-        required: false
-    },
-    OAuthName: {
-        type: String,
-        required: false
     },
     admin: {
         type: Boolean,
@@ -121,7 +109,6 @@ UserSchema.methods.toInfo = function(app = null) {
     var info = {
         id: this.id,
         username: this.name,
-        isOauth: this.isOauth || false,
         creationDate: this.creationDate,
         admin: this.admin,
         moderator: this.moderator,
@@ -217,8 +204,8 @@ UserSchema.statics.getPasswordError = function(password) {
     // return password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])$/) && password.length >= 8 ? null : "That password cannot be used. Passwords are required to contain at least one digit, one uppercase letter, one lowercase letter, and be at least 8 characters in length.";
 }
 
-UserSchema.statics.register = function(username, password, app, callback, OAuthID, OAuthName) {
-    if (!OAuthID && !this.isValidUsername(username)) return callback(null, {
+UserSchema.statics.register = function(username, password, app, callback) {
+    if (!this.isValidUsername(username)) return callback(null, {
         message: "That username cannot be used. Usernames must be 3-20 characters in length and may only consist of letters, numbers, underscores, and dashes.",
         code: "username_taken",
         intCode: 400
@@ -236,13 +223,10 @@ UserSchema.statics.register = function(username, password, app, callback, OAuthI
         // ghetto af boi
         let newUser = Schema({
             name: username,
-            usernameSet: !OAuthID, // Opposite of OAuth will give us false which is what we need
+            usernameSet: true,
             password: password,
             creationDate: Date(),
             admin: false,
-            isOauth: !!OAuthID,
-            OAuthID: OAuthID,
-            OAuthName: OAuthName,
         });
 
         // Save the user
@@ -383,7 +367,6 @@ UserSchema.statics.getPubliclyAvailableUserInfo = function(userID, overrideDataA
             user.getInfo(app, getPixelInfo).then((userInfo) => {
                 info.user = userInfo;
                 if(overrideDataAccess) {
-                    info.user.isOauth = user.isOauth;
                     info.user.hasTOTP = user.twoFactorAuthEnabled();
                 }
                 resolve(info);

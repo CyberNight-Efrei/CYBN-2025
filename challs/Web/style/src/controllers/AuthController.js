@@ -59,6 +59,9 @@ exports.postSignUp = (req, res, next) => {
         });
     }
     if (req.user) return sendValidationError("You are already signed in.");
+    if (!req.body.username || !req.body.password || !req.body.passwordverify) return sendValidationError("Please fill out all the fields.")
+    if (req.body.password != req.body.passwordverify) return sendValidationError("The passwords you entered did not match.");
+    doSignup();
 };
 
 exports.getSignOut = (req, res, next) => {

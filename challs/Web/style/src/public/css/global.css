@@ -580,7 +580,7 @@ body:not([data-user-is-mod=true]) .actions-ctn, body:not([data-user-is-admin=tru
     margin-right: 0;
 }
 
-.btn.btn-popping:not(.btn-primary):not(.btn-info):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-oauth) {
+.btn.btn-popping:not(.btn-primary):not(.btn-info):not(.btn-success):not(.btn-danger):not(.btn-warning) {
     background: #fff;
     color: #4ACDFF;
 }
@@ -596,7 +596,7 @@ body:not([data-user-is-mod=true]) .actions-ctn, body:not([data-user-is-admin=tru
     border-radius: 2px;
 }
 
-.btn.btn-popping:hover:not(.btn-primary):not(.btn-info):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-oauth) {
+.btn.btn-popping:hover:not(.btn-primary):not(.btn-info):not(.btn-success):not(.btn-danger):not(.btn-warning) {
     box-shadow: 0 2px 14px 2px rgba(57,56,56,0.25);
 }
 
@@ -650,63 +650,6 @@ body:not([data-user-is-mod=true]) .actions-ctn, body:not([data-user-is-admin=tru
     background: #E9E9E9;
     display: inline-block;
     margin: 0 12px;
-}
-
-.dialog .send-section .oauth-btns {
-    overflow-y: hidden;
-    overflow-x: auto;
-    height: 34px;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-}
-
-.dialog .send-section .oauth-btns > .btn {
-    margin-right: 2px;
-    display: inline-block;
-}
-
-.dialog .send-section .oauth-btns > .btn:last-child {
-    margin-right: 0;
-}
-
-.btn.btn-oauth {
-    color: #fff;
-    margin-right: 4px;
-}
-.btn.btn-oauth:last-child {
-    margin-right: 0;
-}
-.btn.btn-oauth:hover {
-    opacity: 0.7;
-}
-
-.btn.btn-oauth-dynastic {
-    background-color: #eee;
-    padding: 9px 12px;
-}
-.btn.btn-oauth-dynastic > img {
-    margin-top: -1px;
-}
-.btn.btn-oauth-reddit {
-    background-color: #ff4500;
-}
-.btn.btn-oauth-google {
-    background-color: #dd4b39;
-}
-.btn.btn-oauth-discord {
-    background-color: #6178e9;
-}
-.btn.btn-oauth-twitter {
-    background-color: #55acee;
-}
-.btn.btn-oauth-github {
-    background-color: #444;
-}
-.btn.btn-oauth-facebook {
-    background-color: #3b5998;
-}
-.btn.btn-oauth-microsoft {
-    background-color: #f65314;
 }
 
 nav.navbar:not(.navbar-inverse) {

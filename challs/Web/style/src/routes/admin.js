@@ -5,8 +5,7 @@ function AdminRouter(app) {
     let router = express.Router()
     
     router.use(function(req, res, next) {
-        // Don't allow anything if user has forced pw reset or OAuth not configured
-        if(req.user && ((!req.user.usernameSet && req.user.OAuthName) || req.user.passwordResetKey)) res.redirect("/");
+        if(req.user && req.user.passwordResetKey) res.redirect("/");
         next(); // Otherwise, carry on...
     });
 

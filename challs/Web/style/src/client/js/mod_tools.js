@@ -77,7 +77,7 @@ var actions = {
                     });
                 })
             },
-            shouldShow: (data) => !data.isOauth,
+            shouldShow: true,
             buttonText: () => "Password Reset"
         },
         disableTOTP: {
@@ -176,7 +176,6 @@ var setActionDataOnElement = function(data, elem, action) {
 
 var renderAction = function(actionName, data = {}, type = "user", dropdown = false) {
     var action = actions[type][actionName];
-    var title = action.buttonText(data);
     var dropdownItem = null;
     var btn = $("<a>").attr("href", "javascript:void(0)").addClass(`${type}-action-btn ${dropdown ? "text" : "btn"}-${action.btnStyle} ${dropdown ? "dropdown" : "btn"}-action`).attr("data-admin-only", action.adminOnly === true).attr(`data-${type}-action`, actionName);
     if(typeof action.getAttributes === "function") btn.attr(action.getAttributes(data));
@@ -219,7 +218,6 @@ var renderServerActions = function() {
 var renderUserActionsDropdown = function(user) {
     if(!canTouchUser(user)) return "";
     var dropdownCtn = $("<div>").addClass("dropdown dropdown-inline user-action-dropdown-ctn").attr("data-user-id", user.id);
-    var btn = $("<a>").addClass("dropdown-toggle").attr({type: "button", "data-toggle": "dropdown", "aria-haspopup": true, "aria-expanded": false}).html("<span class=\"caret\"></span>").appendTo(dropdownCtn);
     var dropdownList = $("<ul>").addClass("dropdown-menu").attr("data-user-id", user.id).appendTo(dropdownCtn);
     actionIDs.forEach((a) => renderAction(a, user, "user", true).appendTo(dropdownList));
     return dropdownCtn[0].outerHTML;
@@ -318,7 +316,7 @@ function getRowForAction(action) {
         if(typeof actionTemplate.sentenceEndTextFormatting !== "undefined") sentenceEnd = parseActionTemplate(actionTemplate.sentenceEndTextFormatting, action);
         if(typeof actionTemplate.otherLinesTextFormatting !== "undefined") otherLines = "<br>" + parseActionTemplate(actionTemplate.otherLinesTextFormatting, action);
         if(typeof actionTemplate.hideInfo === "undefined" || !actionTemplate.hideInfo) {
-            var moreInfoCtn = $("<div>").addClass("info-collapse-ctn");
+            moreInfoCtn = $("<div>").addClass("info-collapse-ctn");
             var id = `info-collapse-${randomString(16)}-${action.id}`;
             var infoCtn = $("<div>").addClass("collapse info-collapse").attr("id", id).appendTo(moreInfoCtn);
             var infoList = $("<samp>").appendTo(infoCtn);
@@ -337,7 +335,7 @@ function getRowForAction(action) {
     if(typeof actionTemplate.requiresModerator !== "undefined" && actionTemplate.requiresModerator) {
         var modUsername = "<strong>Deleted moderator</strong>"
         if(action.moderatingUser) modUsername = renderUsernameText(action.moderatingUser);
-        var text = `${modUsername} ${actionTxt} ${username}${sentenceEnd}</span>.${otherLines}`
+        text = `${modUsername} ${actionTxt} ${username}${sentenceEnd}</span>.${otherLines}`
     }
     $("<p>").addClass("text").html(text).appendTo(row);
     if(moreInfoCtn) moreInfoCtn.appendTo(row);

@@ -15,16 +15,14 @@ exports.postUsername = (req, res, next) => {
     
     let user = req.user;
     user.name = req.body.username;
-    function doPickUsername() {
-        user.setUserName(user.name, function(err) {
-            if(err) return renderResponse(err.message);
-            req.login(user, function(err) {
-                if (err) {
-                    req.place.reportError("Unknown user login error.");
-                    return renderResponse("An unknown error occurred.");
-                }
-                res.redirect("/?signedin=1");
-            });
+    user.setUserName(user.name, function(err) {
+        if(err) return renderResponse(err.message);
+        req.login(user, function(err) {
+            if (err) {
+                req.place.reportError("Unknown user login error.");
+                return renderResponse("An unknown error occurred.");
+            }
+            res.redirect("/?signedin=1");
         });
-    }
+    });
 };
