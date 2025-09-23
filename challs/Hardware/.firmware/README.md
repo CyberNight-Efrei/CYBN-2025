@@ -16,9 +16,14 @@ Note : le microcontrolleur doit être compatible (Espressif, assez d'IRAM, suppo
 - Modifier le fichier `platformio.ini`, ajouter la configuration souhaitée en remplaçant la propriété `board` par le microcontrolleur adapté
 - entrer dans PlatformIO Core CLI `pio run -t menuconfig -e [nom de la configuration]`
 - activer les options suivantes :
-    - dans Component config -> Bluetooth
-        - activer le bluetooth
-        - sélectionner la stack NimBLE
+    - dans Bootloader -> Log :
+        - mettre Bootloader log verbosity à No output
+    - dans Component config 
+        - Log -> Log Level
+            - Default log verbosity à No output
+        - Bluetooth
+            - activer le bluetooth
+            - sélectionner la stack NimBLE
     - dans Compiler options
         - changer l'optimization level pour size
 

@@ -1,10 +1,9 @@
 name: "Absolute Gibberish"
 category: Hardware
 description: |- 
-    Inspecteur, inspecteur, les pins 18 et 19 m'ont tout l'air d'être (encore) des
-    ports série et mon oscilloscope s'affole quand j'appuie sur le bouton 5, 
+    Inspecteur, inspecteur, les pins 18 et 19 m'ont tout l'air d'être (encore) un
+    port série et mon oscilloscope s'affole quand j'appuie sur le bouton 5, 
     mais pourtant impossible de comprendre ce que la machine veut me transmettre !
-    <i>Note : le format du flag est <code>CYBN{...}</code></i>
 attribution: grégoire, Baptiste-LC
 #value: 500
 type: static
@@ -18,6 +17,9 @@ flags:
 
 tags:
     - Medium
+
+files:
+    - src/absolute_gibberish.ino
 
 state: hidden
 

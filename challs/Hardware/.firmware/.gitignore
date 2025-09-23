@@ -5,3 +5,4 @@
 .vscode/ipch
 fp-info-cache
 PCB_broken-backups
+sdkconfig.*.old
