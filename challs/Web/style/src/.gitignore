@@ -1,7 +1,6 @@
 *.log
 # node/js
 node_modules/
-config/config.js
 place.paw
 public/js/build
 public/css/build
