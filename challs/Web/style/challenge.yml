@@ -17,7 +17,7 @@ type: dynamic
 # extra fields, set the type to "dynamic" and uncomment the "extra" section below
 extra:
     initial: 500
-    minimum: 100
+    decay: 30
     minimum: 100
 
 # Settings used for Dockerfile deployment
