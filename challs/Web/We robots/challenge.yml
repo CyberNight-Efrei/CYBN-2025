@@ -1,0 +1,27 @@
+name: We, Robots
+category: Web
+description: |-
+  Un film sortira prochainement, mais le sujet est sensible car il a été conçu par une IA, et fait alors débat.
+
+  Un site web a suivi la sorti, et a été piraté pour répondre à la menace des robots.
+
+  Un message spécial a été glissé sur une page où les robots ne peuvent pas accéder... malin
+
+  Retrouve le code secret.
+attribution: NozZy
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+connection_info: http://<X.X.X.X>:8080
+
+flags:
+- content: CYBN{W3_aRE_Hum4n5_n0T_bL1p_bl0Up}
+  type: static
+  data: case_sensitive
+
+tags:
+- Intro
