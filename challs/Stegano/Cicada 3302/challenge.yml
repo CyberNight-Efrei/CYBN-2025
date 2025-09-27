@@ -1,0 +1,20 @@
+name: "Cicada 3302"
+category: "Stéganographie"
+description: "1.74545454545"
+attribution: "Osiris"
+value: 500
+type: dynamic
+flags:
+  - {
+      type: "static",
+      content: "CYBN{W3LC0MEAMONGUSSS!!}",
+      data: "case_sensitive",
+    }
+
+tags:
+  - Medium
+
+files:
+  - src/"Cicada 3302.png"
+
+version: "0.1"
