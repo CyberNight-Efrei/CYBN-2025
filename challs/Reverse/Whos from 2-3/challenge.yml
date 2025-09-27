@@ -1,12 +1,11 @@
-name: Who's from ? 1-3
+name: Who's from ? 2-3
 category: Reverse
-description: """Bien, on arrive bientot Ã  bout ! L'attaquant a peut Ãªtre changÃ© le mot de passe de la machine, mais il a aussi probablement laissÃ© une backdoor pour s'y reconnectÃ©.
+description: |-
+  Bien, on arrive bientot à bout ! L'attaquant a peut être changé le mot de passe de la machine, mais il a aussi probablement laissé une backdoor pour s'y reconnecté.
 
-Trouve comment l'attaquant arrive Ã  se connecter Ã  la machine a partir du fichier qu'il a dÃ©posÃ© !
+  Trouve comment l'attaquant arrive à se connecter à la machine a partir du fichier qu'il a déposé !
 
-Flag: CYBN{<protocol>:<port source>:<port distant>}
-"""
-
+  Flag: `CYBN{<protocol>:<port source>:<port distant>}`
 attribution: Romain
 value: 500
 type: dynamic
@@ -17,9 +16,9 @@ extra:
   minimum: 100
 
 flags:
-- content: "CYBN{tcp:42069:22}"
+- content: CYBN{tcp:42069:22}
   type: static
-  data: case_sensitive
+  data: case_insensitive
 
 tags:
 - Medium

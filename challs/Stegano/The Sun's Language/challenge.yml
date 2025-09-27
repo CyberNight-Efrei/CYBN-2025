@@ -1,23 +1,26 @@
-name: "The Sun's Language"
-category: "Stéganographie"
-description: "N'avez-vous pas un peu chaud ?"
-
-attribution: "Osiris"
+name: The Sun's Language
+category: Stegano
+description: N'avez-vous pas un peu chaud ?
+attribution: Osiris
 value: 500
 type: dynamic
-flags:
-  - {
-      type: "static",
-      content: "CYBN{DoYouL1keTh3rmalSt3gan0?}",
-      data: "case_sensitive",
-    }
 
-tags:
-  - Intro
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- content: CYBN{DoYouL1keTh3rmalSt3gan0?}
+  type: static
+  data: case_sensitive
 
 files:
-  - src/1.png
-  - src/2.png
-  - src/"Stéganographie Thermique - Principes et Applications.pdf"
+- dist/1.png
+- dist/2.png
+- dist/Steganographie_Thermique_-_Principes_et_Applications.pdf
 
-version: "0.1"
+tags:
+- Intro
+
+version: '0.1'

@@ -1,6 +1,8 @@
 name: NeuroKey
 category: Reverse
-description: This AI Engineer I know went on and on about how his neural network is infallible at protecting files, you wanna prove him wrong?
+description: >-
+  This AI Engineer I know went on and on about how his neural network is infallible
+  at protecting files, you wanna prove him wrong?
 attribution: oldschool125
 value: 500
 type: dynamic
@@ -16,7 +18,7 @@ flags:
   data: case_sensitive
 
 files:
-- src/NeuroKey.zip
+- dist/NeuroKey.zip
 
 tags:
 - Easy

@@ -1,11 +1,11 @@
 name: Who's there ? 1-3
 category: Forensics
-description: """Un attaquant Ã  rÃ©ussi Ã  s'introduire sur notre machine, cependant, Ã©tant donnÃ© la criticitÃ© des services hebergÃ©s sur cette machine, nous ne pouvons pas nous permettre de l'eteindre pour investiguer...
-Connect toi Ã  la machine en ssh pour l'investiguer en live ! dans un premier temps, trouve le nom du fichier malveillant que l'utilisateur Ã  ajoutÃ© sur la machine
+description: |-
+  Un attaquant à réussi à s'introduire sur notre machine, cependant, étant donné la criticité des services hebergés sur cette machine, nous ne pouvons pas nous permettre de l'eteindre pour investiguer...
 
-Flag: CYBN{<nom du fichier>}
-"""
+  Connecte toi à la machine en ssh pour l'investiguer en live ! dans un premier temps, trouve le nom du fichier malveillant que l'utilisateur à ajouté sur la machine
 
+  Flag: `CYBN{<nom du fichier>}`
 attribution: Romain
 value: 500
 type: dynamic
@@ -21,7 +21,7 @@ flags:
   data: case_sensitive
 
 files:
-- src/whos_ed25519
+- dist/whos_ed25519
 
 tags:
 - Easy

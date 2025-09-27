@@ -1,20 +1,26 @@
-name: "IP at the Table"
-category: "St√©ganographie"
-description: "Lors d'une investigation num√©rique sur un serveur compromis, notre √©quipe de s√©curit√© a d√©couvert que l'attaquant a modifi√© la configuration du pare-feu. √Ä premi√®re vue, les r√®gles semblent l√©gitimes, mais quelque chose nous intrigue..."
-attribution: "Osiris"
+name: IP at the Table
+category: Misc
+description: |-
+  Lors d'une investigation numÈrique sur un serveur compromis, notre Èquipe de sÈcuritÈ a dÈcouvert que l'attaquant a modifiÈ la configuration du pare-feu.
+  ¿ premiËre vue, les rËgles semblent lÈgitimes, mais quelque chose nous intrigue...
+attribution: Osiris
 value: 500
 type: dynamic
-flags:
-  - {
-      type: "static",
-      content: "CYBN{ASC11IsEv3rywhere!}",
-      data: "case_sensitive",
-    }
 
-tags:
-  - Easy
+extra:
+  initial: 500
+  minimum: 100
+  minimum: 100
+
+flags:
+- content: CYBN{ASC11IsEv3rywhere!}
+  type: static
+  data: case_sensitive
 
 files:
-  - src/chall.rules
+- dist/chall.rules
 
-version: "0.1"
+tags:
+- Easy
+
+version: '0.1'

@@ -1,0 +1,39 @@
+name: La table de Maitre
+category: Forensics
+description: |-
+  Un employé de la neuillCORP a exécuté un script pour "mettre à jour son ordi" et depuis des choses bizarres semblent se produire.
+
+  Le CERT de la neuillCORP ont tenté de faire une copie du disque, mais n'ont réussi à récupérer qu'un seul fichier....
+  Bref, j'espère que tu seras capable de retrouver ce qu'il s'est passé grâce à ce fichier.
+
+  ----
+
+  Eléments attendus :
+  - URL du fichier téléchargé : `https://google.com/monfichier.mp4`
+  - Le chemin complet du dossier suspect créé par ce script : `C:\Windows\folder`
+  - Le chemin complet du dernier fichier suspect créé par ce script : `C:\Windows\file.txt`
+  - La taille en Bytes du dernier fichier suspect créé par ce script : `123456`
+
+  Flag : `CYBN{https://google.com/monfichier.mp4_C:\Windows\folder_C:\Windows\file.txt_123456}`
+attribution: NozZy
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+connection_info: >-
+  https://efrei365net.sharepoint.com/:u:/r/sites/CyberNight2025/Documents%20partages/General/Challenges/Forensics/La%20table%20de%20maitre/$MFT?csf=1&web=1&e=YEw4nn
+
+flags:
+- content: >-
+    CYBN{https://ppng.io/vHgh6i8.txt_C:\Users\neuill\AppData\Local\Temp\o8hjbdqd_C:\Program
+    Files\Common Files\ferrari.exe_150959}
+  type: static
+  data: case_insensitive
+
+tags:
+- Medium
+
+version: '0.1'

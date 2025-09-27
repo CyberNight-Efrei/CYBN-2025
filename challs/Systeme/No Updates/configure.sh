@@ -16,11 +16,20 @@ echo 'user:user' | chpasswd
 
 echo 'Be careful to never update the server, because internet is dangerous! Stay disconnected!!!' > /root/warning.txt
 
+echo "
+sudo cat /root/warning.tkt
+sudo --version
+sudo cat /root/warning.txt
+ls
+ls -al
+cd ..
+exit
+" > /home/user/.bash_history
+
 # Define marches as recgnised ssh marches
 echo 'Match User user' >> /etc/sshd_config
 echo 'Port 2222' >> /etc/ssh/sshd_config
 
-# Configure sudo.
 echo "user ALL=(ALL) NOPASSWD: /bin/cat /root/warning.txt" >> /etc/sudoers
 
 # Remove read and executable permissions for the users.

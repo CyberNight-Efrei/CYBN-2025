@@ -6,3 +6,4 @@ venv/
 *.bak
 *.obsidian
 challs/*/*/dist/
+challs/*/*/src/ignore/
