@@ -5,16 +5,15 @@ namespace App\DataFixtures;
 use App\Entity\Flag;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use RuntimeException;
 
 class FlagSeeder extends Fixture
 {
-    private const FLAG = 'CYBN{flag}';
-
     public function load(ObjectManager $manager): void
     {
+        $flag = $_ENV['FLAG'] ?? 'CYBN{flag}';
+
         $entity = new Flag();
-        $entity->setFlag(self::FLAG);
+        $entity->setFlag($flag);
 
         $manager->persist($entity);
         $manager->flush();

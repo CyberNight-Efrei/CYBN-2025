@@ -10,21 +10,16 @@ use RuntimeException;
 
 class CWESeeder extends Fixture
 {
-    private const CWE_ZIP_URL = 'https://cwe.mitre.org/data/xml/cwec_latest.xml.zip';
+    private const CWE_ZIP_PATH = __DIR__ . '/data/cwec_latest.xml.zip';
 
     public function load(ObjectManager $manager): void
     {
-        $tmpDir = sys_get_temp_dir();
-        $zipPath = $tmpDir . '/cwec_latest.xml.zip';
-
-        $data = @file_get_contents(self::CWE_ZIP_URL);
-        if ($data === false) {
-            throw new RuntimeException('Failed to download CWE data from ' . self::CWE_ZIP_URL);
+        if (!file_exists(self::CWE_ZIP_PATH)) {
+            throw new RuntimeException('CWE data file not found at ' . self::CWE_ZIP_PATH);
         }
-        file_put_contents($zipPath, $data);
 
         $zip = new ZipArchive();
-        if ($zip->open($zipPath) !== true) {
+        if ($zip->open(self::CWE_ZIP_PATH) !== true) {
             throw new RuntimeException('Unable to open CWE zip archive.');
         }
 

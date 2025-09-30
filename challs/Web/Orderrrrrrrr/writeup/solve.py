@@ -17,7 +17,7 @@ import time
 import sys
 
 # Config
-BASE_URL = "http://127.0.0.1:5173/"
+BASE_URL = "http://127.0.0.1:8080/"
 TIMEOUT = 8.0
 SLEEP = 0.02
 MAX_LEN = 200
