@@ -14,20 +14,10 @@ description: |-
 
     Bon courage !
 
-    Format: CYBN{nom-prenom-patronyme} ou CYBN{имя-фамилия-отчество}
+    Format: CYBN{имя-фамилия-отчество}
 attribution: "Calygael"
 
 flags:
-  - {
-      type: "static",
-      content: "CYBN{Chekhutskaya-Margarita-Fedorovna}",
-      data: "case_sensitive",
-    }
-  - {
-      type: "static",
-      content: "CYBN{Tchekhoutskaïa-Marguerite-Fedorovna}",
-      data: "case_sensitive",
-    }
   - {
       type: "static",
       content: "CYBN{Чехутская-Маргарита-Федоровна}",
