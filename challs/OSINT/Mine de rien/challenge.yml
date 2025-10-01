@@ -1,0 +1,41 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ REQUIRED ============>
+name: "Mine de rien"
+category: "OSINT" # Crypto / Forensics / Hardware / Misc / OSINT / Prog / Pwn / Reverse / Stegano / System / Web
+description: |-
+    Il y a peu mon grand-oncle nous a quittés et nous a laissés un héritage peu commun. Il n’en parlait pas trop mais pendant les années 1930, il a développé une affaire assez fructueuse autour de l’exploitation d’une grande mine en Asie selon mes souvenirs. Le testament affirme nous léguer les parts restantes de cette entreprise. Problème, le notaire ne peut assurer cette succession sans certaines informations précises fournies de notre part. Le seul indice que j’ai retrouvé en fouillant les placards de sa maison sont ces schémas assez incompréhensibles pour moi… Aide-moi à retrouver le nom de l’entreprise de mon grand-oncle. D’ailleurs ce dernier n’était pas très consciencieux avec la compta, il manque des données de production essentielles pour compléter le dossier chez le notaire. Ce serait génial si tu pouvais récupérer la quantité produite de l’alliage par cette entreprise en 1930, je suis sûr qu’il doit y avoir un document qui traîne sur Internet à ce sujet…
+
+    Format: `CYBN{entreprise-des-mines-de-l'Angleterre_2000-grammes}`
+
+flags:
+  - {
+      type: "static",
+      content: "CYBN{CHROME-ET-NICKEL-DE-L'INDOCHINE_1500-tonnes}",
+      data: "case_insensitive",
+    }
+
+
+
+tags:
+    - Hard
+# </============ REQUIRED ============>
+
+
+# <============ OPTIONAL ============>
+
+files:
+    - src/CONFIDENTIAL.wav
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>

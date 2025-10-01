@@ -14,7 +14,7 @@ description: |-
 
     Bon courage !
 
-    Format: CYBN{имя-фамилия-отчество}
+    Format: `CYBN{имя-фамилия-отчество}`
 attribution: "Calygael"
 
 flags:

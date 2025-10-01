@@ -1,0 +1,1 @@
+Image départ (mine, entreprise, exploitation) → Chromite "grande" "asie" → https://www.entreprises-coloniales.fr/inde-indochine/Chrome_et_nickel_IC.pdf → Nom entreprise + un autre document probablement numérisé datant de 1931 ("pdf") → https://humazur.univ-cotedazur.fr/files/original/e6a1f4323283d2ceea0355452eebb811ea4ad42d.pdf
