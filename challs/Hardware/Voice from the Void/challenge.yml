@@ -17,7 +17,6 @@ flags:
 tags:
     - Medium
 
-files:
-    - https://efrei365net.sharepoint.com/:u:/r/sites/CyberNight2025/Documents%20partages/General/Challenges/Hardware/Voice%20from%20the%20Void/voice.wav?csf=1&web=1&e=UKO5Gw
+connection_info: https://efrei365net.sharepoint.com/:u:/r/sites/CyberNight2025/Documents%20partages/General/Challenges/Hardware/Voice%20from%20the%20Void/voice.wav?csf=1&web=1&e=UKO5Gw
 
 version: "0.1"
