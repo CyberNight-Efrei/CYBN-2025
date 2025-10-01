@@ -1,0 +1,23 @@
+name: "Voice from the Void"
+category: "Hardware"
+description: "Nos stations radio-amateur ont capté une transmission étrange en provenance de NOAA-15. Le signal suit le protocole APT standard : 2080 pixels de large, 2 lignes par seconde, sous-porteuse à 2400 Hz modulée en amplitude. Enregistrement en bande de base, sample rate de 48 kHz.
+Mais l'image transmise n'est pas une carte météo.
+Quelqu'un semble avoir pris le contrôle du satellite. Démodulez le signal et découvrez son message."
+attribution: "Osiris"
+value: 500
+type: dynamic
+
+flags:
+    - {
+        type: "static",
+        content: "CYBN{NOAA_4PT_S1gn4l_H4ck3d}",
+        data: "case_sensitive",
+    }
+
+tags:
+    - Medium
+
+files:
+    - https://efrei365net.sharepoint.com/:u:/r/sites/CyberNight2025/Documents%20partages/General/Challenges/Hardware/Voice%20from%20the%20Void/voice.wav?csf=1&web=1&e=UKO5Gw
+
+version: "0.1"
