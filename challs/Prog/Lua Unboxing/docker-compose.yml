@@ -1,0 +1,7 @@
+services:
+  server:
+    build: .
+    container_name: lua_unboxing_server
+    ports:
+      - "23456:23456"
+    restart: unless-stopped

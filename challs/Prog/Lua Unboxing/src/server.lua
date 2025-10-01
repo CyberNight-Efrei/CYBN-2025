@@ -20,7 +20,7 @@ local safe_env = {
 
 while true do
     local client = server:accept()
-    client:send("Bienvenue dans votre Sandbox Luaz !\n")
+    client:send("Bienvenue dans votre Sandbox Lua !\n")
 
     while true do
         client:send("> ")
