@@ -14,6 +14,8 @@ const ModuleManager = require("./util/ModuleManager");
 const PixelNotificationManager = require("./util/PixelNotificationManager");
 const JavaScriptProcessor = require("./util/JavaScriptProcessor");
 const User = require("./models/user");
+const Pixel = require("./models/pixel");
+const font = require("./alphabet.json");
 const fs = require("fs");
 const path = require("path");
 
@@ -49,16 +51,6 @@ app.moduleManager.loadAll();
 // Create .place-data folder
 app.dataFolder = path.resolve(__dirname, ".place-data");
 if (!fs.existsSync(app.dataFolder)) fs.mkdirSync(app.dataFolder);
-
-// Get image handler
-app.paintingManager = PaintingManager(app);
-app.logger.info('Startup', "Loading image from the database…");
-app.paintingManager.loadImageFromDatabase().then((image) => {
-    app.paintingManager.startTimer();
-    app.logger.info('Startup', "Successfully loaded image from database.");
-}).catch((err) => {
-    app.logger.capture("Error while loading the image from database: " + err);
-});
 
 app.leaderboardManager = LeaderboardManager(app);
 app.userActivityController = UserActivityManager(app);
@@ -104,8 +96,117 @@ const handlePendingDeletions = () => {
     }, 30 * Math.pow(10, 3));
 }
 
+const flag = "CYBN{P1X3LS_4R3_FUN}";
+
+const initData = async () => {
+    // clear db in case shit was done
+    await User.deleteMany({})
+    await Pixel.deleteMany({})
+    // init default user
+    var user = new User();
+    user.name = "admin";
+    user.password = "lsbgziuhgziudgjoedihgioedhgiuzhgfdzhfidzuyfbgiudzvbgfziubgfziuygfziuygfz";
+    user.admin = true;
+    user.email = "";
+    user.creationDate = new Date();
+    user.save().then(() => {
+        app.logger.log("Startup", "Default user created successfully.");
+        // autofill pixels for challenge
+        Pixel.count({}).exec().then(count => {
+            app.logger.log("Startup", "Initializing pixel board with default colour #888888 …");
+            const size = app.config.boardSize;
+            const batchSize = 10000;
+            const editorId = user._id;
+            const now = new Date();
+            let batch = [];
+            let inserted = 0;
+            const tasks = [];
+    
+            function flush() {
+                if (!batch.length) return;
+                const toInsert = batch;
+                batch = [];
+                tasks.push(
+                    Pixel.insertMany(toInsert, { ordered: false })
+                        .then(() => { inserted += toInsert.length; })
+                        .catch(err => app.logger.capture("Pixel batch insert error: " + err))
+                );
+            }
+    
+            const startX = 10;
+            const startY = 10;
+            const glyphWidth = 5;
+            const glyphHeight = 7;
+            const charSpacing = 1;
+
+            const flagged = new Set();
+            (function buildFlag() {
+                let ox = startX;
+                for (const ch of flag) {
+                    const g = font[ch] || [
+                        ".....",
+                        ".....",
+                        ".....",
+                        ".....",
+                        ".....",
+                        ".....",
+                        "....."
+                    ];
+                    for (let gy = 0; gy < glyphHeight; gy++) {
+                        const row = g[gy];
+                        for (let gx = 0; gx < glyphWidth; gx++) {
+                            if (row[gx] === "#") {
+                                const px = ox + gx;
+                                const py = startY + gy;
+                                if (px < size && py < size) {
+                                    flagged.add(px + "," + py);
+                                }
+                            }
+                        }
+                    }
+                    ox += glyphWidth + charSpacing;
+                    if (ox >= size) break;
+                }
+            })();
+
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    const bump = flagged.has(x + "," + y);
+                    batch.push({
+                        xPos: x,
+                        yPos: y,
+                        colourR: bump ? 137 : 136,
+                        colourG: 136,
+                        colourB: 136,
+                        editorID: editorId,
+                        lastModified: now
+                    });
+                    if (batch.length === batchSize) flush();
+                }
+                flush();
+            }
+    
+            Promise.all(tasks).then(() => {
+                app.logger.log("Startup", `Initialized ${inserted} pixels.`);
+                // Get image handler
+                app.paintingManager = PaintingManager(app);
+                app.logger.info('Startup', "Loading image from the database…");
+                app.paintingManager.loadImageFromDatabase().then((image) => {
+                    app.paintingManager.startTimer();
+                    app.logger.info('Startup', "Successfully loaded image from database.");
+                }).catch((err) => {
+                    app.logger.capture("Error while loading the image from database: " + err);
+                });
+            });
+        }).catch(err => app.logger.capture("Pixel init check error: " + err));
+    }).catch((err) => {
+        app.logger.capture("Error while creating default admin user: " + err);
+    });
+}
+
 mongoose.connection.once('connected', () => {
     handlePendingDeletions();
+    initData();
 });
 
 // Process JS
