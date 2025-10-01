@@ -2,12 +2,10 @@
 # other tools to install and deploy your challenge.
 
 # Required sections
-name: "Template challenge"
-category: "category"
-description: "This is a sample description
-
-on multiple lines."
-attribution: "author"
+name: Le style a son importance
+category: Web
+description: J'ai pas d'idée atm mdrrr
+attribution: Mathu_lmn
 #value: 500
 type: dynamic
 
@@ -41,41 +39,11 @@ host: null
 
 # Optional settings
 
-# connection_info is used to provide a link, hostname, or instructions on how to connect to a challenge
-connection_info: nc hostname 12345
-
-# healthcheck is a tool/script used to check a challenge
-# If connection_info was provided to CTFd when the challenge was installed, it will be passed to the healthcheck script:
-# ./writeup/exploit.sh --connection-info "nc hostname 12345"
-healthcheck: writeup/exploit.sh
-
-# Can be removed if unused
-attempts: 5
-
 # Flags specify answers that your challenge use. You should generally provide at least one.
 # Can be removed if unused
 # Accepts strings or dictionaries of CTFd API data
 flags:
-    # A static case sensitive flag
-    - CYBN{REDACTED}
-    # A static case sensitive flag created with a dictionary
-    - {
-        type: "static",
-        content: "CYBN{REDACTED}",
-        data: "case_sensitive",
-    }
-    # A static case insensitive flag
-    - {
-        type: "static",
-        content: "CYBN{REDACTED}",
-        data: "case_insensitive",
-    }
-    # A regex case insensitive flag
-    - {
-        type: "regex",
-        content: "(.*)STUFF(.*)",
-        data: "case_insensitive",
-    }
+    - CYBN{P1X3LS_4R3_FUN}
 
 # Tags are used to provide additional public tagging to a challenge
 # Can be removed if unused
@@ -83,19 +51,14 @@ flags:
 tags:
     - Intro / Easy / Medium / Hard
 
-# Provide paths to files from the same directory that this file is in
-# Accepts strings
-files:
-    - src/source.py
-
 # Hints are used to give players a way to buy or have suggestions. They are not
 # required but can be nice.
 # Can be removed if unused
 # Accepts dictionaries or strings
-hints:
-    - title: Titled Hint
-      content: This hint has a title and costs points
-      cost: 10
+# hints:
+#     - title: Titled Hint
+#       content: This hint has a title and costs points
+#       cost: 10
 
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.
