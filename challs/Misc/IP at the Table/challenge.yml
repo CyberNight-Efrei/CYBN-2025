@@ -9,7 +9,7 @@ type: dynamic
 
 extra:
   initial: 500
-  minimum: 100
+  decay: 30
   minimum: 100
 
 flags:
