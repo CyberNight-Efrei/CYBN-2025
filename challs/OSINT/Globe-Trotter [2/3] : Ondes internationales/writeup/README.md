@@ -1,0 +1,3 @@
+Pour trouver la tour : Google Image focus sur la structure et en précisant "corée du sud" (le drapeau de la Malaisie était un piège, il faut bien repérer les écritures en coréen sur la vitre pour avoir l'idée), on tombre sur la Tour Namsan (première partie du flag).
+
+Pour le nombre de personnes ayant utilisé le téléphérique en 1997, on va sur Web Archive en mettant l'URL du site du téléphérique, on clique sur "Histoire du téléphérique" -> https://web.archive.org/web/20020804074332fw_/http://www.cablecar.co.kr/story.html, on trouve le chiffre 598361 (deuxième partie du flag).
