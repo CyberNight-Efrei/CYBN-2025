@@ -1,0 +1,44 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ REQUIRED ============>
+name: "Globe-Trotter [1/3] : Plantastique Revival"
+category: "OSINT" # Crypto / Forensics / Hardware / Misc / OSINT / Prog / Pwn / Reverse / Stegano / System / Web
+description: |-
+  Ceux qui me connaissent savent mon amour du voyage et de la découverte. Je souhaitais donc vous emmener un peu dans mes valises pour cette CyberNight 2025 !
+  C'est en vadrouillant en nature peu après la campagne BDE de cette année que mon regard fut attiré par cette brouette, alors que je dégustais deux boules de glace pour me reposer un peu. Plantastique ne meurt jamais !
+  J'ai pris cette petite vidéo pour garder un souvenir de la présence de CTFREI dans ce joli lieu. À vous de retrouver :
+  1. Le nom de l'établissement où se situe cette brouette
+  2. Le prix de ma glace
+
+  Flag : `CYBN{new-industry-kitchen-restaurant_9.60}`
+attribution: "Doryan et Gaël"
+
+flags:
+    - {
+        type: "static",
+        content: "CYBN\{raba[cç]al-nature-spot-cafe_5\.50\}",
+        data: "case_insensitive",
+    }
+
+tags:
+    - Easy
+# </============ REQUIRED ============>
+
+
+# <============ OPTIONAL ============>
+
+files:
+    - src/plantastique-revival.mp4
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>
