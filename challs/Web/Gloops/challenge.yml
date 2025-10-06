@@ -1,0 +1,25 @@
+name: Gloops
+category: Web
+description: |-
+  Bon, j'ai fais un super site pour gérer mes partenaires !
+
+  Dans les conditions d'utilisations, il est écrit qu'il est interdit de pentest le site, personne ne le fera, hein ?
+
+  Sans être admin, pas possible d'avoir le flag de toute façon...
+attribution: DocSystem
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+connection_info: http://<X.X.X.X>:8080
+
+flags:
+- content: CYBN{J_41_gLyPs3_Ch3f!}
+  type: static
+  data: case_sensitive
+
+tags:
+- Easy
