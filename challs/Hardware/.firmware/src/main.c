@@ -10,15 +10,10 @@
 
 #include "chall_serial_1.h"
 #include "chall_serial_2.h"
-#include "chall_serial_3.h"
-#include "chall_morse.h"
 #include "chall_ble.h"
-#include "chall_wifi.h"
 
 void app_main() {
-    // esp_log_level_set("*", ESP_LOG_NONE);
     gen_name("CYBN-");
-    // uart_set_baudrate(UART_NUM_0, 9600);
 
     gpio_install_isr_service(0);
 
@@ -32,8 +27,5 @@ void app_main() {
     
     chall_serial_1();
     chall_serial_2();
-    chall_serial_3();
-    chall_morse();
     chall_ble();
-    chall_wifi();
 }

@@ -9,6 +9,8 @@ Pour build et upload :
 - aller dans l'onglet PlatformIO
 - sélectionner `Build and Upload` pour la configuration souhaitée
 
+Note : pour le DevKit ESP32-D, la configuration est `esp32-s3-devkitm-1`
+
 ## Ajouter le support d'un devkit
 
 Note : le microcontrolleur doit être compatible (Espressif, assez d'IRAM, support Bluetooth et WiFi)

@@ -59,6 +59,11 @@ static void chall_serial_2_task(void *pvParameters)
 
 void chall_serial_2(void)
 {
+    /**
+     * Options pour l'UART
+     * Pour pimenter, mettre UART_PARITY_ODD / EVEN,
+     * ou + de bits de stop
+     */
     uart_config_t uart_config = {
         .baud_rate = 9600,
         .data_bits = UART_DATA_8_BITS,
