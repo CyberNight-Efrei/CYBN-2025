@@ -1,0 +1,1 @@
+../../.firmware/src/chall_serial_1.c
