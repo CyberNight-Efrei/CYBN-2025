@@ -1,1 +1,0 @@
-../../.firmware/src/chall_wifi.c
