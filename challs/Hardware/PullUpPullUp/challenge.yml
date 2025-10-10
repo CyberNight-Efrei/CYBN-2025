@@ -12,10 +12,10 @@ protocol: null
 host: null
 
 flags:
-    - CYBN{REDACTED}
+    - CYBN{V3nd0r_pr0t3ct10ns}
 
 tags:
-    - Medium, Unfinished
+    - Medium
 
 files:
     - src/fw.c

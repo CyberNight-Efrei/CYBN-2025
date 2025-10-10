@@ -4,5 +4,7 @@
 .vscode/launch.json
 .vscode/ipch
 fp-info-cache
-PCB_broken-backups
+*.kicad_prl
+*.lck
+cybernight-pcb-backup/
 sdkconfig.*.old
