@@ -1,11 +1,9 @@
 name: "No Time To Flag"
 category: Hardware
 description: |- 
-    Inspecteur ! J'ai trouvé ce programme chez le suspect ! Mais comment diantre
-    obtenir le flag...
+    Inspecteur ! J'ai trouvé ce programme chez le suspect ! Mais comment diantre obtenir le flag...
     <i>Format du flag : CYBN{example_lowercase_no_accent}
-    Afin de réussir ce challenge, il est vivement conseillé d'utiliser la HAL
-    (Hardware Abstraction Layer) de AVR à la place du franework Arduino.
+    Afin de réussir ce challenge, il est vivement conseillé d'utiliser la HAL (Hardware Abstraction Layer) de Atmel à la place du framework Arduino.
     Il vous faut donc les outils suivants :
     - `avr-gcc`
     - `avr-objcopy`
