@@ -1,0 +1,25 @@
+name: "Pull up! Pull up!"
+category: Hardware
+description: |- 
+    Je sais à quoi sert cette dernière puce, mais impossible de la faire démarer.
+    À moins que l'erreur ne vienne pas de moi...
+attribution: grégoire, Baptiste-LC
+#value: 500
+type: static
+
+image: null
+protocol: null
+host: null
+
+flags:
+    - CYBN{V3nd0r_pr0t3ct10ns}
+
+tags:
+    - Medium
+
+files:
+    - src/fw.c
+
+state: hidden
+
+version: "0.1"

@@ -1,0 +1,22 @@
+name: "Action Réaction"
+category: Hardware
+description: |- 
+    <i>Une source vous indique que l'objet transmettrait également en série par les
+    pins 16 et 17 à 9600 bauds... Mais comment écouter ?</i>
+attribution: grégoire, Baptiste-LC
+#value: 500
+type: static
+
+image: null
+protocol: null
+host: null
+
+flags:
+    - CYBN{45ync_w1r3_tr4nsm15510n}
+
+tags:
+    - Easy
+
+state: hidden
+
+version: "0.1"

@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    container_name: gloops
+    ports:
+      - "8080:8000"
+    restart: unless-stopped
+    environment:
+      JWT_SECRET: "mq9DKA520sVdp5UOPKMe0TNxfOD8Ht0OE"
+      FLAG: "CYBN{J_41_gLyPs3_Ch3f!}"

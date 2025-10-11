@@ -1,0 +1,3 @@
+Partir du panneau affiché sur le mur "Nice Foods & Drinks This Way, Bears & Snakes That Way", en cherchant sur Google on trouve le nom du "Rabaçal Nature Spot Cafe" (première partie du flag). 
+
+Ensuite pour le prix de la glace on cherche dans les photos sur Google Maps, on trouve une photo avec un chariot à glaces Carte d'Or et un panneau posé dessus indiquant "2 scoops 5,50€" (deuxième partie du flag).

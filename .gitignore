@@ -7,3 +7,4 @@ venv/
 *.obsidian
 challs/*/*/dist/
 challs/*/*/src/ignore/
+.DS_Store

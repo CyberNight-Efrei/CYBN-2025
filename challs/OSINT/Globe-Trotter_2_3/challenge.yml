@@ -1,0 +1,38 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ REQUIRED ============>
+name: "Globe-Trotter [2/3] : Ondes internationales"
+category: "OSINT" # Crypto / Forensics / Hardware / Misc / OSINT / Prog / Pwn / Reverse / Stegano / System / Web
+description: |-
+  "Je crois capter les ondes venues d'un autre monde" disait Daniel Balavoine dans une de ses célèbres chansons (oui, mes références ne datent pas d'hier…), il semblerait qu'ici cette tour en soit capable également ! Du moins c'est ce que suggèrent les multiples stickers collés en face de cette dernière, je n'ai donc pas pu m'empêcher d'ajouter ma pierre à l'édifice.
+  Bien entendu, cela mérite une photo souvenir ! À vous de retrouver le nom de la célèbre tour qui se trouve derrière moi au moment où j'ai pris ce cliché.
+  Pour accéder à ce lieu j'ai d'ailleurs dû emprunter un certain moyen de transport, pourrais-tu me dire le nombre de personnes l'ayant utilisé en 1997 ?
+
+  Flag : `CYBN{tour-eiffel_123456}`
+attribution: "Doryan et Gaël"
+
+flags:
+    - CYBN{tour-namsan_598361}
+
+tags:
+    - Medium
+# </============ REQUIRED ============>
+
+
+# <============ OPTIONAL ============>
+
+files:
+    - src/ondes.jpg
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>
