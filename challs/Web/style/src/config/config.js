@@ -7,7 +7,6 @@ module.exports = {
     "trustProxyDepth": 1, // How many levels of proxy to trust for IP
     "debug": false,
     "googleAnalyticsTrackingID": "", // UA-XXXXXXXX-XX
-    "host": "https://todo.todo", // TODO : the publicly accessible URL of the site
     "placeTimeout": 60,
     'siteName': 'Place',
     // "raven": "", 

@@ -53,7 +53,6 @@ html(lang="en")
     meta(property="og:title" content=(pageTitle || config.siteName))
     if pageTitle
       meta(property="og:site_name", content=config.siteName)
-    meta(property="og:url", content=config.host)
     meta(property="og:image", content="/img/apple-touch-icon.png")
     meta(property="twitter:card", content="summary")
     meta(property="twitter:title", content=`${config.siteName}${pageTitle != null ? `: ${pageTitle}` : ""}`)
