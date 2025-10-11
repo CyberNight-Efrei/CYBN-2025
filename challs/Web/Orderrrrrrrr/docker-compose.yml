@@ -2,7 +2,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.bak
     working_dir: /var/www/html
     environment:
       APP_ENV: prod
