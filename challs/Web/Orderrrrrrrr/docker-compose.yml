@@ -1,12 +1,8 @@
-version: "3.9"
-
 services:
   php:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./src/web:/var/www/html
     working_dir: /var/www/html
     environment:
       APP_ENV: prod
@@ -14,7 +10,8 @@ services:
       FLAG: CYBN{0RM_C4NT_F1X_B4D_D3VS}
     command: >
       sh -c "
-        rm -f var/data.db && touch var/data.db &&
+        mkdir -p var &&
+        touch var/data.db &&
         php bin/console doctrine:migrations:migrate --no-interaction --env=prod &&
         php bin/console doctrine:fixtures:load --no-interaction &&
         php-fpm -F
@@ -27,5 +24,5 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./src/web:/var/www/html:ro
+      - ./src/web/public:/var/www/html/public:ro
       - ./src/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro

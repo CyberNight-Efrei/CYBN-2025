@@ -19,7 +19,7 @@ import sys
 # Config
 BASE_URL = "http://127.0.0.1:8080/"
 TIMEOUT = 8.0
-SLEEP = 0.02
+SLEEP = 0.002
 MAX_LEN = 200
 
 # Narrow alphabet for speed if you know flag format
