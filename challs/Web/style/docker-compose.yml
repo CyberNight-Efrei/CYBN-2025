@@ -1,22 +1,11 @@
 services:
-  api:
+  app:
     restart: always
     build: .
     ports:
       - "3000:3000"
-    depends_on:
-      - "db"
     environment:
       NODE_ENV: "production"
-      DATABASE: "mongodb://db/place"
+      DATABASE: "mongodb://localhost/place"
       PORT: 3000
-      ONLY_LISTEN_LOCAL: "false"
-  db:
-    image: mongo:3.4
-    restart: always
-    volumes:
-      - mongo-volume:/data/db
-    expose:
-      - "27017"
-volumes:
-  mongo-volume:
+      ONLY_LISTEN_LOCAL: "true"
