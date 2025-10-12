@@ -1,0 +1,30 @@
+name: Hash It Like It's Hot
+category: Crypto
+description: |-
+  I've made my own hash algorithm, nothing can go wrong... Right?
+  If you can find a collision, you will be rewarded accordingly.
+attribution: oldschool125
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+image: .
+protocol: tcp
+connection_info: nc hostname 2222
+
+flags:
+- content: CYBN{H4sH_1t_H4sH_1t_&_Fl4G_1t_L1k3_1tS_h0t}
+  type: static
+  data: case_sensitive
+
+files:
+- dist/hashitlikeitshot.py
+
+tags:
+- Medium
+
+version: '0.1'
