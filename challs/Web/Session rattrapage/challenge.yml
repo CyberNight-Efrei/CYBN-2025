@@ -1,0 +1,11 @@
+name: "Session rattrapage"
+category: "Web"
+description: "todo"
+attribution: "Romain"
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100

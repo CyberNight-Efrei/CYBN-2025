@@ -1,0 +1,27 @@
+FROM php:8.4-fpm
+
+RUN apt-get update && apt-get install -y \
+    nginx supervisor sqlite3 libsqlite3-dev \
+    && docker-php-ext-install pdo pdo_sqlite \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-install pdo_sqlite
+
+WORKDIR /var/www/html
+
+COPY src/web/ ./
+COPY src/db/db_init.sql /docker-entrypoint-initdb.d/db_init.sql
+
+RUN rm -f db.sqlite
+RUN php -r ' \
+    $dbPath = "db.sqlite"; \
+    $db = new PDO("sqlite:$dbPath"); \
+    $sql = file_get_contents("/docker-entrypoint-initdb.d/db_init.sql"); \
+    $db->exec($sql); \
+    echo "SQLite DB initialized at $dbPath\n"; \
+'
+
+RUN chown -R www-data:www-data /var/www/html
+
+EXPOSE 9000
+CMD ["php-fpm"]

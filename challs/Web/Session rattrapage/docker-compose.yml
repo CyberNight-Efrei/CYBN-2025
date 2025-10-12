@@ -1,0 +1,22 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile.compose
+    container_name: session_rattrapage_php
+    volumes:
+      - ./src/web:/var/www/html
+      - ./src/db/db_init.sql:/docker-entrypoint-initdb.d/db_init.sql:ro
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: session_rattrapage_nginx
+    depends_on:
+      - php
+    volumes:
+      - ./src/web:/var/www/html:ro
+      - ./src/nginx/default.compose.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8080:80"
+    restart: unless-stopped
