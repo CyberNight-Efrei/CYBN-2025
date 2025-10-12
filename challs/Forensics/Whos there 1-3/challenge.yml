@@ -1,11 +1,11 @@
 name: Who's there ? 1-3
 category: Forensics
 description: |-
-  Un attaquant ‡ rÈussi ‡ s'introduire sur notre machine, cependant, Ètant donnÈ la criticitÈ des services hebergÈs sur cette machine, nous ne pouvons pas nous permettre de l'eteindre pour investiguer...
+  Un attaquant √† r√©ussi √† s'introduire sur notre machine, cependant, √©tant donn√© la criticit√© des services heberg√©s sur cette machine, nous ne pouvons pas nous permettre de l'eteindre pour investiguer...
 
-  Connecte toi ‡ la machine en ssh pour l'investiguer en live ! dans un premier temps, trouve le nom du fichier malveillant que l'utilisateur ‡ ajoutÈ sur la machine
+  Connecte-toi √† la machine en SSH pour l'examiner en direct. L'attaquant a probablement laiss√© plusieurs indices sur la machine : retrouve la persistance qu'il a install√©e ainsi que le fichier malveillant qui lui accorde tous les privil√®ges.
 
-  Flag: `CYBN{<nom du fichier>}`
+  Flag: `CYBN{<nom du fichier pour la persistence>:<nom du fichier pour la charge utile>}`
 attribution: Romain
 value: 500
 type: dynamic
@@ -16,7 +16,7 @@ extra:
   minimum: 100
 
 flags:
-- content: CYBN{goodboi.ko}
+- content: CYBN{cybernight.service:/var/lib/cybernight.ko}
   type: static
   data: case_sensitive
 
