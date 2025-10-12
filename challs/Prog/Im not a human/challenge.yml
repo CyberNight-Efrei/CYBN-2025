@@ -1,0 +1,14 @@
+name: "I'm not a human"
+category: "Web"
+description: "Dans un futur où les IA ont pris le dessus, les captchas ont évolué. Ils servent toujours à distinguer les humains des robots, mais... dans un tout autre sens, hélas..."
+attribution: "Romain"
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+flags:
+    - CYBN{C0ngr4tul4t10n_Y0u'r_N0t_4_Hum4n}

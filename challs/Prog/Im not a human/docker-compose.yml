@@ -1,0 +1,12 @@
+services:
+  captcha-ctf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: im-not-a-human
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./src/static:/app/static
+      - ./src/templates:/app/templates
+    restart: unless-stopped
