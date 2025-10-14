@@ -1,4 +1,4 @@
-name: Signal
+name: Suivre les traces
 category: Forensics
 description: |-
   Deux processus semblent communiquer en secret. J'ai réussi a intercepter un échange mais je n'arrive pas à reconstruire le message.
@@ -17,7 +17,7 @@ flags:
 - CYBN{Wh4t_4_W31rd_W4y_T0_C0mmun1c4t3}
 
 files:
-- dist/logs.txt
+- src/logs.txt
 
 tags:
 - Easy
