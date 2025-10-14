@@ -21,6 +21,6 @@ tags:
     - Easy
 
 files:
-    - src/web
+    - src/web.zip
 
 version: "0.1"
