@@ -2,7 +2,7 @@ CAT="crypto"
 CHALL="hashitlikeitshot"
 NAME="${CAT}_${CHALL}"
 PORT=2222
-HOST_PORT=2222
+HOST_PORT=4000
 
 docker rm -f $NAME
 docker image prune -f
