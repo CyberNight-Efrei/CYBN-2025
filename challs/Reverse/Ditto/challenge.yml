@@ -1,0 +1,31 @@
+name: "Template challenge"
+category: "Reverse"
+description: |-
+    J'ai trouvé ce fichier sur ma machine mais je ne sais pas d'où il sort ni ce qu'il veut.
+    Quand je l'exécute, il demande des instructions, j'ai beau lui passer tous les flags/argv possibles, rien n'y fait, il continue de demander des instructions.
+
+    Peut-être que tu arriveras à lui donner ce qu'il veut, tu auras probablement une récompense.
+attribution: "Romain"
+
+flags:
+    - CYBN{D3crypt1ng_4nd_3x3cut1ng_1n_M3m0ry_1s_SUS}
+
+tags:
+    - Medium
+
+files:
+    - src/ditto
+
+version: "0.1"
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>
