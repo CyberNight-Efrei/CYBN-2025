@@ -55,7 +55,7 @@ if (isset($_POST["settings"]) && is_array($_POST["settings"])) {
         <header>
             <div>
                 <h2>Settings</h2>
-                <div class="muted">Change theme and font-size for the demo view (saved to session).</div>
+                <div class="muted">Change theme and font-size for the current page (Work in progress).</div>
             </div>
             <div style="text-align:right;">
                 <div class="muted">Signed in as <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong></div>

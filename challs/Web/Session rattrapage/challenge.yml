@@ -1,6 +1,10 @@
 name: "Session rattrapage"
 category: "Web"
-description: "todo"
+description: |-
+    Une nouvelle plateforme de consultation de notes vient d'être mise en ligne... mais quelque chose cloche !
+    Dès la création d'un compte, tous les utilisateurs se retrouvent mystérieusement avec de mauvaises notes.
+    Une rumeur circule comme quoi le tout premier inscrit sur la plateforme aurait réussi à obtenir de très bonnes notes...
+    Seras-tu capable de te faire passer pour lui et découvrir son secret ?
 attribution: "Romain"
 value: 500
 type: dynamic
@@ -9,3 +13,14 @@ extra:
     initial: 500
     decay: 30
     minimum: 100
+
+flags:
+    - CYBN{4lw4y5_Ch3ck_ALL_Us3r_D4t4}
+
+tags:
+    - Easy
+
+files:
+    - src/web
+
+version: "0.1"

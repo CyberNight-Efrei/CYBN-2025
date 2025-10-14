@@ -35,7 +35,7 @@
     <body>
         <div class='card'>
             <h2>Admin</h2>
-            <p>Flag / secret:</p>
+            <p>Flag :</p>
             <div class='flag'>
                 <?php
                 if (isset($_SESSION["userId"]) && $_SESSION["userId"] == 1) {

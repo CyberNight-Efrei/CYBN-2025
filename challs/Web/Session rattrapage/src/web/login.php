@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .card{background:white; padding:20px; border-radius:12px; box-shadow: 0 8px 24px rgba(15,23,42,0.06);}
         h2{margin:0 0 10px 0;}
         label{display:block; margin-top:12px; font-size:13px; color:#374151;}
-        input[type="text"], input[type="password"]{width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #e6edf3;}
+        input[type="text"], input[type="password"]{width:calc(100% - 20px); padding:10px; margin-top:6px; border-radius:8px; border:1px solid #e6edf3;}
         button{margin-top:14px; width:100%; padding:10px; border-radius:8px; border:0; background:#2b7cff; color:white; font-weight:700;}
         .muted{color:#6b7280; font-size:13px;}
         .error{color:#ef4444; margin-top:8px; font-weight:600;}
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="wrap">
     <div class="card">
         <h2>Login</h2>
-        <div class="muted">Sign in to view and manage your demo grades.</div>
+        <div class="muted">Sign in to view and manage your grades.</div>
         <?php if (!empty($error)): ?><div class="error"><?php echo htmlspecialchars($error); ?></div><?php endif; ?>
         <form method="POST" style="margin-top:12px;">
             <label>Username
