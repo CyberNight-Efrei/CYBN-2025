@@ -1,4 +1,4 @@
-# Solving (simple dybamic way)
+# Solving (simple dynamic way)
 
 1. Strace sur le ditto et constater la création d'un ELF
 
