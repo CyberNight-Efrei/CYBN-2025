@@ -1,6 +1,6 @@
 # <============ NE PAS TOUCHER ============>
 value: 500
-type: dynamic / dynamic_docker
+type: dynamic
 
 extra:
     initial: 500
@@ -17,7 +17,11 @@ description: Venir à la Cybernight, espérer trouver des challenges d'une origi
 attribution: "Romain"
 
 flags:
-    - CYBN{registreendpointmitreincidentjournalisationinfostealerwrite-upnocturnepayloadrechercherisqueexfiltrationransomwarebotnetcrowdstrikeproductionrootdrapeau}
+    - {
+        type: "static",
+        content: "CYBN{registreendpointmitreincidentjournalisationinfostealerwrite-upnocturnepayloadrechercherisqueexfiltrationransomwarebotnetcrowdstrikeproductionrootdrapeau}",
+        data: "case_insensitive",
+    }
 
 tags:
     - Medium
