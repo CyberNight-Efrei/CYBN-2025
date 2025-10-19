@@ -26,7 +26,7 @@ tags:
 # <============ OPTIONAL ============>
 
 files:
-    - src/CONFIDENTIAL.wav
+    - src/schema.png
 
 # <============ NE PAS TOUCHER ============>
 value: 500

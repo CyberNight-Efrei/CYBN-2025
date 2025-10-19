@@ -3,7 +3,7 @@ category: Stegano
 description: |-
   Beat it, beat it, find the secret
 
-  Format : `CYBN{phrase_composée_de_mots}`
+  Format : `CYBN{phrase_compos?_de_mots}`
 attribution: NozZy
 value: 500
 type: dynamic

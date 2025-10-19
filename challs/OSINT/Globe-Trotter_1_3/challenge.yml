@@ -16,8 +16,8 @@ attribution: "Doryan et Gaël"
 
 flags:
     - {
-        type: "static",
-        content: "CYBN\{raba[cç]al-nature-spot-cafe_5\.50\}",
+        type: "regex",
+        content: "CYBN\\{raba[cç]al-nature-spot-cafe_5\\.50\}",
         data: "case_insensitive",
     }
 

@@ -1,9 +1,9 @@
 name: Suivre les traces
 category: Forensics
 description: |-
-  Deux processus semblent communiquer en secret. J'ai réussi a intercepter un échange mais je n'arrive pas à reconstruire le message.
+  Deux processus semblent communiquer en secret. J'ai rÃ©ussi a intercepter un Ã©change mais je n'arrive pas Ã  reconstruire le message.
 
-  Saurez-vous decoder ces logs et découvrir le message secret qu’ils se sont échangé ?
+  Saurez-vous decoder ces logs et dÃ©couvrir le message secret quâ€™ils se sont Ã©changÃ© ?
 attribution: Romain
 value: 500
 type: dynamic

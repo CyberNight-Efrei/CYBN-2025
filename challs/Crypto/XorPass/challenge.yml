@@ -1,11 +1,11 @@
 name: XorPass
 category: Crypto
 description: |-
-  Je fais de la cybersécurité, donc je stocke *évidemment* mes mots de passe dans un gestionnaire de mot de passe.
-  Puisque je fais de la cybersécurité, je suis *infailliblement* souverain de mes données, et je ne mets rien dans le cloud (berk).
-  Etant donnée que je fais de la cybersécurité, je fais *incontestablement* des backup régulières de mon gestionnaire de mot de passe, que je sécurise **moi-même**, avec ma petite clé personnelle.
+  Je fais de la cybersÃ©curitÃ©, donc je stocke *Ã©videmment* mes mots de passe dans un gestionnaire de mot de passe.
+  Puisque je fais de la cybersÃ©curitÃ©, je suis *infailliblement* souverain de mes donnÃ©es, et je ne mets rien dans le cloud (berk).
+  Etant donnÃ©e que je fais de la cybersÃ©curitÃ©, je fais *incontestablement* des backup rÃ©guliÃ¨res de mon gestionnaire de mot de passe, que je sÃ©curise **moi-mÃªme**, avec ma petite clÃ© personnelle.
 
-  J'ai tellement confiance dans mon mécanisme, que je te donne ma dernière backup. Impossible que tu arrives à la lire !
+  J'ai tellement confiance dans mon mÃ©canisme, que je te donne ma derniÃ¨re backup. Impossible que tu arrives Ã  la lire !
 attribution: NozZy
 value: 500
 type: dynamic

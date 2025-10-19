@@ -7,6 +7,11 @@ attribution: "Osiris"
 value: 500
 type: dynamic
 
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
 flags:
     - {
         type: "static",
@@ -18,5 +23,7 @@ tags:
     - Medium
 
 connection_info: https://efrei365net.sharepoint.com/:u:/r/sites/CyberNight2025/Documents%20partages/General/Challenges/Hardware/Voice%20from%20the%20Void/voice.wav?csf=1&web=1&e=UKO5Gw
+
+state: visible
 
 version: "0.1"

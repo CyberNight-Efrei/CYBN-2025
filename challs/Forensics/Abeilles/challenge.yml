@@ -1,20 +1,20 @@
 name: Abeilles
 category: Forensics
 description: |-
-  Windows est un système d'exploitation très complexe, dont il est compliqué de comprendre et maitriser tous ses rouages.
+  Windows est un systÃ¨me d'exploitation trÃ¨s complexe, dont il est compliquÃ© de comprendre et maitriser tous ses rouages.
 
-  Pour son bon fonctionnement, Windows stocke un très grand nombre d'informations dans des bases de registres. Ces registres impactent à peu près tout sur le système : les profils utilisateurs, les configurations des applications, le système en lui-même, mais aussi par exemple certains secrets, utiles autant aux utilisateurs qu'au système.
-  Ces registres sont séparés dans différentes hive - "ruche" en français - et certaines d'entre elles sont particulièrement critiques, car contiennent justement ces secrets, ou bien de quoi les déchiffrer.
+  Pour son bon fonctionnement, Windows stocke un trÃ¨s grand nombre d'informations dans des bases de registres. Ces registres impactent Ã  peu prÃ¨s tout sur le systÃ¨me : les profils utilisateurs, les configurations des applications, le systÃ¨me en lui-mÃªme, mais aussi par exemple certains secrets, utiles autant aux utilisateurs qu'au systÃ¨me.
+  Ces registres sont sÃ©parÃ©s dans diffÃ©rentes hive - "ruche" en franÃ§ais - et certaines d'entre elles sont particuliÃ¨rement critiques, car contiennent justement ces secrets, ou bien de quoi les dÃ©chiffrer.
 
-  Ces ruches sont alors très souvent ciblées par les attaquants. Une fois récupérées, la machine peut être considérée comme infiltrée au plus profond, sans retour arrière possible.
+  Ces ruches sont alors trÃ¨s souvent ciblÃ©es par les attaquants. Une fois rÃ©cupÃ©rÃ©es, la machine peut Ãªtre considÃ©rÃ©e comme infiltrÃ©e au plus profond, sans retour arriÃ¨re possible.
 
   ---
 
-  Aujourd'hui, il semblerait qu'une personne mal intentionnée ait accédée à certaines des ruches d'un ordinateur de notre société.
+  Aujourd'hui, il semblerait qu'une personne mal intentionnÃ©e ait accÃ©dÃ©e Ã  certaines des ruches d'un ordinateur de notre sociÃ©tÃ©.
 
-  Après avoir réécupérés les journaux d'événements de la machine, nous avons exécuté un [outil d'analyse des journaux Windows](https://github.com/Yamato-Security/hayabusa), qui nous à produit le fichier suivant en résultat.
+  AprÃ¨s avoir rÃ©Ã©cupÃ©rÃ©s les journaux d'Ã©vÃ©nements de la machine, nous avons exÃ©cutÃ© un [outil d'analyse des journaux Windows](https://github.com/Yamato-Security/hayabusa), qui nous Ã  produit le fichier suivant en rÃ©sultat.
 
-  A toi d'analyser les résultats, et de lister les ruches exportées, dans l'ordre alphabétiques, ainsi que le PID du processus Parent ayant effectué cette action.
+  A toi d'analyser les rÃ©sultats, et de lister les ruches exportÃ©es, dans l'ordre alphabÃ©tiques, ainsi que le PID du processus Parent ayant effectuÃ© cette action.
 
   Format : `CYBN{RUCHEA_RUCHEB_RUCHEC_1234}`
 attribution: NozZy

@@ -1,11 +1,11 @@
 name: Helpdesk
 category: Forensics
 description: |-
-  L'autre jour, une personne m'a appelée au travail, et disait faire partie du support informatique de mon entreprise. Apparemment, il fallait régler des problèmes sur mon ordinateur, alors j'ai effectué les choses qu'elle m'a demandé de faire.
-  Mais depuis, dès que j'ouvre un fichier du travail, j'ai une fenêtre noire qui s'ouvre quelques instants, puis se ferme... J'arrive toujours a travailler, mais je m'inquiête de ce que cette personne m'a fait faire, je n'y ai rien compris.
+  L'autre jour, une personne m'a appelÃ©e au travail, et disait faire partie du support informatique de mon entreprise. Apparemment, il fallait rÃ©gler des problÃ¨mes sur mon ordinateur, alors j'ai effectuÃ© les choses qu'elle m'a demandÃ© de faire.
+  Mais depuis, dÃ¨s que j'ouvre un fichier du travail, j'ai une fenÃªtre noire qui s'ouvre quelques instants, puis se ferme... J'arrive toujours a travailler, mais je m'inquiÃªte de ce que cette personne m'a fait faire, je n'y ai rien compris.
 
   ------
-  En tant qu'analyste, nous vous fournissons une copie des fichiers de l'utilisateur, ainsi que de la base de registre Windows de l'ensemble de son ordinateur. Nos équipes ont déjà  fait du tri, et n'ont gardé que le contenu spécifiant une application ".exe" dans les registres, on espère que vous pourrez trouver le malware qui doit s'y cacher.
+  En tant qu'analyste, nous vous fournissons une copie des fichiers de l'utilisateur, ainsi que de la base de registre Windows de l'ensemble de son ordinateur. Nos Ã©quipes ont dÃ©jÃ Â  fait du tri, et n'ont gardÃ© que le contenu spÃ©cifiant une application ".exe" dans les registres, on espÃ¨re que vous pourrez trouver le malware qui doit s'y cacher.
   Retrouve le chemin du malware : `CYBN{C:\folder\malware.txt}`
 attribution: NozZy
 value: 500

@@ -1,18 +1,18 @@
 name: La table de Maitre
 category: Forensics
 description: |-
-  Un employé de la neuillCORP a exécuté un script pour "mettre à jour son ordi" et depuis des choses bizarres semblent se produire.
+  Un employÃ© de la neuillCORP a exÃ©cutÃ© un script pour "mettre Ã  jour son ordi" et depuis des choses bizarres semblent se produire.
 
-  Le CERT de la neuillCORP ont tenté de faire une copie du disque, mais n'ont réussi à récupérer qu'un seul fichier....
-  Bref, j'espère que tu seras capable de retrouver ce qu'il s'est passé grâce à ce fichier.
+  Le CERT de la neuillCORP ont tentÃ© de faire une copie du disque, mais n'ont rÃ©ussi Ã  rÃ©cupÃ©rer qu'un seul fichier....
+  Bref, j'espÃ¨re que tu seras capable de retrouver ce qu'il s'est passÃ© grÃ¢ce Ã  ce fichier.
 
   ----
 
-  Eléments attendus :
-  - URL du fichier téléchargé : `https://google.com/monfichier.mp4`
-  - Le chemin complet du dossier suspect créé par ce script : `C:\Windows\folder`
-  - Le chemin complet du dernier fichier suspect créé par ce script : `C:\Windows\file.txt`
-  - La taille en Bytes du dernier fichier suspect créé par ce script : `123456`
+  ElÃ©ments attendus :
+  - URL du fichier tÃ©lÃ©chargÃ© : `https://google.com/monfichier.mp4`
+  - Le chemin complet du dossier suspect crÃ©Ã© par ce script : `C:\Windows\folder`
+  - Le chemin complet du dernier fichier suspect crÃ©Ã© par ce script : `C:\Windows\file.txt`
+  - La taille en Bytes du dernier fichier suspect crÃ©Ã© par ce script : `123456`
 
   Flag : `CYBN{https://google.com/monfichier.mp4_C:\Windows\folder_C:\Windows\file.txt_123456}`
 attribution: NozZy
