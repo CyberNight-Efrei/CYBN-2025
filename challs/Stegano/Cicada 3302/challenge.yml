@@ -4,6 +4,12 @@ description: "1.74545454545"
 attribution: "Osiris"
 value: 500
 type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
 flags:
   - {
       type: "static",
