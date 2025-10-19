@@ -1,5 +1,5 @@
 CAT="web"
-CHALL="style"
+CHALL="framed"
 NAME="${CAT}_${CHALL}"
 PORT=3000
 HOST_PORT=8002

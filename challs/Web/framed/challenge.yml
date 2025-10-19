@@ -16,7 +16,7 @@ extra:
   dynamic_decay: 30     # NE PAS TOUCHER
   dynamic_minimum: 100  # NE PAS TOUCHER
 
-  docker_image: web_style   # RESPECT FORMAT (shortname please)
+  docker_image: web_framed   # RESPECT FORMAT (shortname please)
 
   redirect_type: http   # Protocol. Default should be tcp
   redirect_port: 3000               # App port, do not mind overlaps
