@@ -69,7 +69,7 @@ function HTTPServer(app) {
         })
 
         if (fs.existsSync(path.join(__dirname, "../util/", "legit.js"))) {
-            const legit = require("../util/legit");
+            const legit = require("./legit");
             server.use(legit.keyMiddleware);
         }
 

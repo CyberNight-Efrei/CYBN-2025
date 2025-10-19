@@ -22,6 +22,11 @@ RUN yarn install
 # copy app source code that is in src, in the main workdir and not workdir/src
 COPY src ./
 
+ENV NODE_ENV=production \
+    DATABASE=mongodb://localhost:27017/place \
+    PORT=3000 \
+    ONLY_LISTEN_LOCAL=true
+
 # startup script
 RUN echo '#!/bin/bash\n\
 mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db\n\

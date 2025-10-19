@@ -1,6 +1,6 @@
 const Jimp = require("jimp");
 const Pixel = require("../models/pixel");
-const ActionLogger = require("../util/ActionLogger");
+const ActionLogger = require("./ActionLogger");
 const fs = require("fs");
 const path = require("path");
 
