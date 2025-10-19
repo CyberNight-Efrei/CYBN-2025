@@ -22,11 +22,16 @@ def rotate_right(data,x):
     x = x % BLOCK_SIZE
     return data[-x:] + data[:-x]
 def scramble_block(block):
-    for _ in range(40):
-        block = xor(W_bytes,block)
-        block = rotate_left(block,6)
-        block = xor(X_bytes,block)
-        block = rotate_right(block,17)
+    local_W = bytearray(W_bytes)
+    local_X = bytearray(X_bytes)
+    for i in range(40):
+        for j in range(len(local_W)):
+            local_W[j] ^= (i * 13 + j) & 0xFF
+            local_X[j] ^= (i * 29 + j * 7) & 0xFF
+        block = xor(bytes(local_W), block)
+        block = rotate_left(block, (6 + block[0]) % BLOCK_SIZE)
+        block = xor(bytes(local_X), block)
+        block = rotate_right(block, (17 + block[-1]) % BLOCK_SIZE)
     return block
 def hashitlikeitshot(msg):
     initial_state = xor(Y_bytes, Z_bytes)
@@ -34,10 +39,12 @@ def hashitlikeitshot(msg):
     msg_blocks = blocks(msg_padded)
     for i, b in enumerate(msg_blocks):
         mix_in = scramble_block(xor(b, initial_state))
-        mix_in = rotate_left(mix_in, i*7)
-        for _ in range(i):
-            mix_in = rotate_right(mix_in, i+11)
-            mix_in = xor(mix_in, X_bytes)
-            mix_in = rotate_left(mix_in, i+6)
+        rot_val = (i * 7 + sum(b) + mix_in[0]) % BLOCK_SIZE
+        mix_in = rotate_left(mix_in, rot_val)
+        for r in range(i + 1):
+            mix_in = rotate_right(mix_in, (r * 11 + mix_in[r % len(mix_in)]) % BLOCK_SIZE)
+            mix_in = xor(mix_in, rotate_left(X_bytes, (r * 3) % BLOCK_SIZE))
+            mix_in = rotate_left(mix_in, (r * 6 + mix_in[-1]) % BLOCK_SIZE)
         initial_state = xor(initial_state, mix_in)
+        initial_state = rotate_left(initial_state, (mix_in[0] + i) % BLOCK_SIZE)
     return initial_state.hex()
