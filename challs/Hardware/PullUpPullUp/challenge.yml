@@ -17,9 +17,6 @@ flags:
 tags:
     - Medium
 
-files:
-    - src/fw.c
-
 state: visible
 
 version: "0.1"
