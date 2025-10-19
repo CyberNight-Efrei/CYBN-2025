@@ -1,0 +1,30 @@
+name: "Framed"
+category: "Web"
+description: |-
+  Le secret se fait discret, l'observation sera-t-elle suffisante ?
+
+  NB: Ce challenge est basé sur l’application open-source Place (https://github.com/dynastic/place).
+
+attribution: "Mathu_lmn"
+value: 500
+
+type: dynamic_docker
+
+extra:
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: web_style   # RESPECT FORMAT (shortname please)
+
+  redirect_type: http   # Protocol. Default should be tcp
+  redirect_port: 3000               # App port, do not mind overlaps
+
+flags:
+    - CYBN{P1X3LS_4R3_FUN}
+
+tags:
+  - Medium
+
+version: "0.1"
