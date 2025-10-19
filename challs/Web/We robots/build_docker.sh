@@ -1,5 +1,5 @@
 CAT="web"
-CHALL="style"
+CHALL="we-robots"
 NAME="${CAT}_${CHALL}"
 PORT=80
 HOST_PORT=8003

@@ -1,5 +1,5 @@
 CAT="prog"
-CHALL="unboxing"
+CHALL="lua-unboxing"
 NAME="${CAT}_${CHALL}"
 PORT=23456
 HOST_PORT=3000
