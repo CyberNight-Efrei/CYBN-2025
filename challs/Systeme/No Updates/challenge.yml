@@ -10,22 +10,30 @@ description: |-
 
   ![image.png](/files/ed04f27be641924143bc205029aaef09/image.png)
 
-  ---
-
-  User : `user`
-  Mot de passe : `user`
-  Port : `2222`
-  Host : *Dynamic*
 attribution: NozZy
 value: 500
-type: dynamic
+
+# <============ CHALLENGE DOCKER ============>
+# REMOVE IF NO DOCKER
+
+type: dynamic_docker
 
 extra:
-  initial: 500
-  decay: 30
-  minimum: 100
-protocol: ssh
-connection_info: ssh user@<ip> -p 2222
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: system_no-updates   # RESPECT FORMAT (shortname please)
+
+  redirect_type: ssh   # Protocol. Default should be tcp
+  redirect_port: 2222               # App port, do not mind overlaps
+
+  user: user            # Optional, informative purpose only
+  password: user    # Optional, informative purpose only
+
+# </============ CHALLENGE DOCKER ============>
+
 
 flags:
 - CYBN{Mak3_SUr3_T0_uPD4T3_yOuR_SYst3m_4Nd_PAck4G35}

@@ -3,91 +3,36 @@
 
 # Required sections
 name: Le style a son importance
-category: Web / Stegano
+category: Web
 description: J'ai pas d'idée atm mais faut une description qui dirige bien vers la partie steg et pas pentest du site quoi
 attribution: Mathu_lmn
-#value: 500
-type: dynamic
+value: 500
 
-# The extra field provides additional fields for data during the install/sync commands/
-# Fields in extra can be used to supply additional information for other challenge types
-# For example the follow extra field is for dynamic challenges. To use these following
-# extra fields, set the type to "dynamic" and uncomment the "extra" section below
+# <============ CHALLENGE DOCKER ============>
+# REMOVE IF NO DOCKER
+
+type: dynamic_docker
+
 extra:
-    initial: 500
-    decay: 30
-    minimum: 100
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
 
-# Settings used for Dockerfile deployment
-# If not used, remove or set to null
-# If you have a Dockerfile set to .
-# If you have an imaged hosted on Docker set to the image url (e.g. python/3.8:latest, registry.gitlab.com/python/3.8:latest)
-# Follow Docker best practices and assign a tag
-image: null
+  docker_image: web_style   # RESPECT FORMAT (shortname please)
 
-# Specify a protocol that should be used to connect to the running image
-# For example if the image is a website you can specify http or https
-# Otherwise you can specify tcp
-protocol: null
+  redirect_type: http   # Protocol. Default should be tcp
+  redirect_port: 3000               # App port, do not mind overlaps
 
-# Specify a host to deploy the challenge onto.
-# The currently supported URI schemes are ssh:// and registry://
-# ssh is an ssh URI where the above image will be copied to and deployed (e.g. ssh://root@123.123.123.123)
-# registry is a Docker registry tag (e.g registry://registry.example.com/test/image)
-# host can also be specified during the deploy process: `ctf challenge deploy challenge --host=ssh://root@123.123.123.123`
-host: null
+# </============ CHALLENGE DOCKER ============>
 
-# Optional settings
-
-# Flags specify answers that your challenge use. You should generally provide at least one.
-# Can be removed if unused
-# Accepts strings or dictionaries of CTFd API data
 flags:
     - CYBN{P1X3LS_4R3_FUN}
 
-# Tags are used to provide additional public tagging to a challenge
-# Can be removed if unused
-# Accepts strings
 tags:
-    - Intro / Easy / Medium / Hard
+    - Easy
 
-# Hints are used to give players a way to buy or have suggestions. They are not
-# required but can be nice.
-# Can be removed if unused
-# Accepts dictionaries or strings
-# hints:
-#     - title: Titled Hint
-#       content: This hint has a title and costs points
-#       cost: 10
-
-# Requirements are used to make a challenge require another challenge to be
-# solved before being available.
-# Can be removed if unused
-# Accepts challenge names as strings or challenge IDs as integers
-# requirements:
-#     - "Warmup"
-#     - "Are you alive"
-
-# The following format for requirements can also be used. This format can also
-# support the "anonymize" flag, which will display the challenge but with all 
-# the challenge information anonymized if it is not unlocked yet.
-#requirements:
-#    prerequisites:
-#        - "Warmup"
-#        - "Are you alive"
-#    anonymize: true
-
-# The next is used to display a next recommended challenge to a user when 
-# the user correctly answers the current challenge.
-# Can be removed if unused
-# Accepts a challenge name as a string, a challenge ID as an integer, or null
-# if you want to remove or disable it.
-next: null
-
-# The state of the challenge.
-# If the field is omitted, the challenge is visible by default.
-# If provided, the field can take one of two values: hidden, visible.
-state: hidden
+state: visible
 
 # Specifies what version of the challenge specification was used.
 # Subject to change until ctfcli v1.0.0

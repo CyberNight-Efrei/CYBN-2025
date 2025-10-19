@@ -1,14 +1,29 @@
 name: "I'm not a human"
-category: "Web"
+category: "Prog"
 description: "Dans un futur où les IA ont pris le dessus, les captchas ont évolué. Ils servent toujours à distinguer les humains des robots, mais... dans un tout autre sens, hélas..."
 attribution: "Romain"
 value: 500
-type: dynamic
+# <============ CHALLENGE DOCKER ============>
+# REMOVE IF NO DOCKER
+
+type: dynamic_docker
 
 extra:
-    initial: 500
-    decay: 30
-    minimum: 100
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: prog_not-human   # RESPECT FORMAT (shortname please)
+
+  redirect_type: http   # Protocol. Default should be tcp
+  redirect_port: 5000   # App port, do not mind overlaps
+
+
+# </============ CHALLENGE DOCKER ============>
 
 flags:
     - CYBN{C0ngr4tul4t10n_Y0u'r_N0t_4_Hum4n}
+
+tags:
+    - Easy

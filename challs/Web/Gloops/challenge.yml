@@ -8,13 +8,27 @@ description: |-
   Sans être admin, pas possible d'avoir le flag de toute façon...
 attribution: DocSystem
 value: 500
-type: dynamic
+
+# <============ CHALLENGE DOCKER ============>
+# REMOVE IF NO DOCKER
+
+type: dynamic_docker
 
 extra:
-  initial: 500
-  decay: 30
-  minimum: 100
-connection_info: http://<X.X.X.X>:8080
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: web_gloops   # RESPECT FORMAT (shortname please)
+
+  redirect_type: http   # Protocol. Default should be tcp
+  redirect_port: 8000   # App port, do not mind overlaps
+
+  user: demo            # Optional, informative purpose only
+  password: demo123     # Optional, informative purpose only
+
+# </============ CHALLENGE DOCKER ============>
 
 flags:
 - content: CYBN{J_41_gLyPs3_Ch3f!}
