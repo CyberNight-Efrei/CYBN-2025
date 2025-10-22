@@ -1,0 +1,11 @@
+services:
+  app:
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: "production"
+      DATABASE: "mongodb://localhost/place"
+      PORT: 3000
+      ONLY_LISTEN_LOCAL: "true"
