@@ -22,7 +22,7 @@ extra:
   redirect_port: 3000               # App port, do not mind overlaps
 
 flags:
-    - CYBN{P1X3LS_4R3_FUN}
+  - CYBN{P1X3LS_4R3_FUN}
 
 tags:
   - Medium
