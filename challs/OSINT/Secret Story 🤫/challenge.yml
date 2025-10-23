@@ -1,0 +1,46 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ REQUIRED ============>
+name: "Secret Story 🤫"
+category: "OSINT" # Crypto / Forensics / Hardware / Misc / OSINT / Prog / Pwn / Reverse / Stegano / System / Web
+description: |-
+    Coucou mes loulous ! 😻
+
+    Vous en pensez quoi de ma dernière publication ???? 🤳 Elle est trooooop belle la vue mer depuis mon "bureau" ! 🌊😎💻
+    J’ai été très inspiré par ce magnifique paysage d’été, j’ai beaucoup écrit de nouvelles réflexions #Holidays #GoodVibes #InnerPeace 🙏💐
+    Trop dommage que vous puissiez pas les lire, mais pour l’instant je suis trop timide pour les révéler au grand public. 🤭
+    D’ailleurs j’ai découvert tout un tas de chansons géniales faudra que je vous les fasse écouter ! 🎤🧑‍🎤
+
+    Bisouuuuuuus 😘 
+
+flags:
+  - {
+      type: "static",
+      content: "CYBN{n3Ver_g0nNa_le4k_y0u_uP}",
+      data: "case_sensitive",
+    }
+
+attribution: Doryan et Gaël
+
+tags:
+    - Easy
+# </============ REQUIRED ============>
+
+
+# <============ OPTIONAL ============>
+
+files:
+    - src/secret-story.png
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>

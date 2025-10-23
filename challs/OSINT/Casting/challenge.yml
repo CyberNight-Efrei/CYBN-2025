@@ -14,7 +14,7 @@ flags:
   - {
       type: "static",
       content: "CYBN{bR4v0_v0u5_eT3s_S3LeCt10nNe}",
-      data: "case_insensitive",
+      data: "case_sensitive",
     }
 
 tags:
