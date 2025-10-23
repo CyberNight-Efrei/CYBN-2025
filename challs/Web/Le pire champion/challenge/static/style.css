@@ -42,7 +42,7 @@ body {
     display: block;
     margin: 0 auto;
     border-radius: 50%;
-    border: 2px solid #007bff;
+    border: 2px solid #630c29;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     animation: pulse 1s ease-in-out infinite alternate;
     transition: transform 0.3s ease-in-out;
@@ -73,7 +73,7 @@ body {
 }
 
 .champion-info h2 {
-    color: #007bff;
+    color: #ba0416;
 }
 
 .skills {
@@ -86,7 +86,7 @@ body {
 }
 
 .skills h3 {
-    color: #007bff;
+    color: #ba0416;
     margin-bottom: 5px;
 }
 
@@ -106,7 +106,7 @@ body {
 
 .skills p:first-letter {
     font-size: 150%;
-    color: #007bff;
+    color: #ba0416;
     font-weight: bold;
 }
 
@@ -134,7 +134,7 @@ body {
 }
 
 .stat-container h3 {
-    color: #007bff;
+    color: #ba0416;
     margin-bottom: 5px;
 }
 
@@ -152,7 +152,7 @@ body {
 }
 
 .stat-container button {
-    background-color: #007bff;
+    background-color: #ba0416;
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -162,11 +162,11 @@ body {
 }
 
 .stat-container button:hover {
-    background-color: #0056b3;
+    background-color: #ba0416;
 }
 
 .patch-button {
-    background-color: #007bff;
+    background-color: #ba0416;
     color: #fff;
     border: none;
     padding: 10px 20px;
