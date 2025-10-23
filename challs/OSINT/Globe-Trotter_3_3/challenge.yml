@@ -1,0 +1,37 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ REQUIRED ============>
+name: "Globe-Trotter [3/3] : Sur les flots"
+category: "OSINT" # Crypto / Forensics / Hardware / Misc / OSINT / Prog / Pwn / Reverse / Stegano / System / Web
+description: |-
+  Nous voilà désormais au bord de l'eau, pour clôturer notre périple. La quiétude des vagues se mêle au ballet des navires, il fallait absolument que je vous partage cela avec une petite vidéo !
+  Juste à la fin de l'extrait il y a ce bateau avec un toit bleu ciel qui m'intrigue un peu. Aidez-moi à retrouver son port d'attache ainsi que le nom de l'entreprise qui le possède.
+
+  Flag : `CYBN{cardiff_velargo-prawn}`
+attribution: "Doryan et Gaël"
+
+flags:
+    - CYBN{nauset_loparto-lobster}
+
+tags:
+    - Medium
+# </============ REQUIRED ============>
+
+
+# <============ OPTIONAL ============>
+
+files:
+    - src/flots.mp4
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>
