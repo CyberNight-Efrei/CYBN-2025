@@ -165,7 +165,7 @@ body {
     background-color: #ba0416;
 }
 
-.patch-button {
+.delete-button {
     background-color: #ba0416;
     color: #fff;
     border: none;
@@ -177,6 +177,6 @@ body {
     margin: 20px auto;
 }
 
-.patch-button:hover {
-    background-color: #0056b3;
+.delete-button:hover {
+    background-color: #ff0019;
 }

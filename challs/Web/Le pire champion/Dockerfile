@@ -21,7 +21,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 EXPOSE 8002
 
 # Set flag
-ENV FLAG="CYBN{J3_P4TCH_C0MM3_UN_D13U}"
+ENV FLAG="CYBN{J3_H41S_VR41M3NT_SH4C0}"
 
 # Run Gunicorn on port 8002
 CMD ["gunicorn", "--bind", "0.0.0.0:8002", "app:app"]
