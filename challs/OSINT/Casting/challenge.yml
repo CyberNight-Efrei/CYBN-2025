@@ -1,0 +1,34 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ REQUIRED ============>
+name: "Casting"
+category: "OSINT" # Crypto / Forensics / Hardware / Misc / OSINT / Prog / Pwn / Reverse / Stegano / System / Web
+description: |-
+  Je suis dégoûté ! Ça fait super longtemps que j'ai tenté ma chance en m'inscrivant au casting de cette nouvelle émission, et la prod a même pas été fichue de me recontacter 😭 
+  
+  Puisqu’on me répète que “tout ce qu’il faut savoir est déjà public”, je vais essayer de mieux regarder leur site pour comprendre où en est la sélection : https://tlmvpsf.wordpress.com/.
+attribution: "Doryan et Gaël"
+
+flags:
+  - {
+      type: "static",
+      content: "CYBN{bR4v0_v0u5_eT3s_S3LeCt10nNe}",
+      data: "case_insensitive",
+    }
+
+tags:
+    - Hard
+# </============ REQUIRED ============>
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>
