@@ -1,0 +1,33 @@
+value: 10
+type: static
+
+state: visible
+
+name: "Un dessin?"
+category: Misc
+description: |-
+    Bien joué pour avoir gagné, mais peux-tu faire ce que les anglais appellent un "dessin" ?    
+
+    Ce challenge est ce que les anglais appelent un "oeuf de Pâques"
+
+attribution: "NozZy"
+
+flags:
+    - {
+        type: "static",
+        content: "CYBN{DR4wiNG_w1Th0Ut_P4p3r_c4N_H4pP3n}",
+        data: "case_sensitive",
+    }
+
+
+tags:
+    - Easy
+
+connection_info: https://discord.com/channels/1420660433722802188/1429238105961136320
+
+requirements:
+  prerequisites:
+  - La puissance du 4
+  anonymize: false
+
+version: "0.1"

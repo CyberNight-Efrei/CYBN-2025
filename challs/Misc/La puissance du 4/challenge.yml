@@ -1,0 +1,36 @@
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+
+name: "La Puissance du 4"
+category: Misc
+description: |-
+    L'honorable P'tit bot, présent sur les serveurs discord de l'Efrei depuis plus de 6 ans maintenant, vous propose son dernier défi, avant de tirer sa révérence.
+
+    Il vous propose de remporter un flag, si vous arrivez à la battre 3 fois d'affilé au Puissance 4 🔴🟡 
+
+    Rendez-vous dans le salon [`#🚩｜puissance-4`](https://discord.com/channels/1420660433722802188/1429238105961136320) du discord de la CyberNight, puis lancer une partie avec la commande `--puisance4`
+
+attribution: "NozZy"
+
+flags:
+    - {
+        type: "static",
+        content: "CYBN{Y0u_Kn0w_hOW_7o_Pl4Y_P0w3R_4}",
+        data: "case_sensitive",
+    }
+
+tags:
+    - Easy
+
+connection_info: https://discord.com/channels/1420660433722802188/1429238105961136320
+
+next: "Un dessin?"
+
+version: "0.1"
