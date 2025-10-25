@@ -5,12 +5,10 @@
 name: "EzVM Shellcoding"
 category: "pwn"
 description: "I made this new vm because i didn't like having to use non printable chars.
-Could you try to escape from it to get the flag in /flag for me
-
-"
+Could you try to escape from it to get the flag in /flag for me"
 attribution: "Sandor"
-#value: 500
-type: dynamic
+value: 500
+type: dynamic_docker
 
 # The extra field provides additional fields for data during the install/sync commands/
 # Fields in extra can be used to supply additional information for other challenge types
@@ -21,29 +19,18 @@ extra:
     decay: 30
     minimum: 100
 
-# Settings used for Dockerfile deployment
-# If not used, remove or set to null
-# If you have a Dockerfile set to .
-# If you have an imaged hosted on Docker set to the image url (e.g. python/3.8:latest, registry.gitlab.com/python/3.8:latest)
-# Follow Docker best practices and assign a tag
-image: . 
+type: dynamic_docker
 
-# Specify a protocol that should be used to connect to the running image
-# For example if the image is a website you can specify http or https
-# Otherwise you can specify tcp
-protocol: tcp 
+extra:
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
 
-# Specify a host to deploy the challenge onto.
-# The currently supported URI schemes are ssh:// and registry://
-# ssh is an ssh URI where the above image will be copied to and deployed (e.g. ssh://root@123.123.123.123)
-# registry is a Docker registry tag (e.g registry://registry.example.com/test/image)
-# host can also be specified during the deploy process: `ctf challenge deploy challenge --host=ssh://root@123.123.123.123`
-host: null
+  docker_image: pwn_vmshellcoding   # RESPECT FORMAT (shortname please)
 
-# Optional settings
-
-# connection_info is used to provide a link, hostname, or instructions on how to connect to a challenge
-connection_info: nc hostname 23457 
+  redirect_type: tcp   # Protocol. Default should be tcp
+  redirect_port: 23457               # App port, do not mind overlaps
 
 # Flags specify answers that your challenge use. You should generally provide at least one.
 # Can be removed if unused
@@ -62,7 +49,6 @@ tags:
 # Accepts strings
 files:
     - ./dist/vm
-
 
 
 # Specifies what version of the challenge specification was used.
