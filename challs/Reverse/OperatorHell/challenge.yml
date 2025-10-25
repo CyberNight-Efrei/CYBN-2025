@@ -1,0 +1,24 @@
+name: OperatorHell 
+category: Reverse
+description: I hate maths and obvious code that much that i decided to change every of your operators. Try to relearn basic maths to validate my flag checker.
+attribution: Sandor 
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- content: CYBN{Wh0_5a1d_0p3r4t0rs_4r3_n0T_Fun}
+  type: static
+  data: case_sensitive
+
+files:
+- dist/operator_hell
+
+tags:
+- Hard 
+
+version: '0.1'
