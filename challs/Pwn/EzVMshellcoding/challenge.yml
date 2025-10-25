@@ -3,7 +3,7 @@
 
 # Required sections
 name: "EzVM Shellcoding"
-category: "pwn"
+category: "PWN"
 description: "I made this new vm because i didn't like having to use non printable chars.
 Could you try to escape from it to get the flag in /flag for me"
 attribution: "Sandor"
