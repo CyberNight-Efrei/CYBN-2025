@@ -31,7 +31,8 @@ exports.getAPIUsersTable = (req, res, next) => {
             req.place.reportError("Error trying to receive admin user table data.");
             return res.status(500).json({success: false});
         }
-        User.find().count().then((c) => res.json(Object.assign({success: true, recordsTotal: c}, table))).catch((err) => {
+        // Use countDocuments instead of count; countDocuments is compatible with modern MongoDB drivers
+        User.countDocuments().then((c) => res.json(Object.assign({success: true, recordsTotal: c}, table))).catch((err) => {
             req.place.reportError("Error trying to receive user count for admin user table: " + err);
             res.status(500).json({success: false});
         });

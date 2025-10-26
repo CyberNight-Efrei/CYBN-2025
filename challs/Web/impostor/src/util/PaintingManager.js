@@ -53,7 +53,8 @@ function PaintingManager(app) {
                         this.pixelsToPreserve = [];
                         await serveImage(image, skipImmediateCache);
                     }
-                    Pixel.count({}).then((count) => {
+                    // Use countDocuments for accurate counts with filters on modern drivers
+                    Pixel.countDocuments({}).then((count) => {
                         var loaded = 0;
                         var progressUpdater = setInterval(() => {
                             app.logger.info("Startup", `Loaded ${loaded.toLocaleString()} of ${count.toLocaleString()} pixel${count == 1 ? "" : "s"} (${Math.round(loaded / count * 100)}% complete)`);

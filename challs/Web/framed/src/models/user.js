@@ -173,14 +173,11 @@ UserSchema.methods.setUserName = function(username, callback, usernameSet) {
     });
     this.name = username;
     this.usernameSet = true;
-    this.save(function(err) {
-        if (err) return callback({
-            message: "That username already exists.",
-            code: "username_taken",
-            intCode: 400
-        });
-        return callback();
-    });
+    return this.save().then(() => callback()).catch((err) => callback({
+        message: "That username already exists.",
+        code: "username_taken",
+        intCode: 400
+    }));
 }
 
 UserSchema.methods.recordAccess = function(req) {
@@ -230,14 +227,15 @@ UserSchema.statics.register = function(username, password, app, callback) {
         });
 
         // Save the user
-        newUser.save(function(err) {
-            if (err) return callback(null, {
+        newUser.save().then(() => {
+            require("../util/ActionLogger").log(app, "signUp", newUser);
+            return callback(newUser, null);
+        }).catch((err) => {
+            return callback(null, {
                 message: "An account with that username already exists.",
                 code: "username_taken",
                 intCode: 400
             });
-            require("../util/ActionLogger").log(app, "signUp", newUser);
-            return callback(newUser, null)
         });
     }
 
@@ -265,11 +263,12 @@ UserSchema.methods.addPixel = function(colour, x, y, app, callback) {
         if (changed) {
             user.lastPlace = new Date();
             user.placeCount++;
-            user.save((err) => {
-                if (err) return callback(null, {
+            user.save().then(() => {
+                return callback(changed, null);
+            }).catch((err) => {
+                return callback(null, {
                     message: "An unknown error occurred while trying to place that pixel."
                 });
-                return callback(changed, null);
             });
         } else callback(changed, null);
     });
