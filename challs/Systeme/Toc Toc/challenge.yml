@@ -1,0 +1,34 @@
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+
+name: "Toc Toc"
+category: System
+description: |-
+    Je viens d'arriver dans l'entreprise NeuillCorp en tant qu'alternant, et on me refile déjà le sale boulot...
+
+    Ils veulent que je me reconnecte à un vieux serveur dont tout le monde à oublier comment s'y connecter. Ils avaient bien écrit un document à l'époque sur comment faire, mais on n'y comprend rien, et les gars ont quitté la boite.
+
+    Y'a un truc qui cloche dans cette procédure, je vais avoir besoin d'un coup de main.
+attribution: "NozZy"
+
+flags:
+    - {
+        type: "static",
+        content: "CYBN{T0c_t0c_h3R35_ThE_P0rT_Kn0Ck1nG}",
+        data: "case_sensitive",
+    }
+
+tags:
+    - Medium
+
+files:
+    - src/procedure.pdf
+
+version: "0.1"
