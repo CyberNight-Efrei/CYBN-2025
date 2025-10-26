@@ -2,7 +2,7 @@ CAT="web"
 CHALL="impostor"
 NAME="${CAT}_${CHALL}"
 PORT=3000
-HOST_PORT=8002
+HOST_PORT=8005
 
 docker rm -f $NAME
 docker image prune -f
