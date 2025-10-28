@@ -1,4 +1,4 @@
-FROM mongo:noble
+FROM mongo:4.4.29
 
 # install latest nodejs (22) and yarn
 RUN apt-get update && \
