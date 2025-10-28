@@ -1,7 +1,7 @@
 name: "Framed"
 category: "Web"
 description: |-
-  Le secret se fait discret, l'observation vous sera-t-elle suffisante ?
+  L'observation vous sera-t-elle suffisante ? Le secret se cache peut-être dans les moindres détails…
 
   NB: Ce challenge est basé sur l’application open-source Place (https://github.com/dynastic/place).
 
@@ -24,7 +24,10 @@ extra:
 flags:
   - CYBN{P1X3LS_4R3_FUN}
 
+next:
+  - "Impostor"
+
 tags:
-  - Medium
+  - Easy
 
 version: "0.1"
