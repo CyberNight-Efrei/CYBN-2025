@@ -5,8 +5,6 @@ from config import Config
 from models import db, User, Message, ReceivedMessage
 from flask_login import LoginManager, current_user, login_required
 from auth import bp as auth_bp
-import os
-
 
 login_manager = LoginManager()
 login_manager.login_view = None
