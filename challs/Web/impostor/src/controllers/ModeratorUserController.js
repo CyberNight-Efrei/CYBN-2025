@@ -16,14 +16,12 @@ exports.getAPIUsersTable = (req, res, next) => {
     User.dataTables({
         limit: req.body.length || 25,
         skip: req.body.start || 0,
-        select: ["id", "name", "creationDate", "admin", "moderator", "banned", "deactivated", "lastPlace", "placeCount", "totpSecret"],
+        select: ["id", "name", "creationDate", "admin", "moderator", "banned", "deactivated", "lastPlace", "placeCount"],
         search: {
             value: searchValue,
             fields: ["name", "id"]
         }, sort: sort,
         processor: (data, row) => {
-            data.hasTOTP = row.twoFactorAuthEnabled();
-            delete data.totpSecret;
             return data;
         }
     }, (err, table) => {
@@ -172,25 +170,6 @@ exports.getAPIActions = (req, res, next) => {
         res.status(500).json({ success: false });
     });
 };
-
-exports.postAPIDisableTOTP = (req, res, next) => {
-    if(!req.query.id) return res.status(400).json({success: false, error: {message: "No user ID specified.", code: "bad_request"}});
-    User.findById(req.query.id).then((user) => {
-        if(!req.user.canPerformActionsOnUser(user)) return res.status(403).json({success: false, error: {message: "You may not perform actions on this user.", code: "access_denied_perms"}});
-        if(!user.twoFactorAuthEnabled()) return res.status(400).json({success: false, error: {message: "This user doesn't have two-factor authentication enabled.", code: "totp_not_enabled"}});
-        user.totpSecret = null;
-        user.save().then((user) => {
-            ActionLogger.log(req.place, "disableTOTP", user, req.user);
-            res.json({success: true, user: {hasTOTP: false}});
-        }).catch((err) => {
-            req.place.reportError("Error trying to disable two-factor authentication for user: " + err);
-            res.status(500).json({success: false});
-        });
-    }).catch((err) => {
-        req.place.reportError("Error trying to get user to disable two-factor authentication on: " + err);
-        res.status(500).json({success: false})
-    });
-}
 
 exports.postAPIForcePasswordReset = (req, res, next) => {
     if(!req.query.id || !req.query.key) return res.status(400).json({success: false, error: {message: "No user ID or password reset key specified.", code: "bad_request"}});

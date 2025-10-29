@@ -11,7 +11,6 @@ const AdminActionsController = require("../controllers/AdminActionsController");
 const ModeratorUserController = require("../controllers/ModeratorUserController");
 const AuthController = require("../controllers/AuthController");
 const AccountPageController = require("../controllers/AccountPageController");
-const TOTPSetupController = require("../controllers/TOTPSetupController");
 const WarpController = require("../controllers/WarpController");
 const UserDownloadController = require("../controllers/UserDownloadController");
 
@@ -87,7 +86,6 @@ function APIRouter(app) {
 
     router.post("/identify", JWTController.identifyAPIUser);
 
-    router.route("/user/totp-setup", requireUser).get([requireUser, TOTPSetupController.getTOTPSetup]).post([requireUser, TOTPSetupController.postTOTPSetup]).delete([requireUser, TOTPSetupController.deleteTOTPSetup]);
     router.post("/user/change-password", requireUser, PasswordChangeController.postSelfServePassword);
 
     router.post("/user/deactivate", requireUser, DeactivateAccountController.postAPIDeactivate);
@@ -178,7 +176,6 @@ function APIRouter(app) {
 
     router.post("/admin/users", app.modMiddleware, ModeratorUserController.getAPIUsersTable);
     router.get("/admin/toggle_mod", app.adminMiddleware, ModeratorUserController.postAPIToggleModerator);
-    router.get("/admin/disable_totp", app.adminMiddleware, ModeratorUserController.postAPIDisableTOTP);
     router.get("/admin/force_pw_reset", app.adminMiddleware, ModeratorUserController.postAPIForcePasswordReset);
     
     // Mod APIs

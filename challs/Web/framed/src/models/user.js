@@ -72,10 +72,6 @@ var UserSchema = new Schema({
         required: false,
         default: ""
     },
-    totpSecret: {
-        type: String,
-        required: false
-    },
     deletionDate: {
         type: Date,
         required: false
@@ -365,9 +361,6 @@ UserSchema.statics.getPubliclyAvailableUserInfo = function(userID, overrideDataA
             else if (!overrideDataAccess && user.deactivated) return returnInfo("deactivated");
             user.getInfo(app, getPixelInfo).then((userInfo) => {
                 info.user = userInfo;
-                if(overrideDataAccess) {
-                    info.user.hasTOTP = user.twoFactorAuthEnabled();
-                }
                 resolve(info);
             }).catch((err) => returnInfo("delete"));
         }
@@ -377,10 +370,6 @@ UserSchema.statics.getPubliclyAvailableUserInfo = function(userID, overrideDataA
             returnInfo("delete");
         });
     });
-}
-
-UserSchema.methods.twoFactorAuthEnabled = function() {
-    return this.totpSecret != null;
 }
 
 UserSchema.methods.canPlaceCustomColours = function() {
