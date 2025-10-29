@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Connexion</h2>
+    <div class="center">
+        <form method="post">
+            <label>Nom d'utilisateur : <input name="name" type="text" required></label><br>
+            <label>Mot de passe : <input name="password" type="password" required></label><br>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+    <p><a class="forgot-password" href="/reset-request">Mot de passe oublié ?</a></p>
+{% endblock %}

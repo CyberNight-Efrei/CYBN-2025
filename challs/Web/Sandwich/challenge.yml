@@ -1,0 +1,49 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+
+state: visible
+# </============ NE PAS TOUCHER ============>
+
+# <============ REQUIRED ============>
+name: "Sandwich"
+category: Web
+description: |-
+  La sandwicherie de votre ville vient d'ouvrir ! Grand fan de ce met succulent, vous vous empressez de vous connecter à leur site web, mais vous rendez-compte que la personne qui dirige cet établissement semble très désagréable... Peux-être pourriez -vous récupérer son sandwich d'administration personnel pour voir quels ingrédients le mettent dans cet état ?
+attribution: "NozZy"
+
+flags:
+    - {
+        type: "static",
+        content: "CYBN{1_pR3f3r_cH3e53_S4ndWIcH_Th4N_Uu1D_S4nDW1Ch}",
+        data: "case_sensitive",
+    }
+
+tags:
+    - Medium
+# </============ REQUIRED ============>
+
+
+# <============ CHALLENGE DOCKER ============>
+# REMOVE IF NO DOCKER
+
+type: dynamic_docker
+
+extra:
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: web_sandwich   # RESPECT FORMAT (shortname please)
+
+  redirect_type: http   # Protocol. Default should be tcp
+  redirect_port: 8000               # App port, do not mind overlaps
+
+# </============ CHALLENGE DOCKER ============>
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

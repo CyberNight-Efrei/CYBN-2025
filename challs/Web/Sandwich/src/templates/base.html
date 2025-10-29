@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Flask App</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(120deg, #fef6e4, #fffdf9); /* plus doux */
+            color: #4a3e35;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background-color: #F16A16; /* couleur plus pastel et moins saturée */
+            padding: 12px 25px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left a, .nav-right a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 12px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-left a:hover, .nav-right a:hover {
+            color: #fff3e6;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 70vw;
+            padding: 20px;
+            background-color: #fff3e0; /* plus doux */
+            border-radius: 20px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 6px 0;
+            border-radius: 8px;
+            border: 1px solid #dca06f; /* plus doux */
+            font-size: 0.95rem;
+            background-color: #fffaf5;
+            color: #4a3e35;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ED9261;
+            box-shadow: 0 0 4px rgba(255, 156, 75, 0.4);
+        }
+
+        button {
+            background-color: #ED9261;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s, transform 0.2s;
+            min-width: 100px;
+        }
+
+        button:hover {
+            background-color: #e5893b;
+            transform: translateY(-1px);
+        }
+
+        ul.flashes {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        ul.flashes li {
+            padding: 10px 12px;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            word-wrap: break-word;
+        }
+
+        .flash.success {
+            background-color: #c8f0d4;
+            color: #2b662b;
+        }
+
+        .flash.error {
+            background-color: #f8c2c2;
+            color: #802b2b;
+        }
+
+        .flash.warning {
+            background-color: #fff6c2;
+            color: #665c2b;
+        }
+
+        .flash.info {
+            background-color: #c2e0f0;
+            color: #2b4c66;
+        }
+
+        /* Profil page */
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffb86c;
+            margin-bottom: 10px;
+        }
+
+        .profile-info p {
+            margin: 3px 0;
+            font-size: 0.95rem;
+        }
+
+        form {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #chat-form {
+            width: 100%;
+        }
+
+        form input, form button {
+            max-width: 100%;
+        }
+
+        a.forgot-password {
+            color: #ED9261;
+            font-size: 0.85rem;
+            text-decoration: underline dotted;
+            transition: color 0.3s;
+        }
+
+        a.forgot-password:hover {
+            color: #e5893b;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <div class="nav-left">
+        <a href="/">Accueil</a>
+        {% if current_user.is_authenticated and current_user.is_admin %}
+            <a href="/admin">Admin</a>
+        {% endif %}
+    </div>
+    <div class="nav-right">
+        {% if current_user.is_authenticated %}
+            <a href="/profile">Profile</a>
+            <a href="/logout">Se déconnecter</a>
+        {% else %}
+            <a href="/login">Se connecter</a>
+            <a href="/register">S'inscrire</a>
+        {% endif %}
+    </div>
+</nav>
+<div class="container">
+    <div class="card">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, msg in messages %}
+                        <li class="flash {{ category }}">{{ msg }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</div>
+{% if current_user.is_authenticated %}
+
+    <div id="floating-menu">
+        <div id="menu-button">
+            📧
+            <span id="notification-badge"></span>
+        </div>
+        <div id="menu-content">
+            <div id="menu-header">Message entrant - boîte : <span id="current-mail">{{ current_user.email }}</span>
+            </div>
+            <div id="menu-messages">
+                <ul id="messages-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Conteneur flottant */
+        #floating-menu {
+            position: fixed;
+            bottom: 20px;
+            right: 20px; /* décollé du bord */
+            z-index: 1000;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Bouton principal */
+        #menu-button {
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        /* Pastille notifications */
+        #notification-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #ff3b3b;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: none;
+        }
+
+        /* Contenu du popup */
+        #menu-content {
+            position: absolute;
+            bottom: 60px; /* décalé du bouton */
+            right: 0;
+            width: 300px;
+            height: 400px; /* taille fixe */
+            background-color: #f0f8ff; /* bleu ciel très clair */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header */
+        #menu-header {
+            background-color: #d0ebff;
+            padding: 10px 15px;
+            font-weight: 600;
+            font-size: 0.85rem; /* légèrement plus petit que le contenu principal */
+            color: #0a3d62;
+            border-bottom: 1px solid #a6c8e0;
+        }
+
+        /* Contenu scrollable */
+        #menu-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        #menu-messages ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu-messages li {
+            background: #ffffff;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            word-wrap: break-word; /* coupe les mots longs */
+            overflow-wrap: break-word; /* compatible avec certains navigateurs */
+            word-break: break-all; /* coupe les UUID ou chaînes sans espaces */
+        }
+
+        /* Contenu du message */
+        .message-content {
+            font-size: 0.85rem;
+            color: #333333;
+            white-space: pre-wrap; /* conserve les sauts de ligne éventuels */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        /* Nom de l'expéditeur */
+        .message-sender {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #555555;
+            border-top: 1px solid #d0e0f0;
+            padding-top: 2px;
+        }
+
+        /* Date de réception */
+        .message-timestamp {
+            font-size: 0.5rem;
+            color: #888888;
+            text-align: right;
+        }
+    </style>
+
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const menuContent = document.getElementById('menu-content');
+        const messagesList = document.getElementById('messages-list');
+        const notificationBadge = document.getElementById('notification-badge');
+        const currentMailSpan = document.getElementById('current-mail');
+
+        const menuUserEmail = "{{ current_user.email }}"; // boîte actuelle affichée dans le header
+        currentMailSpan.textContent = menuUserEmail;
+
+        let menuOpen = false;
+
+        menuButton.addEventListener('click', async () => {
+            menuOpen = !menuOpen;
+            menuContent.style.display = menuOpen ? 'flex' : 'none';
+
+            if (menuOpen) {
+                await fetch('/api/received_messages/mark_read', {method: 'POST'});
+                notificationBadge.style.display = 'none';
+            }
+        });
+
+        async function loadMessages() {
+            const res = await fetch('/api/received_messages');
+            const data = await res.json();
+            messagesList.innerHTML = '';
+            let unreadCount = 0;
+
+            // Trier par date d'envoi si besoin (assurez-vous que l'API renvoie un timestamp utilisable)
+            data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+
+            data.forEach(msg => {
+                const li = document.createElement('li');
+
+                li.innerHTML = `
+            <div class="message-content">${msg.content}</div>
+            <div class="message-sender">${msg.sender_name}</div>
+            <div class="message-timestamp">${msg.timestamp}</div>
+        `;
+
+                messagesList.appendChild(li);
+
+                if (!msg.read) unreadCount++;
+            });
+
+            // Afficher ou cacher la pastille de notifications
+            notificationBadge.style.display = unreadCount > 0 ? 'block' : 'none';
+        }
+
+
+        // Chargement initial et refresh toutes les 30s si menu fermé
+        loadMessages();
+        setInterval(() => {
+            if (!menuOpen) loadMessages();
+        }, 30000);
+    </script>
+
+{% endif %}
+</body>
+</html>

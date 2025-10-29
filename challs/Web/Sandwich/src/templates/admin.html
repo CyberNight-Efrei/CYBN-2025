@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Chef des sandwichs</h2>
+
+    <div class="center" style="position: relative; height: 200px;">
+        <img src="/static/top_bread.png" alt="haut du sandwich"
+             style="position: absolute; top: 0; left: 0; width:100%; z-index: 50;">
+        <h2 style="position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    font-family: Impact, serif;
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+    font-size: medium;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 5px;">
+            {{ flag }}</h2>
+        <img src="/static/bottom_bread.png" alt="bas du sandwich"
+             style="position: absolute; bottom: 0; left: 0; width:100%; z-index: 10;">
+    </div>
+
+{% endblock %}

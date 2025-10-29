@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    container_name: sandwich
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    environment:
+      FLAG: "CYBN{1_pR3f3r_cH3e53_S4ndWIcH_Th4N_Uu1D_S4nDW1Ch}"
+      SECRET_KEY: "yUmfY1OcnsaQsjq4FwjgkrUnKBQzssLFH2Q4xWNoy7aNgFtoEHzBfpiYoMWdFyGs8saLuSuZEkqW1qsQTZ8wbw"
+      ADMIN_PASSWORD: "o5itVhuDTvHNqZze2hJKrEjMoRXpTxbB"
