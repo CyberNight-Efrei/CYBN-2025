@@ -304,21 +304,21 @@ UserSchema.methods.findSimilarIPUsers = function() {
     });
 }
 
-UserSchema.methods.getLatestAvailablePixel = function() {
-    return new Promise((resolve, reject) => {
-        Pixel.findOne({
-            editorID: this.id
-        }, {}, {
-            sort: {
-                lastModified: -1
-            }
-        }, function(err, pixel) {
-            if (err || !pixel) return resolve(null);
-            var info = pixel.toInfo();
-            info.isLatest = pixel ? ~((pixel.lastModified - this.lastPlace) / 1000) <= 3 : false;
-            resolve(info);
-        });
-    });
+UserSchema.methods.getLatestAvailablePixel = async function() {
+    try {
+        const pixel = await Pixel.findOne({ editorID: this.id })
+            .sort({ lastModified: -1 })
+            .exec();
+
+        if (!pixel) return null;
+
+        const info = pixel.toInfo();
+        info.isLatest = pixel ? ~((pixel.lastModified - this.lastPlace) / 1000) <= 3 : false;
+        return info;
+    } catch (err) {
+        console.error('Error in getLatestAvailablePixel:', err);
+        return null;
+    }
 }
 
 UserSchema.methods.canPerformActionsOnUser = function(user) {
