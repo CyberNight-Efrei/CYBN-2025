@@ -37,10 +37,11 @@ ReportSchema.statics.reportUser = function(reportedUser, reporter, reason, app, 
         reason: reason
     });
 
-    report.save(function(err) {
-        if (err) return callback(null, { message: "some error fuck off out of here.", code: "fuck_off" });
+    report.save().then(() => {
         require("../util/ActionLogger").log(app, "report", report);
         return callback(report, null);
+    }).catch((err) => {
+        return callback(null, { message: "some error fuck off out of here.", code: "fuck_off" });
     });
 }
 

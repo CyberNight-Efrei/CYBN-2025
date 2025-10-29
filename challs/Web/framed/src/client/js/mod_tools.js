@@ -80,13 +80,6 @@ var actions = {
             shouldShow: true,
             buttonText: () => "Password Reset"
         },
-        disableTOTP: {
-            url: "admin/disable_totp",
-            btnStyle: "info",
-            adminOnly: true,
-            shouldShow: (data) => data.hasTOTP,
-            buttonText: () => "Disable 2FA"
-        },
         editUserNotes: {
             url: "mod/user_notes",
             method: "POST",

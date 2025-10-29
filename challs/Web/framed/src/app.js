@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-mongoose.promise = global.Promise;
+// Use built-in Promise implementation for mongoose
+mongoose.Promise = global.Promise;
 const recaptcha = require("express-recaptcha");
 const readline = require("readline").createInterface({input: process.stdin, output: process.stdout});
 const util = require("util");
@@ -87,12 +88,16 @@ app.recreateServer();
 mongoose.connect(process.env.DATABASE || app.config.database);
 
 const handlePendingDeletions = () => {
-    setInterval(() => {
+    setInterval(async () => {
         const now = new Date();
-        User.remove({ deletionDate: { $lte: now } }, function(err, result) {
-            if (err) { console.error(err); return }
-            if (result.n) app.logger.log('Deleter', `Deleted ${result.n} users.`);
-        });
+        try {
+            const result = await User.deleteMany({ deletionDate: { $lte: now } });
+            if (result && typeof result.deletedCount !== "undefined") {
+                if (result.deletedCount) app.logger.log('Deleter', `Deleted ${result.deletedCount} users.`);
+            }
+        } catch (err) {
+            console.error(err);
+        }
     }, 30 * Math.pow(10, 3));
 }
 

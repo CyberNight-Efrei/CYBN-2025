@@ -3,7 +3,15 @@ const bruteForceSchema = require("express-brute-mongoose/dist/schema");
 const mongoose = require("mongoose");
 
 function RatelimitStore(name = null) {
-    const model = mongoose.model(`bruteforce${name ? `${-name}` : ""}`, bruteForceSchema);
+    // Build a stable model name. Use a dash separator for named stores.
+    const modelName = `bruteforce${name ? `-${name}` : ""}`;
+    // Avoid OverwriteModelError by reusing an already-compiled model if present.
+    let model;
+    if (mongoose.models && mongoose.models[modelName]) {
+        model = mongoose.model(modelName);
+    } else {
+        model = mongoose.model(modelName, bruteForceSchema);
+    }
     return new MongooseStore(model);
 }
 

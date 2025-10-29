@@ -72,10 +72,6 @@ var UserSchema = new Schema({
         required: false,
         default: ""
     },
-    totpSecret: {
-        type: String,
-        required: false
-    },
     deletionDate: {
         type: Date,
         required: false
@@ -173,14 +169,11 @@ UserSchema.methods.setUserName = function(username, callback, usernameSet) {
     });
     this.name = username;
     this.usernameSet = true;
-    this.save(function(err) {
-        if (err) return callback({
-            message: "That username already exists.",
-            code: "username_taken",
-            intCode: 400
-        });
-        return callback();
-    });
+    return this.save().then(() => callback()).catch((err) => callback({
+        message: "That username already exists.",
+        code: "username_taken",
+        intCode: 400
+    }));
 }
 
 UserSchema.methods.recordAccess = function(req) {
@@ -230,14 +223,15 @@ UserSchema.statics.register = function(username, password, app, callback) {
         });
 
         // Save the user
-        newUser.save(function(err) {
-            if (err) return callback(null, {
+        newUser.save().then(() => {
+            require("../util/ActionLogger").log(app, "signUp", newUser);
+            return callback(newUser, null);
+        }).catch((err) => {
+            return callback(null, {
                 message: "An account with that username already exists.",
                 code: "username_taken",
                 intCode: 400
             });
-            require("../util/ActionLogger").log(app, "signUp", newUser);
-            return callback(newUser, null)
         });
     }
 
@@ -265,11 +259,12 @@ UserSchema.methods.addPixel = function(colour, x, y, app, callback) {
         if (changed) {
             user.lastPlace = new Date();
             user.placeCount++;
-            user.save((err) => {
-                if (err) return callback(null, {
+            user.save().then(() => {
+                return callback(changed, null);
+            }).catch((err) => {
+                return callback(null, {
                     message: "An unknown error occurred while trying to place that pixel."
                 });
-                return callback(changed, null);
             });
         } else callback(changed, null);
     });
@@ -305,21 +300,21 @@ UserSchema.methods.findSimilarIPUsers = function() {
     });
 }
 
-UserSchema.methods.getLatestAvailablePixel = function() {
-    return new Promise((resolve, reject) => {
-        Pixel.findOne({
-            editorID: this.id
-        }, {}, {
-            sort: {
-                lastModified: -1
-            }
-        }, function(err, pixel) {
-            if (err || !pixel) return resolve(null);
-            var info = pixel.toInfo();
-            info.isLatest = pixel ? ~((pixel.lastModified - this.lastPlace) / 1000) <= 3 : false;
-            resolve(info);
-        });
-    });
+UserSchema.methods.getLatestAvailablePixel = async function() {
+    try {
+        const pixel = await Pixel.findOne({ editorID: this.id })
+            .sort({ lastModified: -1 })
+            .exec();
+
+        if (!pixel) return null;
+
+        const info = pixel.toInfo();
+        info.isLatest = pixel ? ~((pixel.lastModified - this.lastPlace) / 1000) <= 3 : false;
+        return info;
+    } catch (err) {
+        console.error('Error in getLatestAvailablePixel:', err);
+        return null;
+    }
 }
 
 UserSchema.methods.canPerformActionsOnUser = function(user) {
@@ -366,9 +361,6 @@ UserSchema.statics.getPubliclyAvailableUserInfo = function(userID, overrideDataA
             else if (!overrideDataAccess && user.deactivated) return returnInfo("deactivated");
             user.getInfo(app, getPixelInfo).then((userInfo) => {
                 info.user = userInfo;
-                if(overrideDataAccess) {
-                    info.user.hasTOTP = user.twoFactorAuthEnabled();
-                }
                 resolve(info);
             }).catch((err) => returnInfo("delete"));
         }
@@ -378,10 +370,6 @@ UserSchema.statics.getPubliclyAvailableUserInfo = function(userID, overrideDataA
             returnInfo("delete");
         });
     });
-}
-
-UserSchema.methods.twoFactorAuthEnabled = function() {
-    return this.totpSecret != null;
 }
 
 UserSchema.methods.canPlaceCustomColours = function() {

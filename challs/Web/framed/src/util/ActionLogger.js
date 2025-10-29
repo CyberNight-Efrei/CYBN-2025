@@ -76,13 +76,6 @@ var actions = {
         requiresModerator: true,
         isPrivileged: true
     },
-    disableTOTP: {
-        displayName: "Disable two-factor authentication",
-        inlineDisplayName: "Disabled two-factor authentication for",
-        category: "moderation",
-        requiresModerator: true,
-        isPrivileged: true
-    },
     forcePWReset: {
         displayName: "Force a password reset",
         inlineDisplayName: "Forced a password reset for",

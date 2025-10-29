@@ -16,6 +16,7 @@
             4
         ],
         "no-undef": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "no-unused-vars": "off"
     }
 }

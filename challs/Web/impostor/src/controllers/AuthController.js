@@ -1,7 +1,5 @@
 const ActionLogger = require("../util/ActionLogger");
-const fs = require('fs');
 const passport = require("passport");
-const speakeasy = require("speakeasy");
 const absoluteURLRegex = new RegExp('^(?:[a-z]+:)?(//)?', 'i');
 
 const User = require('../models/user');
@@ -19,10 +17,6 @@ exports.postSignIn = (req, res, next) => {
                 message: 'Login disabled. Please do not call this endpoint any futher.'
             }
         });
-        if (user.twoFactorAuthEnabled()) {
-            if(!req.body.totpToken) return res.status(403).json({success: false, error: {code: "totp_needed", message: "Two-factor authentication is enabled for this account. Please specify your two-factor authentication token."}});
-            if(!speakeasy.totp.verify({ secret: user.totpSecret, encoding: 'base32', token: req.body.totpToken, window: 6 })) return res.status(403).json({success: false, error: {code: "invalid_totp", message: "We couldn't sign you in with that two-factor authentication token. Make sure you're entering the right code and it is updated."}});
-        }
         if(req.body.keepSignedIn) req.session.maxAge = 1000 * 60 * 60 * 24 * 7; // keep signed in for 7 days
         req.login(user, function(err) {
             if (err) return res.status(500).json({success: true, error: {message: "An unknown error occurred."}});

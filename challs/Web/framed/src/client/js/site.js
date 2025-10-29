@@ -1,11 +1,11 @@
 $.ajaxSetup({
-	headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
 });
 
 var renderBadge = function(badge, prefersShortText = false) {
-	var badge = $("<span>").addClass(`label badge-label label-${badge.style || "default"}`).text(prefersShortText && badge.shortText ? badge.shortText : badge.text);
-	if(badge.title) badge.attr("title", badge.title);
-	return badge;
+    badge = $("<span>").addClass(`label badge-label label-${badge.style || "default"}`).text(prefersShortText && badge.shortText ? badge.shortText : badge.text);
+    if(badge.title) badge.attr("title", badge.title);
+    return badge;
 }
 
 var hashHandler = {
@@ -98,13 +98,6 @@ function DialogController(dialog) {
                         window.location.reload();
                     }
                 }).catch((err) => {
-                    if(tab == "sign-in" && err && err.code == "totp_needed") {
-                        $("#inputUsername2FA").val(form.find("#inputUsername").val());
-                        $("#inputPassword2FA").val(form.find("#inputPassword").val());
-                        $("#inputKeepSignIn2FA").prop("checked", form.find("#inputKeepSignIn").is(":checked"));
-                        me.switchTab("2fa-auth");
-                        return;
-                    }
                     if(tab == "sign-up" && typeof grecaptcha !== "undefined") grecaptcha.reset();
                     me.shake();
                     var error = "An unknown error occurred while attempting to authenticate you.";
@@ -176,11 +169,6 @@ function DialogController(dialog) {
 
         hide: function(){ 
             this.dialog.find(".tab-error").remove();
-            if(this.currentTab == "2fa-auth") {
-                this.dialog.find(".pages > .active form").trigger("reset");
-                this.switchTab("sign-in");
-                return;
-            }
             this.dialog.find("form").trigger("reset");
             this.dialog.parent().removeClass("show");
             hashHandler.deleteHashKey("d");
@@ -190,37 +178,37 @@ function DialogController(dialog) {
 
 const defaultErrorMessage = "An unknown error occurred while trying to make that request.";
 var placeAjax = {
-	ajax: function(data, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
-		return new Promise((resolve, reject) => {
-			function handleError(response) {
-				if(defaultErrorMessage) window.alert(response && response.error ? (response.error.message || defaultErrorMessage) : defaultErrorMessage);
-				reject(response ? response.error : null);
-			}
-			$.ajax(data).done(function(response) {
-				if(!response.success) return handleError(response);
-				resolve(response);
-			}).fail((res) => handleError(typeof res.responseJSON === "undefined" ? null : res.responseJSON)).always(function() {
-				if(typeof alwaysCallback == "function") alwaysCallback();
-			})
-		});
-	},
-	get: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
-		return this.ajax({url: url, data: data, method: "GET"}, defaultErrorMessage, alwaysCallback);
-	},
-	post: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
-		return this.ajax({url: url, data: data, method: "POST"}, defaultErrorMessage, alwaysCallback);
-	},
-	put: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
-		return this.ajax({url: url, data: data, method: "PUT"}, defaultErrorMessage, alwaysCallback);
-	},
-	patch: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
-		return this.ajax({url: url, data: data, method: "PATCH"}, defaultErrorMessage, alwaysCallback);
-	},
-	delete: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
-		return this.ajax({url: url, data: data, method: "DELETE"}, defaultErrorMessage, alwaysCallback);
-	},
-	options: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
-		return this.ajax({url: url, data: data, method: "OPTIONS"}, defaultErrorMessage, alwaysCallback);
-	}
+    ajax: function(data, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
+        return new Promise((resolve, reject) => {
+            function handleError(response) {
+                if(defaultErrorMessage) window.alert(response && response.error ? (response.error.message || defaultErrorMessage) : defaultErrorMessage);
+                reject(response ? response.error : null);
+            }
+            $.ajax(data).done(function(response) {
+                if(!response.success) return handleError(response);
+                resolve(response);
+            }).fail((res) => handleError(typeof res.responseJSON === "undefined" ? null : res.responseJSON)).always(function() {
+                if(typeof alwaysCallback == "function") alwaysCallback();
+            })
+        });
+    },
+    get: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
+        return this.ajax({url: url, data: data, method: "GET"}, defaultErrorMessage, alwaysCallback);
+    },
+    post: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
+        return this.ajax({url: url, data: data, method: "POST"}, defaultErrorMessage, alwaysCallback);
+    },
+    put: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
+        return this.ajax({url: url, data: data, method: "PUT"}, defaultErrorMessage, alwaysCallback);
+    },
+    patch: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
+        return this.ajax({url: url, data: data, method: "PATCH"}, defaultErrorMessage, alwaysCallback);
+    },
+    delete: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
+        return this.ajax({url: url, data: data, method: "DELETE"}, defaultErrorMessage, alwaysCallback);
+    },
+    options: function(url, data = null, defaultErrorMessage = defaultErrorMessage, alwaysCallback = null) {
+        return this.ajax({url: url, data: data, method: "OPTIONS"}, defaultErrorMessage, alwaysCallback);
+    }
 }
 

@@ -46,7 +46,8 @@ WarpSchema.methods.toInfo = function() {
 
 WarpSchema.statics.createWarp = function(x, y, name, userID, callback) {
     if(name.length <= 0 || name.length > 15) return callback(null, { message: "Your warp name must be between 1-15 characters in length.", code: "validation" });
-    this.count({userID: userID, name: name}).then((count) => {
+    // Use countDocuments on modern drivers
+    this.countDocuments({userID: userID, name: name}).then((count) => {
         if(count > 0) return callback(null, { message: "You already have a warp with that name.", code: "validation" });
 
         var warp = this({
@@ -57,9 +58,10 @@ WarpSchema.statics.createWarp = function(x, y, name, userID, callback) {
             creationDate: Date()
         });
     
-        warp.save(function(err) {
-            if (err) return callback(null, { message: "An error occurred while trying to create that warp.", code: "server_error" });
+        warp.save().then(() => {
             return callback(warp, null);
+        }).catch((err) => {
+            return callback(null, { message: "An error occurred while trying to create that warp.", code: "server_error" });
         });
     }).catch((err) => callback(null, { message: "An error occurred while trying to create that warp.", code: "server_error" }));
 }
