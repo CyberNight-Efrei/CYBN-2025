@@ -11,3 +11,6 @@ docker-compose.yml
 # Build files
 Makefile
 .gitignore
+
+# db
+src/app.db
