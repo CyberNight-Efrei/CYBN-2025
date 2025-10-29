@@ -10,14 +10,16 @@ from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor
 
 # ---------------- CONFIG ----------------
-BASE_URL = "http://127.0.0.1:5000"
+BASE_URL = input("Base url of your server:")
+NAME = input("Name of your user:")
+PASSWORD = input("Password of your user:")
 ASSUME_TZ = ZoneInfo("Europe/Paris")
 
 CONCURRENCY = 6          # worker threads
 RATE_PER_WORKER = 10     # req/sec per worker
 REQUEST_TIMEOUT = 2.0
 
-LOGIN_PAYLOAD = {"name": "solve", "password": "solve"}
+LOGIN_PAYLOAD = {"name": NAME, "password": PASSWORD}
 
 UUID_EPOCH_OFFSET = 12219292800  # sec between 1582-10-15 and 1970-01-01
 
@@ -127,8 +129,8 @@ def main_flow():
 
     def find_first_uuid_in(msg):
         text = msg.get('content','') if isinstance(msg, dict) else str(msg)
-        m = re.search(r'[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}', text)
-        return uuid.UUID(m.group()) if m else None
+        m = re.search(r'reset\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})', text)
+        return uuid.UUID(m.groups()[0]) if m else None
 
     extracted = []
     for msg in messages:

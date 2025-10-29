@@ -14,10 +14,10 @@ with app.app_context():
     db.create_all()
     # Admin initial
     admin_email = f'admin@{MAIL.lower()}'
-    admin_password = 'admin'
+    admin_password = Config.ADMIN_PASSWORD
     if not User.query.filter_by(email=admin_email).first():
         admin = User(email=admin_email, name='admin', is_admin=True)
-        admin.set_password(Config.ADMIN_PASSWORD)
+        admin.set_password(admin_password)
         db.session.add(admin)
         print(f'Admin created: {admin_email} : {admin_password} ')
     else:
