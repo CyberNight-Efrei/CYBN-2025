@@ -11,7 +11,7 @@ state: visible
 name: "Sandwich"
 category: Web
 description: |-
-  La sandwicherie de votre ville vient d'ouvrir ! Grand fan de ce met succulent, vous vous empressez de vous connecter à leur site web, mais vous rendez-compte que la personne qui dirige cet établissement semble très désagréable... Peux-être pourriez -vous récupérer son sandwich d'administration personnel pour voir quels ingrédients le mettent dans cet état ?
+  La sandwicherie de votre ville vient d'ouvrir ! Grand fan de ce met succulent, vous vous empressez de vous connecter à leur site web, mais vous rendez-compte que la personne qui dirige cet établissement semble très désagréable... Peut-être pourriez-vous récupérer son sandwich d'administration personnel pour voir quels ingrédients le mette dans cet état ?
 attribution: "NozZy"
 
 flags:
