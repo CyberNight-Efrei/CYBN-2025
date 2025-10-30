@@ -1,0 +1,35 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>
+
+# <============ REQUIRED ============>
+name: "ReverseMe"
+category: Reverse
+description: Yet another reverseme/keygen like challenge, have fun
+attribution: "Romain"
+
+flags:
+    - CYBN{N4SM_R3v3rs3_1s_N0t_D4t_H4rd}
+
+tags:
+    - Easy
+# </============ REQUIRED ============>
+
+
+files:
+    - src/reverse_me
+
+next: null
+
+version: "0.1"
