@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "31337:31337"
+    container_name: "coffre_des_pabetes"
+    restart: unless-stopped

@@ -1,0 +1,47 @@
+name: "Le Coffre des Pabètes"
+category: "Prog"
+description: |-
+    # Le Coffre des Pabètes
+
+    Le pays des Pabètes, le Pabetistan est un incroyable pays, où vivent des petit être simplets mais heureux : les Pabètes. Depuis des siècles ils recherchent leur précieux artefact qui leur renderait leur gloire d'antant, **l'épée de Türing**, leur père à tous.
+
+    Malheuereusemnt il leur a été subtilisé lors de la troisième grande guerre par leurs ennemis, les Pakons. Le général Fut-fut chargé de la sécurité extérieur du Pabetistan vous a confié la lourde tâche de le récupérer, pour cela il vous donne des précieuses informations. 
+
+    **L'épée de Türing** est cachée dans le grand coffre-automate du palais impérial de la Pakonie, plus connu sous le nom de **SekureMaisPaTro**. Ce coffre est configuré de tel sorte qu'il n'accepte seulement du code provenant du langage universel, le **Brainfuck**.
+
+    Pour que **SekureMaisPaTro** s'ouvre il faut que votre code remplisse les conditions suivantes :
+    - le code doit contenir seulement les 8 caractèes sacrés
+    - le code doit accepter un input et sortir un input
+    - l'input est une chaine de caractère aléatoire ente "1" et "9"
+    - l'output est une chaine de caratères corespondant au carré de l'entier de l'input
+
+    Le général vous glisse aussi une faille à l'oreille, **SekureMaisPaTro** ne peux pas excéder 100 000 commandes, une fois ce montant passé le contenu de la cellule courante est renvoyé de force.
+
+    Saurez-vous récupérer l'artefact tant convoité par le Pabetistan ?
+attribution: "L4KK4S - OnePanthéon"
+
+flags:
+    - {
+        type: "static",
+        content: "CYBN{4V3C_T0uT_l3_R3SP3cT}",
+        data: "case_sensitive",
+    }
+
+tags:
+    - Medium 
+
+value: 500
+type: dynamic_docker
+
+extra:
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: prog_coffre-des-pabetes   # RESPECT FORMAT (shortname please)
+
+  redirect_type: tcp   # Protocol. Default should be tcp
+  redirect_port: 31337   # App port, do not mind overlaps
+
+state: visible

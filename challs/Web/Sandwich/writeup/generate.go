@@ -35,7 +35,7 @@ func main() {
 	}
 
 	// Préparer les chaînes de corps de requête à l'avance
-	emails := []string{"solve@solve.fr", "admin@sandwicherie.fr", "solve@solve.fr"}
+	emails := []string{"test@test.test", "admin@sandwicherie.fr", "test@test.test"}
 	requestBodies := make([]string, len(emails))
 	for i, e := range emails {
 		form := url.Values{"email": {e}}
