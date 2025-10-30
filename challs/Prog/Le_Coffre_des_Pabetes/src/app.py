@@ -4,7 +4,7 @@ import os
 # --------------------- Variables de configuration --------------------- #
 HOST = '0.0.0.0' # A changer par mes chers admins
 PORT = 31337 # kifkif
-FLAG = os.get('FLAG', 'CYBN{les problèmes... contact un admin}')
+FLAG = os.environ.get('FLAG', 'CYBN{les problèmes... contact un admin}')
 ALLOWED_CHARS = set(".,<>-+[]")
 
 
@@ -71,6 +71,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     while True:
         conn, addr = s.accept()
+        conn.sendall("Bienvenu à toi ! Je t'invite à rentrer ta commande dès maintenant.\n".encode('utf-8'))
+
         with conn:
             print(f"Connexion de {addr}")
 
