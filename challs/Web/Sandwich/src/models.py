@@ -4,6 +4,7 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
 from uuid import uuid1
+from config import Config
 
 db = SQLAlchemy()
 
@@ -35,7 +36,7 @@ class PasswordResetToken(db.Model):
     user = db.relationship('User', backref=db.backref('reset_tokens', lazy=True))
 
     @staticmethod
-    def generate(user, expiration_minutes=10):
+    def generate(user, expiration_minutes=Config.DEFAULT_TOKEN_EXPIRATION_MINUTES):
         token_str = str(uuid1(clock_seq=0))
         expires = datetime.now() + timedelta(minutes=expiration_minutes)
         token = PasswordResetToken(token=token_str, user_id=user.id, expires_at=expires)
@@ -43,7 +44,7 @@ class PasswordResetToken(db.Model):
 
         reset_link = url_for('auth.reset_password', token=token.token, _external=True)
 
-        message_content = f"Vous avez demandé une réinitialisation de mot de passe. Cliquez ici pour réinitialiser votre mot de passe : {reset_link}"
+        message_content = f'Vous avez demandé une réinitialisation de votre mot de passe. Cliquez ici pour réinitialiser votre mot de passe : <a href="{reset_link}">{reset_link}</a>. Ce lien est valide pendant {Config.DEFAULT_TOKEN_EXPIRATION_MINUTES} minutes.'
         received_message = ReceivedMessage(
             content=message_content,
             recipient_id=user.id,

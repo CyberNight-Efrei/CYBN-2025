@@ -39,10 +39,11 @@ def login():
             flash('Connecté.', 'success')
             return redirect(url_for('index'))
         flash('Email ou mot de passe incorrect.', 'error')
+        return render_template('login.html'), 401
     return render_template('login.html')
 
 
-@bp.route('/logout')
+@bp.route('/logout', methods=['GET', 'POST'])
 @login_required
 def logout():
     logout_user()
