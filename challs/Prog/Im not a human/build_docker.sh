@@ -1,8 +1,8 @@
 CAT="prog"
-CHALL="coffre-des-pabetes"
+CHALL="not-human"
 NAME="${CAT}_${CHALL}"
 PORT=5000
-HOST_PORT=3002
+HOST_PORT=3001
 
 docker rm -f $NAME
 docker image prune -f
