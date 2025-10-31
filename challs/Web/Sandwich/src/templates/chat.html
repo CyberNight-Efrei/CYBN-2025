@@ -52,9 +52,15 @@ async function fetchMessages() {
             bubble.style.backgroundColor = isCurrentUser ? '#b36b00' : '#fff1e6';
             bubble.style.color = isCurrentUser ? 'white' : '#5a3e36';
 
-            bubble.innerHTML = `<strong>${msg.user.name}</strong><br>${msg.content}
-                <div style="font-size:0.75em; color:#8c5a3e; text-align:right; margin-top:5px;">
-                ${msg.timestamp}</div>`;
+            bubble.innerHTML = `
+<strong class="username"></strong>
+<br>
+<p class="message"></p>
+<div style="font-size:0.75em; color:#8c5a3e; text-align:right; margin-top:5px;">
+${msg.timestamp}
+</div>`;
+            bubble.querySelector('.username').textContent = msg.user.name;
+            bubble.querySelector('.message').textContent = msg.content
 
             div.appendChild(bubble);
 

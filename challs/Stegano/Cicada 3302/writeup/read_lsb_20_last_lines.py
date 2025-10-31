@@ -38,5 +38,5 @@ def read_lsb_last_lines(image_path, num_lines=20):
 
 
 if __name__ == "__main__":
-    image_path = "Cicada 3302.png"
+    image_path = "../dist/Cicada 3302.png"
     read_lsb_last_lines(image_path, num_lines=20)
