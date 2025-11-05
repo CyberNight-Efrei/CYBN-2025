@@ -1,8 +1,9 @@
 name: "Boogie Latino Electro"
 category: Hardware
 description: |-
-    Inspecteur, j'écoutais tranquillement de la musique sur mon enceinte sans fil,
-    lorsque la machine s'est allumée et a brouillé ma musique !
+    <i>Ce challenge est à flag sur l'ESP32.</i>
+    
+    La communication série, c'est bien, mais le sans fil, c'est mieux ! L'ESP32 possède justement une antenne 2.4GHz, pratique !
 attribution: grégoire
 value: 500
 type: dynamic

@@ -1,9 +1,10 @@
 name: "Action Réaction"
 category: Hardware
 description: |-
-    *Une source vous indique que l'objet transmettrait également en série par les
-    pins 16 et 17 à 9600 bauds... Mais comment écouter ?*
-attribution: grégoire, Baptiste-LC
+    <i>Ce challenge est à flag sur l'ESP32.</i>
+    
+    Il se pourrait que l'ESP32 transmette également en série par les pins 16 et 17 à 9600 bauds. Mais comment écouter ?
+attribution: grégoire
 value: 500
 type: dynamic
 

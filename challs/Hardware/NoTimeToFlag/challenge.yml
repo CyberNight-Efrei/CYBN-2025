@@ -1,14 +1,20 @@
 name: "No Time To Flag"
 category: Hardware
 description: |-
-    Inspecteur ! J'ai trouvé ce programme chez le suspect ! Mais comment diantre obtenir le flag...
-    *Note : sélectionner ch2 sur le PCB*
-    <i>Format du flag : CYBN{example_lowercase_no_accent}
-    Afin de réussir ce challenge, il est vivement conseillé d'utiliser la HAL (Hardware Abstraction Layer) de Atmel à la place du framework Arduino.
-    Il vous faut donc les outils suivants :
-    - `avr-gcc`
-    - `avr-objcopy`
-    - `avrdude`
+    <i>Ce challenge est à flag sur le PCB.</i>
+
+    Place aux choses sérieuses. Pourrez-vous retrouver le flag (sans dump le firmware) ?
+
+    Notes : 
+    - Sélectionnez `ch2` sur le PCB.
+    - Format du flag : CYBN{example_lowercase_no_accent}
+    - Afin de réussir ce challenge, il est vivement conseillé d'utiliser la HAL (Hardware Abstraction Layer) de Atmel à la place du framework Arduino pour plus de performances.
+    - Il vous faut donc les outils suivants :
+        - `avr-gcc`
+        - `avr-libc`
+        - `avr-objcopy`
+        - `avrdude`
+        
     Pensez à ajouter les lignes suivantes en haut de votre programme :
     ```c
     #define __AVR_ATmega328P__
@@ -16,13 +22,15 @@ description: |-
     #include <avr/io.h>
     #include <util/delay.h>
     ```
+
     Les commandes pour build et upload un programme sur un Arduino sont :
     ```sh
     avr-gcc -mmcu=atmega328p -Os -o solve.elf solve.c
     avr-objcopy -O ihex solve.elf solve.hex
     avrdude -c arduino -p m328p -P /dev/ttyUSB0 -b 115200 -U flash:w:solve.hex
     ```
-    Bon courage.</i>
+
+    Bon courage.
 
 attribution: grégoire
 value: 500

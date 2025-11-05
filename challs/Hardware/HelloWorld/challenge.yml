@@ -1,11 +1,30 @@
 name: "Hello, World!"
 category: Hardware
 description: |-
-    Inspecteur, vous voilà en possession d'un bien drôle d'objet. 
+    Bienvenue dans ces challenges Hardware !
+
+    Cinq de ces épreuves reposent sur l'utilisation de microcontrôleurs. Pour les réaliser, vous aurez peut-être besoin d'un Arduino et de câbles de connexion (“jumper wires”).
+    Vous pourrez en trouver dans la salle "hardware / lockpick".
+
+    Les challenges s'articulent autour de deux éléments : un ESP32 et un PCB conçu spécialement pour l'occasion.
+
+    Aucune modification permanente du matériel fourni n'est nécessaire.
+    
+    Par souci de responsabilité environnementale (RSE), les firmwares ne sont pas protégés contre la réécriture ou le dump. Merci donc de ne pas extraire ni modifier les firmwares !
+
+    ---
+
+    <i>Ce challenge est à flag sur l'ESP32.</i>
+
+    Allez dans la salle "lockpick / hardware", et demandez un ESP32 et un cable.
+    
+    Vous devriez vous retrouver en possession d'un bien drôle d'objet. 
     Serait-il possible qu'il essaye de vous transmettre des informations par USB ? 
+    
     Branchez-le donc pour savoir !
+    
     <i>Note : la fréquence série par défaut pour un ESP32 est à 115200 bauds</i>
-attribution: grégoire, Baptiste-LC
+attribution: grégoire
 value: 500
 type: dynamic
 

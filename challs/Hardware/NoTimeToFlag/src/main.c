@@ -18,27 +18,31 @@ int main(void)
     uint8_t level = (PINB & (1 << PB4));
 
     // Challenge Pull Up! Pull Up!
-    if (level == 0)
+    // level == 1 -> switch sur la position "ch1"
+    if (level == 1)
     {
-        print("CYBN{V3nd0r_pr0t3ct10ns}");
+        print("CYBN{" FLAG_CHALL_PULL_UP "}");
 
         // Boucle infinie
         for (;;) asm volatile ("nop");
     }
-
-    for (;;)
+    // Challenge No Time To Flag
+    else
     {
-        print("mdp ?");
-
-        recieve(input, 32);
-
-        if (strcmp(input, FLAG) == 0)
+        for (;;)
         {
-            print("Bien joué, tu peux valider avec CYBN{" FLAG "}");
-        }
-        else
-        {
-            print("Raté !");
+            print("mdp ?");
+    
+            recieve(input, 32);
+    
+            if (strcmp(input, FLAG) == 0)
+            {
+                print("Bien joué, tu peux valider avec CYBN{" FLAG "}");
+            }
+            else
+            {
+                print("Raté !");
+            }
         }
     }
 

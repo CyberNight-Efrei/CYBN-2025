@@ -1,10 +1,12 @@
 name: "Pull up! Pull up!"
 category: Hardware
 description: |-
-    Je sais à quoi sert cette dernière puce, mais impossible de la faire démarer.
-    À moins que l'erreur ne vienne pas de moi...
-    *Note : sélectionner ch1 sur le PCB*
-attribution: grégoire, Baptiste-LC
+    <i>Ce challenge est à flag sur le PCB.</i>
+
+    Ce PCB devrait donner directement le flag, mais il refuse de fonctionner. Découvrez-donc pourquoi !
+    
+    Note : sélectionnez `ch1` sur le PCB. Pensez à demander des jumper wires !
+attribution: grégoire
 type: dynamic
 extra:
     initial: 500
