@@ -1,0 +1,22 @@
+name: Curve Ball
+category: Crypto
+description: I'm throwing you a Curve Ball, can you catch it?
+attribution: oldschool125
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- CYBN{CuRv3s_4r3_fUn_4r3nT_7h3y?}
+
+files:
+- dist/curveball.zip
+
+tags:
+- Hard
+
+version: '0.1'
