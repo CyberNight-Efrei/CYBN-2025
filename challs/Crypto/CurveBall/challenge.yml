@@ -17,6 +17,6 @@ files:
 - dist/curveball.zip
 
 tags:
-- Hard
+- Medium
 
 version: '0.1'
