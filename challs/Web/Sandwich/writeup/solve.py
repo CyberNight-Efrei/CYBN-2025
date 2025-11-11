@@ -107,7 +107,7 @@ def worker_thread(worker_id: int, sess: requests.Session, q: queue.Queue, stop_e
                 
                 print(">>> UUID trouvé :", found_container.get('uuid'),
                           "status:", found_container.get('status'))
-                q.task_done()
+                winsound.Beep(770, 900)
                 try:
                     # 1) logout (pour être propre)
                     try:
@@ -119,7 +119,7 @@ def worker_thread(worker_id: int, sess: requests.Session, q: queue.Queue, stop_e
                     # 2) tenter de soumettre le form de reset avec le token trouvé
                     reset_url = BASE_URL.rstrip('/') + "/reset/" + str(found_container.get('uuid'))
                     print("[post-find] tenter POST sur reset token:", reset_url)
-
+                    exit()
                     reset_succeeded = False
                     last_resp = None
                     try:
