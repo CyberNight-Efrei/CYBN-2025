@@ -18,10 +18,17 @@
         <p><strong>Email :</strong> {{ current_user.email }}</p>
     </div>
 
+    <!-- Formulaire pour changer le mot de passe -->
+    <form action="{{ url_for('auth.update_password') }}" method="POST"
+          style="display:flex; flex-direction:column; align-items:center; gap:15px; margin-top:20px;">
+            <input type="password" name="new_password" placeholder="Nouveau mot de passe" required>
+        <button type="submit">Changer le mot de passe</button>
+    </form>
+
     <!-- Formulaire pour changer la photo via URL -->
     <form action="{{ url_for('update_profile_picture') }}" method="POST"
           style="display:flex; flex-direction:column; align-items:center; gap:15px;">
-        <input type="url" name="profile_picture_url" placeholder="https://exemple.com/image.png" required>
+            <input type="url" name="profile_picture_url" placeholder="https://exemple.com/image.png" required>
         <button type="submit">Mettre à jour la photo</button>
     </form>
 

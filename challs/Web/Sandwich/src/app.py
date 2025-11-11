@@ -12,8 +12,7 @@ login_manager.login_message = None
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    return abort(403)
-
+    return render_template('403.html'), 403
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -27,6 +26,11 @@ def create_app(config_class=Config):
     @app.errorhandler(403)
     def forbidden(e):
         return render_template('403.html'), 403
+
+
+    @app.errorhandler(404)
+    def not_found(e):
+        return render_template("404.html")
 
 
     @app.errorhandler(405)
@@ -43,7 +47,7 @@ def create_app(config_class=Config):
     @login_required
     def admin():
         if not current_user.is_authenticated or not current_user.is_admin:
-            return render_template('base.html', message='Accès refusé: permissions insufisantes'), 403
+            abort(403)
         return render_template('admin.html', flag=Config.FLAG)
 
     @app.route('/', methods=['GET', 'POST'])

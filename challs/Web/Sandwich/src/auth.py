@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 
 from config import Config
 from models import db, User, PasswordResetToken
@@ -49,6 +49,19 @@ def logout():
     logout_user()
     flash('Déconnecté.', 'info')
     return redirect(url_for('auth.login'))
+
+@bp.route('/update_password', methods=['POST'])
+@login_required
+def update_password():
+    new_password = request.form.get('new_password')
+    if not new_password:
+        flash('Veuillez entrer un nouveau mot de passe.', 'error')
+        return redirect(url_for('profile'))
+
+    current_user.set_password(new_password)
+    db.session.commit()
+    flash('Mot de passe mis à jour avec succès.', 'success')
+    return redirect(url_for('profile'))
 
 
 # Reset password request
