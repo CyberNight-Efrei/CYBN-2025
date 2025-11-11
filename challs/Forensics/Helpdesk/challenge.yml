@@ -16,6 +16,8 @@ extra:
   decay: 30
   minimum: 100
 
+connection_info: http://files.cybernight-c.tf/Helpdesk.7z
+
 flags:
 - content: CYBN{C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\Arcobat.exe}
   type: static

@@ -1,6 +1,12 @@
-from flask import Flask, render_template, request, session, redirect, url_for, flash
+import base64
+import io
+import os
+import random
+import pytz
+from datetime import timedelta, datetime
+
 from PIL import Image
-import random, io, os, base64
+from flask import Flask, render_template, request, session, redirect, url_for, flash
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLAG", "CYBN{flag}")
@@ -49,6 +55,8 @@ def index():
 
 @app.route("/challenge")
 def challenge():
+    if not session.get("round"):
+        session["round"] = 1
     round_num = session.get("round", 1)
 
     if round_num > 8:
@@ -56,8 +64,9 @@ def challenge():
 
     img_base64, chosen_slots = generate_inventory(round_num)
     session["solution"] = chosen_slots
+    session["timeout"] = datetime.now(tz=pytz.utc) + timedelta(seconds=10)
 
-    print(session["solution"])
+    print(session)
 
     return render_template("index.html", round=round_num, img_b64=img_base64)
 
@@ -65,15 +74,20 @@ def challenge():
 @app.route("/submit", methods=["POST"])
 def submit():
     answer = request.form.get("slots", "")
+
+    if session.get("timeout") < datetime.now(tz=pytz.utc):
+        flash("⚠️ Answer submitted too lately! You must be quicker to prove you're not a human!", "error")
+        return redirect(url_for("challenge"))
+
     try:
-        user_slots = sorted([int(x.strip()) for x in answer.split(",") if x.strip()])
+        user_slots = [int(x.strip()) for x in answer.split(",") if x.strip()]
     except ValueError:
         flash("⚠️ Invalid input format!", "error")
         session["round"] = 1
 
         return redirect(url_for("challenge"))
 
-    if user_slots == sorted(session.get("solution", [])):
+    if all(x == y for x, y in zip(set(user_slots), set(session.get("solution", [])))):
         session["round"] += 1
 
         if session["round"] > 8:

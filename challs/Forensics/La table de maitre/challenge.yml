@@ -3,7 +3,7 @@ category: Forensics
 description: |-
   Un employé de la neuillCORP a exécuté un script pour "mettre à jour son ordi" et depuis des choses bizarres semblent se produire.
 
-  Le CERT de la neuillCORP ont tenté de faire une copie du disque, mais n'ont réussi à récupérer qu'un seul fichier....
+  Le CERT de la neuillCORP a tenté de faire une copie du disque, mais n'a réussi à récupérer qu'un seul fichier....
   Bref, j'espère que tu seras capable de retrouver ce qu'il s'est passé grâce à ce fichier.
 
   ----
@@ -23,8 +23,7 @@ extra:
   initial: 500
   decay: 30
   minimum: 100
-connection_info: >-
-  https://efrei365net.sharepoint.com/:u:/r/sites/CyberNight2025/Documents%20partages/General/Challenges/Forensics/La%20table%20de%20maitre/$MFT?csf=1&web=1&e=YEw4nn
+connection_info: http://files.cybernight-c.tf/%24MFT.7z
 
 flags:
 - content: >-
