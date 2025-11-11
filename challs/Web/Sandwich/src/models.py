@@ -37,7 +37,7 @@ class PasswordResetToken(db.Model):
 
     @staticmethod
     def generate(user, expiration_minutes=Config.DEFAULT_TOKEN_EXPIRATION_MINUTES):
-        token_str = str(uuid1(clock_seq=0))
+        token_str = str(uuid1(clock_seq=Config.UUID_CLOCK_SEQ))
         expires = datetime.now() + timedelta(minutes=expiration_minutes)
         token = PasswordResetToken(token=token_str, user_id=user.id, expires_at=expires)
         db.session.add(token)

@@ -12,7 +12,7 @@ description: |-
 
   Aujourd'hui, il semblerait qu'une personne mal intentionnée ait accédée à certaines des ruches d'un ordinateur de notre société.
 
-  Après avoir réécupérés les journaux d'événements de la machine, nous avons exécuté un [outil d'analyse des journaux Windows](https://github.com/Yamato-Security/hayabusa), qui nous à produit le fichier suivant en résultat.
+  Sysmon était installé sur la machine, utile pour surveiller les processus. Nous avons donc récupéré pour toi les journaux Windows (.evtx) de Sysmon, afin que tu les analyses, avec les outils adaptés.
 
   A toi d'analyser les résultats, et de lister les ruches exportées, dans l'ordre alphabétiques, ainsi que le PID du processus Parent ayant effectué cette action.
 
@@ -28,11 +28,13 @@ extra:
 
 flags:
 - CYBN{SAM_SECURITY_SYSTEM_4716}
+- CYBN{HKLM\SAM_HKLM\SECURITY_HKLM\SYSTEM_4716}
+- CYBN{HKEY_LOCAL_MACHINE\SAM_HKEY_LOCAL_MACHINE\SECURITY_HKEY_LOCAL_MACHINE\SYSTEM_4716}
 
 files:
-- dist/abeilles.csv
+- src/Microsoft-Windows-Sysmon_Operational.evtx
 
 tags:
-- Intro
+- Easy
 
 version: '0.1'
