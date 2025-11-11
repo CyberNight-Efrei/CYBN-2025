@@ -48,6 +48,7 @@ def create_app(config_class=Config):
     def admin():
         if not current_user.is_authenticated or not current_user.is_admin:
             abort(403)
+        print(f"[{current_user.email}] Just flagged 💥 GG")
         return render_template('admin.html', flag=Config.FLAG)
 
     @app.route('/', methods=['GET', 'POST'])

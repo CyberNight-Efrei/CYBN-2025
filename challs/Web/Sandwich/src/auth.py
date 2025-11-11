@@ -24,6 +24,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Compte créé — vous pouvez vous connecter.', 'success')
+        print(f"[{current_user.email}] - Registered")
         return redirect(url_for('auth.login'))
     return render_template('register.html')
 
@@ -37,8 +38,10 @@ def login():
         if user and user.check_password(password):
             login_user(user)
             flash('Connecté.', 'success')
+            print(f"[{current_user.email}] - Logged in")
             return redirect(url_for('index'))
         flash('Email ou mot de passe incorrect.', 'error')
+        print(f"[ANONYMOUS] - Failed login for {name}")
         return render_template('login.html'), 401
     return render_template('login.html')
 
@@ -46,6 +49,7 @@ def login():
 @bp.route('/logout', methods=['GET', 'POST'])
 @login_required
 def logout():
+    print(f"[{current_user.email}] - Logged out")
     logout_user()
     flash('Déconnecté.', 'info')
     return redirect(url_for('auth.login'))
@@ -61,10 +65,10 @@ def update_password():
     current_user.set_password(new_password)
     db.session.commit()
     flash('Mot de passe mis à jour avec succès.', 'success')
+    print(f"[{current_user.email}] - Changed his own password")
     return redirect(url_for('profile'))
 
 
-# Reset password request
 @bp.route('/reset-request', methods=['GET', 'POST'])
 def reset_request():
     if request.method == 'POST':
@@ -72,11 +76,9 @@ def reset_request():
         user = User.query.filter_by(email=email).first()
         if user:
             PasswordResetToken.generate(user, expiration_minutes=Config.DEFAULT_TOKEN_EXPIRATION_MINUTES)
-            flash('Si cet email existe, un message de réinitialisation a été envoyé.', 'info')
-        else:
-            # Ne pas révéler l'existence du compte
-            flash('Si cet email existe, un message de réinitialisation a été envoyé.', 'info')
-            return redirect(url_for('auth.login'))
+        flash('Si cet email existe, un message de réinitialisation a été envoyé.', 'info')
+        print(f"[ANONYMOUS] - Sent a reset password email to {user.email}")
+        return redirect(url_for('auth.login'))
     return render_template('reset_request.html')
 
 
@@ -85,6 +87,7 @@ def reset_password(token):
     user = PasswordResetToken.verify(token)
     if not user:
         flash('Token invalide ou expiré.', 'error')
+        # print(f"[ANONYMOUS] - Failed to reset password with unknown token {token}")
         return redirect(url_for('auth.reset_request'))
     if request.method == 'POST':
         password = request.form['password']
@@ -94,5 +97,7 @@ def reset_password(token):
             reset_token.is_used = True
         db.session.commit()
         flash('Mot de passe mis à jour. Vous pouvez vous connecter.', 'success')
+        print(f"[ANONYMOUS] - Successfully reset password of {user.email} with token {token}")
+
         return redirect(url_for('auth.login'))
     return render_template('reset_password.html', valid=user is not None)

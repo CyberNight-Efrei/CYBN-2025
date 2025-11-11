@@ -10,11 +10,11 @@ submit_url = challenge_url.replace('/challenge', '/submit')
 
 flag_regex = r"CYBN\{[!-~]+\}"
 
-slots = [None]*46
 real_color = (139,139,139,255)
 
 img = Image.open("debug_slots_dots.png")
 
+slots = [None]*46
 width,height = img.size
 print(img.size)
 colors = (255, 130)
@@ -37,6 +37,7 @@ while not flagged:
 		print("\n\n########################################")
 		print(f"Here is your flag : {flag.group()}")
 		print("########################################")
+		print(res.text)
 		flagged = True
 		break
 	soup = BeautifulSoup(res.text, 'html.parser')
