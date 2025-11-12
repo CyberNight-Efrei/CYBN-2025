@@ -1,0 +1,7 @@
+services:
+  server:
+    build: .
+    container_name: crypto_fastafboi
+    ports:
+      - "2222:2222"
+    restart: unless-stopped

@@ -1,0 +1,36 @@
+name: FAST AF BOI
+category: Crypto
+description: I don't think you have any idea how fast I really am.
+attribution: oldschool125
+value: 500
+
+# <============ CHALLENGE DOCKER ============>
+# REMOVE IF NO DOCKER
+
+type: dynamic_docker
+
+extra:
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: crypto_fastafboi   # RESPECT FORMAT (shortname please)
+
+  redirect_type: tcp   # Protocol. Default should be tcp
+  redirect_port: 2222               # App port, do not mind overlaps
+
+# </============ CHALLENGE DOCKER ============>
+
+flags:
+- content: CYBN{1M_F4$t_4F_BOIII!!!}
+  type: static
+  data: case_sensitive
+
+files:
+- src/fastafboi.py
+
+tags:
+- Easy
+
+version: '0.1'
