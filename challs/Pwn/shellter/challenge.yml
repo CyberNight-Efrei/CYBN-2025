@@ -1,0 +1,55 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "Shellter"
+category: "PWN"
+description: "Will you be able to survive the pwn bomb and find a shell-ter before time is up"
+attribution: "Sandor"
+value: 500
+type: dynamic_docker
+
+# The extra field provides additional fields for data during the install/sync commands/
+# Fields in extra can be used to supply additional information for other challenge types
+# For example the follow extra field is for dynamic challenges. To use these following
+# extra fields, set the type to "dynamic" and uncomment the "extra" section below
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+type: dynamic_docker
+
+extra:
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: shellter   # RESPECT FORMAT (shortname please)
+
+  redirect_type: tcp   # Protocol. Default should be tcp
+  redirect_port: 23458               # App port, do not mind overlaps
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries of CTFd API data
+flags:
+    # A static case sensitive flag
+    - CYBN{GG_Y0u_d1dnt_d13_c0m3_3nj0y_th3_0th3r_0n3s}
+
+# Tags are used to provide additional public tagging to a challenge
+# Can be removed if unused
+# Accepts strings
+tags:
+    - Easy 
+
+# Provide paths to files from the same directory that this file is in
+# Accepts strings
+files:
+    - ./dist/dist.zip
+
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"
