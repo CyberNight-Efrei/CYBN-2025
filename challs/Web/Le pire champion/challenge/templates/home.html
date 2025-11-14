@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaco - League of Legends HORROR</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="champion-container">
+        <img src="/static/shaco.png" alt="Shaco Icon" class="champion-icon">
+        <h1 class="champion-name">Shaco</h1>
+        <div class="champion-info">
+            <h2>Compétences</h2>
+            <ul class="skills">
+                <li>
+                    <img src="/static/q-shaco.png" alt="Q Icon" class="skill-icon">
+                    <h3>Compétence Q - Tromperie</h3>
+                    <p>Shaco devient invisible et se téléporte vers la position ciblée. Sa première attaque en étant invisible est renforcée : elle inflige des dégâts supplémentaires et, si Shaco frappe dans le dos d'un ennemi, un coup critique.</p>
+
+                </li>
+                <li>
+                    <img src="/static/z-shaco.png" alt="W Icon" class="skill-icon">
+                    <h3>Compétence W - Boîte surprise</h3>
+                    <p>Shaco pose une boîte cachée. Quand elle est déclenchée, elle effraie puis attaque les ennemis proches.</p>
+                </li>
+                <li>
+                    <img src="/static/e-shaco.png" alt="E Icon" class="skill-icon">
+                    <h3>Compétence E - Poison double</h3>
+                    <p>Passivement, Shaco empoisonne les cibles qu'il touche, réduisant leur vitesse de déplacement. Shaco peut lancer son arme pour infliger des dégâts et empoisonner sa cible. Le poignard lancé inflige des dégâts supplémentaires si la cible a moins de 30% de ses PV.</p>
+                </li>
+                <li>
+                    <img src="/static/r-shaco.png" alt="R Icon" class="skill-icon">
+                    <h3>Compétence R - Hallucination</h3>
+                    <p>Shaco crée un double de lui-même à ses côtés qui peut attaquer les ennemis proches (inflige des dégâts réduits aux tourelles). En mourant, il explose, faisant apparaître trois mini-boîtes surprises et blessant les ennemis à portée.</p>
+                    <!-- CYBN{... MDRRRR T'AS QUAND MÊME PAS CRU QUE LE FLAG ÉTAIT LÀ ? -->
+                </li>
+            </ul>
+            <form id="delete-form" style="display: none;">
+                <input type="hidden" name="patch" value="True">
+            </form>
+            <h2> ⚠️ CETTE ACTION EST IRRÉVERSIBLE. VOULEZ-VOUS SUPPRIMER CETTE HORREUR DE SHACO ?</h5>
+            <button type="submit" class="delete-button" id="delete">SUPPRIMER</button>
+        </div>
+    </div>
+    <script>
+        function increment(stat) {
+            var element = document.getElementById(stat);
+            var value = parseInt(element.innerText);
+            element.innerText = value + 1;
+        }
+
+        function decrement(stat) {
+            var element = document.getElementById(stat);
+            var value = parseInt(element.innerText);
+            if (value > 0) {
+                element.innerText = value - 1;
+            }
+        }
+        document.getElementById('delete').addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/patch-the-champ', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert('Le champion a été supprimé !');
+                } else {
+                    alert('Error: ' + xhr.statusText);
+                }
+            };
+            var data = JSON.stringify({ "delete": true });
+            xhr.send(data);
+        });
+    </script>
+</body>
+</html>
