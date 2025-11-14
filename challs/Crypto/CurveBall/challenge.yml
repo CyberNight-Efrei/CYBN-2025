@@ -14,9 +14,10 @@ flags:
 - CYBN{CuRv3s_4r3_fUn_4r3nT_7h3y?}
 
 files:
-- dist/curveball.zip
+- src/curveball.zip
 
 tags:
 - Medium
 
 version: '0.1'
+
