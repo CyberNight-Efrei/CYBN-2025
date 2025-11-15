@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, login_required, logout_user, current_user
 
@@ -23,6 +25,8 @@ def register():
 
         db.session.add(user)
         db.session.commit()
+        user.send_welcome_message()
+
         flash('Compte créé — vous pouvez vous connecter.', 'success')
         print(f"[{email}] - Registered")
         return redirect(url_for('auth.login'))

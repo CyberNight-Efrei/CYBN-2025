@@ -16,6 +16,17 @@ class User(db.Model, UserMixin):
     is_admin = db.Column(db.Boolean, default=False)
     profile_picture_url = db.Column(db.String(), default='https://d2jbk7d41q2u2w.cloudfront.net/uploads/recipe/image/27/medium_thumb_61788c6817cad2fbd241bae09c8880b0-1558497960.jpg')
 
+    def send_welcome_message(self):
+        message_content = f'Bienvenue dans la sandwicherie !\nVous venez de vous créer un compte, nous sommes heureux de vous compter parmi nous sur l\'étalage de produits frais!'
+        received_message = ReceivedMessage(
+            content=message_content,
+            recipient_id=self.id,
+            read=False,
+            timestamp=datetime.now()
+        )
+        db.session.add(received_message)
+        db.session.commit()
+
     def set_password(self, password: str):
         self.password_hash = generate_password_hash(password)
 

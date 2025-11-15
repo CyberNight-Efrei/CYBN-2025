@@ -182,7 +182,7 @@
     <div class="nav-left">
         <a href="/">Accueil</a>
         {% if current_user.is_authenticated and current_user.is_admin %}
-            <a href="/admin">Admin</a>
+            <a style="color: green" href="/admin">Admin</a>
         {% endif %}
     </div>
     <div class="nav-right">
