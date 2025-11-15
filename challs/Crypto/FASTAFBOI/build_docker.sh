@@ -2,7 +2,7 @@ CAT="crypto"
 CHALL="fastafboi"
 NAME="${CAT}_${CHALL}"
 PORT=2222
-HOST_PORT=2222
+HOST_PORT=4001
 
 docker rm -f $NAME
 docker image prune -f
