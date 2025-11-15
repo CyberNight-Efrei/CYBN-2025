@@ -1,8 +1,8 @@
 CAT="prog"
 CHALL="web_furet"
 NAME="${CAT}_${CHALL}"
-PORT=8003
-HOST_PORT=8007
+PORT=8000
+HOST_PORT=3003
 
 docker rm -f $NAME
 docker image prune -f

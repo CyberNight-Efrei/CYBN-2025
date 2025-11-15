@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victoire !</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="result-container victory">
+        <div class="result-content">
+            <div class="result-header">
+                <h1 class="result-title">🎉 Victoire ! 🎉</h1>
+                <p class="result-subtitle">T'as choppé le furet !</p>
+            </div>
+
+            <div class="ferret-section">
+                <img src="/static/furet.webp"
+                     alt="Furet capturé" 
+                     class="ferret-image">
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <span class="stat-label">Score final</span>
+                    <span class="stat-value">{{ score }}</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Temps</span>
+                    <span class="stat-value">{{ time }}s</span>
+                </div>
+            </div>
+
+            <div class="flag-container">
+                <h3 class="flag-label">🏁 Tiens, prends ton flag :</h3>
+                <div class="flag-box">
+                    <code class="flag">{{ flag }}</code>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="{{ url_for('index') }}" class="btn primary">🔄 Rejouer</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

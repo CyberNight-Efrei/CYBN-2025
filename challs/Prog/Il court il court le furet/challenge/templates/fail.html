@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Échec</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="result-container failure">
+        <div class="result-content">
+            <div class="result-header">
+                <h1 class="result-title">❌ Échec ❌</h1>
+            </div>
+
+            <div class="ferret-section">
+                <img src="/static/furet.webp"
+                     alt="Furet échappé" 
+                     class="ferret-image result-image">
+            </div>
+
+            <div class="result-stats">
+                <div class="final-score">
+                    <span class="score-label">Score atteint</span>
+                    <span class="score-value">{{ score }}</span>
+                </div>
+            </div>
+
+            <div class="result-message">
+                <p>Le furet s'est échappé ! Il était trop rapide...</p>
+                <p class="failure-detail">⏱️ L'URL a expiré ou n'est plus valide</p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                    Réessayer
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

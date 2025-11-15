@@ -18,10 +18,10 @@ RUN pip install -r requirements.txt
 ENV PYTHONDONTWRITEBYTECODE=1
 
 # Expose port the server is reachable on
-EXPOSE 8002
+EXPOSE 8000
 
 # Set flag
-ENV FLAG="CYBN{J3_H41S_VR41M3NT_SH4C0}"
+ENV FLAG="CYBN{FUR3T_U1TR4_R4P1D3_D3_Z1NZ1N}"
 
 # Run Gunicorn on port 8002
-CMD ["gunicorn", "--bind", "0.0.0.0:8002", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]

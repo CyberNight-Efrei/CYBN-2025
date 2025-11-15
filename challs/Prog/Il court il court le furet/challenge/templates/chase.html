@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Pas généré par chat pour le coup -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasse au Furet</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🐾 Chasse au Furet 🐾</h1>
+            <div class="score-time">
+                <span class="score">Score: {{ score }}</span>
+                <span class="time">Temps: {{ elapsed_time }}s</span>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="ferret-section">
+                <img src="/static/furet.webp" 
+                     alt="Furet espiègle" 
+                     class="ferret-image">
+            </div>
+
+            <div class="message-box">
+                <p class="message">Le furet se cache ici ! Dépêche-toi !</p>
+            </div>
+
+            <div class="url-container">
+                <span class="url-label">URL à copier :</span>
+                <div class="url-display" id="next-url">
+                    {{ next_url }}
+                </div>
+                <p class="url-instruction">Copie-colle rapidement cette URL</p>
+            </div>
+
+            <div class="warning-box">
+                <p class="warning">⚠️ Expire dans 0.7 secondes !</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
