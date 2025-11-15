@@ -1,0 +1,34 @@
+name: "Il court il court, le furet !"
+category: "Prog"
+description: |-
+    Tu connais cette chanson ? Il court, il court, le furet...
+    Ben là c'est pareil ! En plus, il court vite lui...
+
+    Poursuis-le, peut-être qu'à la fin il te donnera quelquechose !
+attribution: "Onelots"
+value: 500
+# <============ CHALLENGE DOCKER ============>
+# REMOVE IF NO DOCKER
+
+type: dynamic_docker
+
+extra:
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: web_furet   # RESPECT FORMAT (shortname please)
+
+  redirect_type: http   # Protocol. Default should be tcp
+  redirect_port: 8003               # App port, do not mind overlaps
+
+# </============ CHALLENGE DOCKER ============>
+
+flags:
+    - CYBN{FUR3T_U1TR4_R4P1D3_D3_Z1NZ1N}
+
+tags:
+    - Easy
+
+version: "1.0"
