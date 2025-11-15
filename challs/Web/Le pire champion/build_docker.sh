@@ -1,5 +1,5 @@
 CAT="web"
-CHALL="web_champ"
+CHALL="champ"
 NAME="${CAT}_${CHALL}"
 PORT=8002
 HOST_PORT=8006
