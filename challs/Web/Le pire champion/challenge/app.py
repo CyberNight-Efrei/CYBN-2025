@@ -45,7 +45,7 @@ def delete_the_champ():
         if request.values.get('password') == 'N0zzyLePlusBeau-1234':
             to_return = os.environ.get('FLAG', 'Une erreur est survenue, contactez les admins sur discord.')
         else:
-            to_return = ("Je suis presque sûr qu'il faut un mot de password dans le body pour faire un truc pareil...", 401)
+            to_return = ("Je suis presque sûr qu'il faut un mot de passe dans le body pour faire un truc pareil...", 401)
         return to_return
     if request.method == 'OPTIONS':
         return Response(status=204, headers=headers_to_return)
