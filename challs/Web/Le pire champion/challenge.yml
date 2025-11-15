@@ -1,0 +1,34 @@
+name: "Mon champion détesté"
+category: "Web"
+description: |-
+    L'an dernier, j'ai réussi à buff mon champion préféré. Parcontre cette année, je trouve que Rito a déconné complet.
+    Ils ont beaucoup trop buff un champion absolument infect.
+
+    Pourrais-tu m'aider à le supprimer du jeu, s'il te plaît ?
+attribution: "Onelots"
+value: 500
+# <============ CHALLENGE DOCKER ============>
+# REMOVE IF NO DOCKER
+
+type: dynamic_docker
+
+extra:
+  dynamic_score: 1      # 1 = True / 0 = False
+  dynamic_initial: 500  # NE PAS TOUCHER
+  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_minimum: 100  # NE PAS TOUCHER
+
+  docker_image: web_champ   # RESPECT FORMAT (shortname please)
+
+  redirect_type: http   # Protocol. Default should be tcp
+  redirect_port: 8002               # App port, do not mind overlaps
+
+# </============ CHALLENGE DOCKER ============>
+
+flags:
+    - CYBN{J3_H41S_VR41M3NT_SH4C0}
+
+tags:
+    - Easy
+
+version: "1.0"

@@ -1,5 +1,5 @@
 CAT="web"
-CHALL="champion-pref"
+CHALL="champion-det"
 NAME="${CAT}_${CHALL}"
 PORT=8002
 HOST_PORT=8006
