@@ -8,7 +8,7 @@ docker rm -f $NAME
 docker image prune -f
 docker build --tag=$NAME .
 
-RUN=true
+RUN=false
 PRIV=false
 
 while getopts "pr" option; do
