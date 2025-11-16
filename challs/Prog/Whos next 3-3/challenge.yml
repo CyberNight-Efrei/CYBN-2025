@@ -1,0 +1,33 @@
+name: Who's next ? 3-3
+category: Prog
+description: |-
+  Beau travail ! Maintenant que tu sais comment l'attaquant fait pour interagir, retourne ses armes contre lui !
+
+  Utilise sa backdoor pour regagner accès au compte root sur la machine, il a probablement laissé un secret dans un *fichier flag caché*... 
+
+  Flag: `CYBN{...}`
+attribution: Romain
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- content: CYBN{R00tk1ts_C4n_H1d3_M4ny_Th1ngs}
+  type: static
+
+tags:
+- Hard
+
+files:
+- dist/cybernight.ko
+
+requirements:
+  prerequisites:
+  - Who's from ? 2-3
+  anonymize: false
+
+version: '0.1'
