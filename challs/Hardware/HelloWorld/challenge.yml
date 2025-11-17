@@ -24,7 +24,11 @@ description: |-
     Branchez-le donc pour savoir !
     
     <i>Note : la fréquence série par défaut pour un ESP32 est à 115200 bauds</i>
-attribution: grégoire
+
+    <div class="text-center">
+        <img src="https://raw.githubusercontent.com/ice-efrei/charte-graphique/refs/heads/master/logo/logo%20vertical%20blanc%20transparent-1.svg" class="img-fluid" width=150>
+    </div>
+attribution: Association ICE, grégoire
 value: 500
 type: dynamic
 

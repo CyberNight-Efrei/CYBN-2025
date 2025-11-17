@@ -6,7 +6,11 @@ description: |-
     Ce PCB devrait donner directement le flag, mais il refuse de fonctionner. Découvrez-donc pourquoi !
     
     Note : sélectionnez `ch1` sur le PCB. Pensez à demander des jumper wires !
-attribution: grégoire
+
+    <div class="text-center">
+        <img src="https://raw.githubusercontent.com/ice-efrei/charte-graphique/refs/heads/master/logo/logo%20vertical%20blanc%20transparent-1.svg" class="img-fluid" width=150>
+    </div>
+attribution: Association ICE, grégoire
 type: dynamic
 extra:
     initial: 500

@@ -4,7 +4,11 @@ description: |-
     <i>Ce challenge est à flag sur l'ESP32.</i>
     
     La communication série, c'est bien, mais le sans fil, c'est mieux ! L'ESP32 possède justement une antenne 2.4GHz, pratique !
-attribution: grégoire
+
+    <div class="text-center">
+        <img src="https://raw.githubusercontent.com/ice-efrei/charte-graphique/refs/heads/master/logo/logo%20vertical%20blanc%20transparent-1.svg" class="img-fluid" width=150>
+    </div>
+attribution: Association ICE, grégoire
 value: 500
 type: dynamic
 
