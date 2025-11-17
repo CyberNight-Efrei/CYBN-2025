@@ -1,0 +1,23 @@
+name: 538th Curve Ball (still not the CVE)
+category: Crypto
+description: You might have caught my first Curve Ball, but can you catch this one?
+attribution: oldschool125
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- CYBN{a8c6402bbf84d73b76db39a7baa749ea8ff87011b0f3c3f0ee48ec2f953ecb12}
+
+files:
+- src/538thcurveball.py
+
+tags:
+- Hard
+
+version: '0.1'
+
