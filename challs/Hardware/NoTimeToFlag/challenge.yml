@@ -5,12 +5,13 @@ description: |-
 
     Place aux choses sérieuses. Pourrez-vous retrouver le flag (sans dump le firmware) ?
 
-    Ressource :
-    - [Timing attack (Wikipedia)](https://en.wikipedia.org/wiki/Timing_attack)
+    Ressources :
+    - [Timing attack, Wikipedia](https://en.wikipedia.org/wiki/Timing_attack)
+    - [ATmega328P Datasheet page 149 (USART code example), Atmel](https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf#page=149)
 
     Notes : 
     - Sélectionnez `ch2` sur le PCB.
-    - Format du flag : CYBN{example_lowercase_no_accent}
+    - Format du flag : `CYBN{example_lowercase_no_accent}`
     - Afin de réussir ce challenge, il est vivement conseillé d'utiliser la HAL (Hardware Abstraction Layer) de Atmel à la place du framework Arduino pour plus de performances.
     - Il vous faut donc les outils suivants :
         - `avr-gcc`
@@ -26,7 +27,7 @@ description: |-
     #include <util/delay.h>
     ```
 
-    Les commandes pour build et upload un programme sur un Arduino depuis Linux sont :
+    Les commandes pour build et upload un programme sur un Arduino Nano depuis Linux sont :
     ```sh
     avr-gcc -mmcu=atmega328p -Os -o solve.elf solve.c
     avr-objcopy -O ihex solve.elf solve.hex
@@ -39,7 +40,7 @@ description: |-
     <div class="text-center">
         <img src="https://raw.githubusercontent.com/ice-efrei/charte-graphique/refs/heads/master/logo/logo%20vertical%20blanc%20transparent-1.svg" class="img-fluid" width=150>
     </div>
-attribution: Association ICE, grégoire
+attribution: "grégoire - ICE"
 value: 500
 type: dynamic
 

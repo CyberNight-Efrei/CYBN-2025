@@ -3,12 +3,13 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
 
 // Définir le baud rate
 #define BAUD 9600
 #define UBRR_VALUE ((F_CPU / (16UL * BAUD)) - 1)
 
-#define SAMPLE_COUNT 10
+#define SAMPLE_COUNT 3
 
 char password[33] = {0};
 uint8_t password_len = 32;
@@ -72,6 +73,7 @@ int main(void)
 
     _delay_ms(500);
 
+    // À l'attaque !
     for (uint8_t i = 0; i < password_len; i++)
     {
         unsigned long count, best_count = 0;
@@ -80,7 +82,7 @@ int main(void)
         for (uint8_t j = 0; j < letters_len; j++)
         {
             unsigned long mean = 0;
-            // Collecte des samples, calcule la moyenne
+            // Collecte des samples, calcul de la moyenne
             for (uint8_t l = 0; l < SAMPLE_COUNT; l++)
             {
                 // Flush RX
@@ -96,7 +98,7 @@ int main(void)
 
                 uart_write(nl);
 
-                // Tant que on n'a pas reçu le 1er byte de la réponse, on compte
+                // Tant que on n'a pas reçu le 1er byte de la réponse, on compte en boucle (millis() fait maison)
                 while (!(UCSR0A & (1 << RXC0)))
                 {
                     count++;
@@ -106,6 +108,7 @@ int main(void)
 
                 while (UDR0 != '!');
 
+                // On laisse l'ATtiny85 respirer
                 _delay_ms(1);
             }
 

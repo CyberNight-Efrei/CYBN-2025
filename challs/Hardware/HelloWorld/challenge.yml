@@ -3,14 +3,14 @@ category: Hardware
 description: |-
     Bienvenue dans ces challenges Hardware !
 
-    Cinq de ces épreuves reposent sur l'utilisation de microcontrôleurs. Pour les réaliser, vous aurez peut-être besoin d'un Arduino et de câbles de connexion (“jumper wires”).
+    Cinq de ces épreuves reposent sur l'utilisation de microcontrôleurs. Pour les réaliser, vous aurez peut-être besoin d'un Arduino, d'une breadboard et de câbles de connexion (“jumper wires”).
     Vous pourrez en trouver dans la salle "hardware / lockpick".
 
-    Les challenges s'articulent autour de deux éléments : un ESP32 et un PCB conçu spécialement pour l'occasion.
+    Les challenges s'articulent autour de deux éléments : un ESP32 et un PCB conçu spécialement pour l'occasion. Attention, l'ESP32 fonctionne à 3V3, tandis que l'Arduino et l'ATtiny85 sont à 5V. L'ESP32 acceptera volontiers 5V sur sa broche `VIN`.
 
     Aucune modification permanente du matériel fourni n'est nécessaire.
     
-    Par souci de responsabilité environnementale (RSE), les firmwares ne sont pas protégés contre la réécriture ou le dump. Merci donc de ne pas extraire ni modifier les firmwares !
+    Par souci de responsabilité environnementale (RSE), les firmwares ne sont pas protégés contre la réécriture ou le dump. Merci donc de ne pas extraire ni modifier les firmwares ! **Aucun des challenges ne nécessite d'analyser ou de rétro-ingénier le firmware pour obtenir le flag.**
 
     ---
 
@@ -23,12 +23,12 @@ description: |-
     
     Branchez-le donc pour savoir !
     
-    <i>Note : la fréquence série par défaut pour un ESP32 est à 115200 bauds</i>
+    Note : la fréquence série par défaut pour un ESP32 est à 115200 bauds
 
     <div class="text-center">
         <img src="https://raw.githubusercontent.com/ice-efrei/charte-graphique/refs/heads/master/logo/logo%20vertical%20blanc%20transparent-1.svg" class="img-fluid" width=150>
     </div>
-attribution: Association ICE, grégoire
+attribution: "grégoire - ICE"
 value: 500
 type: dynamic
 
