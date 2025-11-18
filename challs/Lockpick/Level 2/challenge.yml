@@ -1,0 +1,27 @@
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+
+name: "Level 2"
+category: Lockpick
+description: Rendez-vous en <insérer salle> pour du crochetage ! 
+attribution: "CTFREI"
+
+flags:
+    - CYBN{Th15_0n3_w@S_cHAlL3nG1nG_W@5't_17}
+
+
+tags:
+    - Medium
+
+next: Level 3
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"
