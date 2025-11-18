@@ -57,6 +57,7 @@ def index():
 def challenge():
     if not session.get("round"):
         session["round"] = 1
+        session["completed"] = False
     round_num = session.get("round", 1)
 
     if round_num > 8:
@@ -81,13 +82,17 @@ def submit():
 
     try:
         user_slots = [int(x.strip()) for x in answer.split(",") if x.strip()]
+
     except ValueError:
         flash("⚠️ Invalid input format!", "error")
         session["round"] = 1
 
         return redirect(url_for("challenge"))
 
-    if all(x == y for x, y in zip(set(user_slots), set(session.get("solution", [])))):
+    submission = set(user_slots)
+    solution = set(session.get("solution", []))
+
+    if len(submission) == len(solution) and len(submission) == len(solution) and all(x in solution for x in submission):
         session["round"] += 1
 
         if session["round"] > 8:
