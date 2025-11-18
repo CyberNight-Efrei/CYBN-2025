@@ -10,7 +10,7 @@ attribution: Romain
 value: 500
 type: dynamic
 
-connection_info: ssh user@10.44.10.21 -i whos_ed25519
+connection_info: ssh user@10.44.10.22 -i whos_ed25519
 
 extra:
   initial: 500
