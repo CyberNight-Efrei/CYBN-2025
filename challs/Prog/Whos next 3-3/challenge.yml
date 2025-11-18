@@ -1,5 +1,5 @@
 name: Who's next ? 3-3
-category: Prog
+category: Réaliste
 description: |-
   Beau travail ! Maintenant que tu sais comment l'attaquant fait pour interagir, retourne ses armes contre lui !
 
@@ -21,6 +21,7 @@ flags:
 
 tags:
 - Hard
+- Prog
 
 files:
 - dist/cybernight.ko

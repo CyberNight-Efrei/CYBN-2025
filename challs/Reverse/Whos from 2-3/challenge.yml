@@ -1,5 +1,5 @@
 name: Who's from ? 2-3
-category: Reverse
+category: Réaliste
 description: |-
   Bien, on arrive bientot à bout ! L'attaquant a peut être changé le mot de passe de la machine, mais il a aussi probablement laissé une backdoor pour s'y reconnecté.
 
@@ -22,6 +22,7 @@ flags:
 
 tags:
 - Medium
+- Reverse
 
 files:
 - dist/cybernight.ko
