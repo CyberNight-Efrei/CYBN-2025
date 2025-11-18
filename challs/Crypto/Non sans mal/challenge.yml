@@ -1,9 +1,6 @@
-# This file represents the base specification of your challenge. It is used by
-# other tools to install and deploy your challenge.
 
-# <============ NE PAS TOUCHER ============>
 value: 500
-type: dynamic / dynamic_docker
+type: dynamic
 
 extra:
     initial: 500
@@ -11,9 +8,7 @@ extra:
     minimum: 100
 
 state: visible
-# </============ NE PAS TOUCHER ============>
 
-# <============ REQUIRED ============>
 name: "/Non sans mal/"
 category: Crypto
 description: |-
@@ -26,7 +21,6 @@ description: |-
 attribution: "nhy"
 
 flags:
-    # A static case sensitive flag created with a dictionary
     - {
         type: "static",
         content: "CYBN{/nonce_en_mal/_oui_c'est_ca_la_vanne}",
@@ -35,30 +29,13 @@ flags:
 
 tags:
     - Medium
-# </============ REQUIRED ============>
 
-
-
-# Only provided files to challengers
-# NO directories, accept archives (.zip, .7z, .tgz)
 files:
     - src/source.py
     - src/block-cipher-modes.png
     - src/block-cipher-modes.png.enc
     - src/flag.enc
 
-# Hints are used to give players a way to buy or have suggestions. They are not
-# required but can be nice.
-# Can be removed if unused
-# Accepts dictionaries or strings
-
-# The next is used to display a next recommended challenge to a user when 
-# the user correctly answers the current challenge.
-# Can be removed if unused
-# Accepts a challenge name as a string, a challenge ID as an integer, or null
-# if you want to remove or disable it.
 next: null
 
-# Specifies what version of the challenge specification was used.
-# Subject to change until ctfcli v1.0.0
 version: "0.1"
