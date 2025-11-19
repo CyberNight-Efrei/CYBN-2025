@@ -21,7 +21,7 @@ tags:
   - Medium
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 files:
   - src/Cicada 3302.png

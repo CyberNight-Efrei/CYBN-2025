@@ -44,7 +44,7 @@ tags:
     - Intro
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 state: visible
 

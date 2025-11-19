@@ -29,7 +29,7 @@ tags:
     - Medium
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 files:
     - src/procedure.pdf

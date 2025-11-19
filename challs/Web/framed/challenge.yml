@@ -25,7 +25,7 @@ flags:
   - CYBN{P1X3LS_4R3_FUN}
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 next:
   - "Impostor"

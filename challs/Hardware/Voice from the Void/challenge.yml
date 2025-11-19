@@ -24,7 +24,7 @@ tags:
     - Medium
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 connection_info: http://files.cybernight-c.tf/voice.wav
 

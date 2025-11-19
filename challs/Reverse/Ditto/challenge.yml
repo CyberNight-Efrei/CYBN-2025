@@ -14,7 +14,7 @@ tags:
     - Medium
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 files:
     - src/ditto

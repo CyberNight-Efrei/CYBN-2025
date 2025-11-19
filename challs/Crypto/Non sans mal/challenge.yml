@@ -39,6 +39,6 @@ files:
 next: null
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 version: "0.1"

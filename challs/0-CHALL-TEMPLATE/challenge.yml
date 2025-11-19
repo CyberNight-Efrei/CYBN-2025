@@ -108,7 +108,7 @@ hints:
 next: null
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 # Specifies what version of the challenge specification was used.
 # Subject to change until ctfcli v1.0.0

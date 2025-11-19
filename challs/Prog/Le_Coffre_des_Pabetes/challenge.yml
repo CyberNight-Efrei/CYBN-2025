@@ -35,7 +35,7 @@ tags:
     - Medium 
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 value: 500
 type: dynamic_docker

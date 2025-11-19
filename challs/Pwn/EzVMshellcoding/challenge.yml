@@ -46,7 +46,7 @@ tags:
     - Medium 
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
 
 # Provide paths to files from the same directory that this file is in
 # Accepts strings

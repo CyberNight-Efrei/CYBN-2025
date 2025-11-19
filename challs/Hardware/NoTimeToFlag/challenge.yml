@@ -40,7 +40,7 @@ files:
     - src/serial.c
 
 requirements:
-    - "Sanity Check"
+    - "Bienvenue !"
     - "Pull up! Pull up!"
 
 state: visible

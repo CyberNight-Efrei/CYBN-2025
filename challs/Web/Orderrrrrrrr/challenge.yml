@@ -32,7 +32,7 @@ tags:
     - Hard
 
 requirements:
-  - "Sanity Check"
+  - "Bienvenue !"
 
 files:
     - src/web.zip
