@@ -12,28 +12,6 @@ description: |-
     Notes : 
     - Sélectionnez `ch2` sur le PCB.
     - Format du flag : `CYBN{example_lowercase_no_accent}`
-    - Afin de réussir ce challenge, il est vivement conseillé d'utiliser la HAL (Hardware Abstraction Layer) de Atmel à la place du framework Arduino pour plus de performances.
-    - Il vous faut donc les outils suivants :
-        - `avr-gcc`
-        - `avr-libc`
-        - `avr-objcopy`
-        - `avrdude`
-        
-    Pensez à ajouter les lignes suivantes en haut de votre programme :
-    ```c
-    #define __AVR_ATmega328P__
-    #define F_CPU 16000000UL
-    #include <avr/io.h>
-    #include <util/delay.h>
-    ```
-
-    Les commandes pour build et upload un programme sur un Arduino Nano depuis Linux sont :
-    ```sh
-    avr-gcc -mmcu=atmega328p -Os -o solve.elf solve.c
-    avr-objcopy -O ihex solve.elf solve.hex
-    avrdude -c arduino -p m328p -P /dev/ttyUSB0 -b 115200 -U flash:w:solve.hex
-    ```
-    (Veillez à donner les accès aux ports USB pour que cela fonctionne dans une WSL)
 
     Bon courage.
 
