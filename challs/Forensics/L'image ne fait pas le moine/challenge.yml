@@ -1,0 +1,62 @@
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic / dynamic_docker
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>
+
+# <============ REQUIRED ============>
+name: "L'image ne fait pas le moine"
+category: Forensics
+description: |-
+  # L'image ne fait pas le moine
+
+  A la NeuillCorp, étant plutôt famous, **on se fait régulièrement attaquer par des ptits malandrins.**
+  
+  Regarde ce qu'on a retrouvé dans notre baie de serveur... une ptite dinguerie (cf `hidden_rasp.png`). Bien planquée :d
+  
+  **On sait pas trop depuis combien de temps elle est là, ni ce qu'elle fait, et c'est ton job de nous aider là dessus.**
+  
+  On suspecte qu'elle foute le bordel sur **notre réseau**, peut-être qu'elle infecte des machines, peut-être même que c'est lié à nos derniers leaks de secrets...
+  
+  Enfin le plus important, **on a capturé tout le trafic réseau depuis l'une des machines d'un développeur**, pour voir si des trucs se passaient, **ton analyse commence avec cette capture `chall.pcap`**.
+
+  Tu as aussi les infos pour déchiffrer le trafic TLS dans le fichier `tls.log`.
+
+  Ha et pour te fournir un peu plus de contexte, on te file aussi notre **manuel de nouvel arrivant : `manuel.pdf`**, qu'on file à tout dév qu'on recrute, ça te donnera une idée des outils qu'on utilise. Ca t'aidera peut-être à analyser la capture.
+  
+  ---
+
+  **NB** : le challenge, c'est uniquement la capture réseau. Le reste c'est pour du lore et du contexte pour aider un peu à comprendre la capture. (commencez pas à chercher des trucs dans l'image ou ailleurs, tout dans la capture réseau)
+
+  Hésitez pas à DM @it4 sur le serv Discord du CTF pour vous orienter si besoin.
+
+  Format : `CYBN{}`
+
+attribution: "it4"
+
+flags:
+    - CYBN{d0ck3r_S3cr3ts_3xf1ltr4ti0n_1s_n0W_a_cl4sSical}
+
+tags:
+    - Hard
+# </============ REQUIRED ===========>
+
+
+# <============ OPTIONAL ============>
+
+files:
+    - src/tls.log
+    - src/hidden_rasp.png
+    - src/manuel.pdf
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"
+
+# </============ OPTIONAL ===========>
