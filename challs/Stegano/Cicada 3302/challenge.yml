@@ -20,6 +20,9 @@ flags:
 tags:
   - Medium
 
+requirements:
+    - "Sanity Check"
+
 files:
   - src/Cicada 3302.png
 

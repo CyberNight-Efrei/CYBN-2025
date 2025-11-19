@@ -38,4 +38,7 @@ files:
 
 next: null
 
+requirements:
+    - "Sanity Check"
+
 version: "0.1"

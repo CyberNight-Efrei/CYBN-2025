@@ -25,6 +25,9 @@ attribution: Doryan et Gaël
 
 tags:
     - Easy
+
+requirements:
+    - "Sanity Check"
 # </============ REQUIRED ============>
 
 

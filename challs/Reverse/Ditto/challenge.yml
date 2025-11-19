@@ -13,6 +13,9 @@ flags:
 tags:
     - Medium
 
+requirements:
+    - "Sanity Check"
+
 files:
     - src/ditto
 

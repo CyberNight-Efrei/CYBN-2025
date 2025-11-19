@@ -1,0 +1,20 @@
+name: Sanity Check
+category: Welcome
+description: >-
+  Bienvenue à l'édition 2025 de la CyberNight - Flag me if you can !
+  Afin que **tout se passe au mieux** et afin de **flag ce challenge qui débloquera
+  le reste des catégories**, veuillez **bien lire** le salon #règlement-détails sur le
+  [serveur Discord](https://discord.gg/dzNQgTP6) de la CyberNight ! Bonne chance !
+attribution: Staff
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+- CYBN{Y0u_Ar3_G00d_t0_G0_N0w_Fl4g_m3_1f_Y0u_C4n}
+
+version: '0.1'

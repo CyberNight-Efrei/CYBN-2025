@@ -16,6 +16,9 @@ flags:
 
 tags:
     - Hard
+
+requirements:
+    - "Sanity Check"
 # </============ REQUIRED ============>
 
 

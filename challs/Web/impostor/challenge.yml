@@ -25,6 +25,7 @@ flags:
   - CYBN{F4K3_4DM1N}
 
 requirements:
+  - "Sanity Check"
   - "Framed"
 
 tags:

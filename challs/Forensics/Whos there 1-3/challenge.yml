@@ -29,6 +29,9 @@ tags:
 - Easy
 - Forensics
 
+requirements:
+    - "Sanity Check"
+
 next: Who's from ? 2-3
 
 version: '0.1'

@@ -36,3 +36,6 @@ flags:
 
 tags:
 - Intro
+
+requirements:
+  - "Sanity Check"

@@ -23,6 +23,9 @@ flags:
 tags:
     - Medium
 
+requirements:
+    - "Sanity Check"
+
 connection_info: http://files.cybernight-c.tf/voice.wav
 
 state: visible

@@ -107,6 +107,9 @@ hints:
 # if you want to remove or disable it.
 next: null
 
+requirements:
+    - "Sanity Check"
+
 # Specifies what version of the challenge specification was used.
 # Subject to change until ctfcli v1.0.0
 version: "0.1"

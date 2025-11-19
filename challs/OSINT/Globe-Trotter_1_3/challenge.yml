@@ -23,6 +23,9 @@ flags:
 
 tags:
     - Easy
+
+requirements:
+    - "Sanity Check"
 # </============ REQUIRED ============>
 
 

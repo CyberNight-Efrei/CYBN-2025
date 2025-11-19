@@ -23,4 +23,7 @@ files:
 tags:
 - Intro
 
+requirements:
+    - "Sanity Check"
+
 version: '0.1'

@@ -39,7 +39,9 @@ files:
     - src/serial.h
     - src/serial.c
 
-requirement: "Pull up! Pull up!"
+requirements:
+    - "Sanity Check"
+    - "Pull up! Pull up!"
 
 state: visible
 

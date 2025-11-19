@@ -23,6 +23,9 @@ flags:
 tags:
     - Easy
 
+requirements:
+    - "Sanity Check"
+
 state: visible
 
 version: "0.1"

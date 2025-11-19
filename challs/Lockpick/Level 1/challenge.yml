@@ -20,6 +20,9 @@ flags:
 tags:
     - Easy
 
+requirements:
+    - "Sanity Check"
+
 next: Level 2
 
 # Specifies what version of the challenge specification was used.

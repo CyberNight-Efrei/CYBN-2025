@@ -34,6 +34,9 @@ flags:
 tags:
     - Medium 
 
+requirements:
+    - "Sanity Check"
+
 value: 500
 type: dynamic_docker
 

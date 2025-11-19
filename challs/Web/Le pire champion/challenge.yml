@@ -31,4 +31,7 @@ flags:
 tags:
     - Easy
 
+requirements:
+  - "Sanity Check"
+
 version: "1.0"

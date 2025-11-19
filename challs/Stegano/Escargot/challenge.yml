@@ -21,4 +21,7 @@ files:
 tags:
 - Hard
 
+requirements:
+    - "Sanity Check"
+
 version: '0.1'

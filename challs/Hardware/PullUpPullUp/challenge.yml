@@ -24,6 +24,9 @@ flags:
 tags:
     - Medium
 
+requirements:
+    - "Sanity Check"
+
 state: visible
 
 version: "0.1"

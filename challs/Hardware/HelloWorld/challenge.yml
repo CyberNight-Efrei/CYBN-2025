@@ -43,6 +43,9 @@ flags:
 tags:
     - Intro
 
+requirements:
+    - "Sanity Check"
+
 state: visible
 
 version: "0.1"

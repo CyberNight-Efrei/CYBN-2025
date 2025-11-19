@@ -31,6 +31,9 @@ flags:
 tags:
     - Easy
 
+requirements:
+  - "Sanity Check"
+
 files:
     - src/web.zip
 

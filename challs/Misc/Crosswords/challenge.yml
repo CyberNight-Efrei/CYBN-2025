@@ -25,6 +25,9 @@ flags:
 
 tags:
     - Medium
+
+requirements:
+    - "Sanity Check"
 # </============ REQUIRED ============>
 
 

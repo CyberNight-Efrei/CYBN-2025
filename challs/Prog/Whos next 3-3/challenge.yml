@@ -28,6 +28,7 @@ files:
 
 requirements:
   prerequisites:
+  - Sanity Check
   - Who's from ? 2-3
   anonymize: false
 

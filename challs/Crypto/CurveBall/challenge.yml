@@ -19,5 +19,8 @@ files:
 tags:
 - Medium
 
+requirements:
+    - "Sanity Check"
+
 version: '0.1'
 

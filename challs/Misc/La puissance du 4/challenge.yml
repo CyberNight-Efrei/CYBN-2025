@@ -29,6 +29,9 @@ flags:
 tags:
     - Easy
 
+requirements:
+    - "Sanity Check"
+
 connection_info: https://discord.com/channels/1420660433722802188/1429238105961136320
 
 next: "Un dessin?"
