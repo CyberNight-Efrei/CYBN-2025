@@ -1,5 +1,5 @@
 CAT="prog"
-CHALL="web_furet"
+CHALL="furet"
 NAME="${CAT}_${CHALL}"
 PORT=8000
 HOST_PORT=3003
