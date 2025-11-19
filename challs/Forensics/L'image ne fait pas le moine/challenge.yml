@@ -1,6 +1,6 @@
 # <============ NE PAS TOUCHER ============>
 value: 500
-type: dynamic / dynamic_docker
+type: dynamic
 
 extra:
     initial: 500
@@ -45,6 +45,9 @@ flags:
 
 tags:
     - Hard
+
+requirements:
+    - "Bienvenue !"
 # </============ REQUIRED ===========>
 
 
