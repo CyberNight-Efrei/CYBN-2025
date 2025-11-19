@@ -7,7 +7,6 @@ category: "PWN"
 description: "Will you be able to survive the pwn bomb and find a shell-ter before time is up"
 attribution: "Sandor"
 value: 500
-type: dynamic_docker
 
 # The extra field provides additional fields for data during the install/sync commands/
 # Fields in extra can be used to supply additional information for other challenge types
