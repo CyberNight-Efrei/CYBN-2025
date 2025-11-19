@@ -26,7 +26,7 @@ extra:
   dynamic_decay: 30     # NE PAS TOUCHER
   dynamic_minimum: 100  # NE PAS TOUCHER
 
-  docker_image: shellter   # RESPECT FORMAT (shortname please)
+  docker_image: pwn_shellter   # RESPECT FORMAT (shortname please)
 
   redirect_type: tcp   # Protocol. Default should be tcp
   redirect_port: 23458               # App port, do not mind overlaps
