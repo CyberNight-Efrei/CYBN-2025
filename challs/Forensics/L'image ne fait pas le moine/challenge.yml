@@ -34,10 +34,6 @@ description: |-
 
   **NB** : le challenge, c'est uniquement la capture réseau. Le reste c'est pour du lore et du contexte pour aider un peu à comprendre la capture. (commencez pas à chercher des trucs dans l'image ou ailleurs, tout dans la capture réseau)
 
-  Hésitez pas à DM @it4 sur le serv Discord du CTF pour vous orienter si besoin.
-
-  Format : `CYBN{}`
-
 attribution: "it4"
 
 flags:
@@ -53,10 +49,7 @@ requirements:
 
 # <============ OPTIONAL ============>
 
-files:
-    - src/tls.log
-    - src/hidden_rasp.png
-    - src/manuel.pdf
+connection_info: http://files.cybernight-c.tf/moine.7z
 
 # Specifies what version of the challenge specification was used.
 # Subject to change until ctfcli v1.0.0
