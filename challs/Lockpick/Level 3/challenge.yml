@@ -10,7 +10,7 @@ state: visible
 
 name: "Level 3"
 category: Lockpick
-description: Rendez-vous en <insérer salle> pour du crochetage ! 
+description: Rendez-vous en salle précisée ci-dessous pour du crochetage ! 
 attribution: "CTFREI"
 
 flags:
