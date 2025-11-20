@@ -1,0 +1,39 @@
+name: MatryoSHA
+category: Misc
+description: "
+  Nos équipes de threat intelligence ont intercepté l'échange d'un fichier au sein d'un groupe APT russe. Cependant, ils ont utilisé une méthode d'obfuscation par couches multiples - une technique qu'ils appellent 'Matryoshkas'. L'analyse préliminaire révèle 500 couches de chiffrement imbriquées. Chaque couche nécessite un mot de passe unique pour être déverrouillée.
+  Pendant l'échange, nos analystes ont réussi à extraire une note étrange contenant des exemples de mots de passe :
+  Layer 0  ->  5feceb66ffc86f38 (0)
+  Layer 1  ->  6b86b273ff34fce1 (1)
+  Layer 2  ->  6b86b273ff34fce1 (1)
+  Layer 3  ->  d4735e3a265e16ee (2)
+  Layer 4  ->  4e07408562bedb8b (3)
+  Layer 5  ->  ef2d127de37b942b (5)
+  Layer 6  ->  e7f6c011776e8db7 (8)
+
+  Votre mission est de comprendre le mécanisme d'automatisation des mots de passe, et de déverrouiller toutes les archives pour accéder à l'information sensible."
+
+attribution: Osiris
+value: 500
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 30
+  minimum: 100
+
+flags:
+  - content: CYBN{M4tryoshk4sAga1nAndAg4in}
+    type: static
+    data: case_sensitive
+
+files:
+  - dist/matryoshka.zip
+
+tags:
+  - Medium
+
+requirements:
+  - "Bienvenue !"
+
+version: "0.1"
