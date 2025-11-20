@@ -28,7 +28,7 @@ flags:
     data: case_sensitive
 
 files:
-  - dist/matryoshka.zip
+  - src/layer_0.zip
 
 tags:
   - Medium
