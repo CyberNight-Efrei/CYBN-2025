@@ -1,0 +1,39 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# <============ REQUIRED ============>
+name: "MDR"
+category: "OSINT" # Crypto / Forensics / Hardware / Misc / OSINT / Prog / Pwn / Reverse / Stegano / System / Web
+description: |-
+  Je parlais 7ème art avec un ami et ce dernier m'avait fait écouter une musique vraiment cool qui vient d'une célèbre série. Il m'a dit que c'était sa musique préférée ! Bon le problème c'est que j'ai une mémoire de poisson rouge, donc son nom m'a échappé... On trouvera peut-être quelque chose sur son profil X qui sait.
+  Aide moi à retrouver le nom de la série ainsi que les numéros de la saison et l'épisode où on peut entendre cette fameuse musique.
+
+  Lien : https://bsky.app/profile/ekkohelloworld.bsky.social
+
+  Flag : `CYBN{Friends_S01E01}`
+attribution: "DocSystem et Doryan"
+
+flags:
+    - CYBN{Arcane_S02E07}
+
+tags:
+    - Intro
+
+requirements:
+    - "Bienvenue !"
+# </============ REQUIRED ============>
+
+
+# <============ OPTIONAL ============>
+
+# <============ NE PAS TOUCHER ============>
+value: 500
+type: dynamic
+
+extra:
+    initial: 500
+    decay: 30
+    minimum: 100
+
+state: visible
+# </============ NE PAS TOUCHER ============>
