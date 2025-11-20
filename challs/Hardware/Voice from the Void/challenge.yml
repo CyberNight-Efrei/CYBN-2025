@@ -26,7 +26,7 @@ tags:
 requirements:
     - "Bienvenue !"
 
-connection_info: connection_info: Salle A107 (Paris), Foyer (Bordeaux). Fichier énoncé : http://files.cybernight-c.tf/voice.wav
+connection_info: http://files.cybernight-c.tf/voice.wav
 
 state: visible
 
