@@ -16,7 +16,7 @@ def generate_password(layer):
     return hashlib.sha256(str(fib_number).encode()).hexdigest()[:16]
 
 
-def solve_matryoshka(input_file="matryoshka.zip"):
+def solve_matryoshka(input_file="layer_0.zip"):
     current_zip, layer = input_file, 0
     
     print(f"Solving Matryoshka challenge...")
@@ -63,4 +63,5 @@ def solve_matryoshka(input_file="matryoshka.zip"):
 
 
 if __name__ == "__main__":
+
     solve_matryoshka()
