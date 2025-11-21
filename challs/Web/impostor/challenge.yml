@@ -13,7 +13,7 @@ type: dynamic_docker
 extra:
   dynamic_score: 1      # 1 = True / 0 = False
   dynamic_initial: 500  # NE PAS TOUCHER
-  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_decay: 42     # NE PAS TOUCHER
   dynamic_minimum: 100  # NE PAS TOUCHER
 
   docker_image: web_impostor   # RESPECT FORMAT (shortname please)

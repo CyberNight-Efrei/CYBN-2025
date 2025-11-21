@@ -14,7 +14,7 @@ connection_info: ssh user@10.44.10.22 -i whos_ed25519
 
 extra:
   initial: 500
-  decay: 30
+  decay: 42
   minimum: 100
 
 flags:

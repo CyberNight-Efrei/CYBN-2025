@@ -14,7 +14,7 @@ attribution: "grégoire - ICE"
 type: dynamic
 extra:
     initial: 500
-    decay: 30
+    decay: 42
     minimum: 100
 
 
@@ -27,7 +27,7 @@ tags:
 requirements:
     - "Bienvenue !"
 
-state: visible
+state: hidden
 
 version: "0.1"
-connection_info: Salle A107 (Paris), Foyer (Bordeaux)
+connection_info: Salle A108 (Paris), Foyer (Bordeaux)
