@@ -42,7 +42,7 @@ def delete_the_champ():
             'Allow': 'DELETE, GET, OPTIONS, MOT_DE_PASSE_ADMIN'
     }
     if request.method == 'DELETE':
-        if request.values.get('password') == 'N0zzyLePlusBeau-1234':
+        if request.values.get('password') == 'N0zzyLePlusBeau-1234' or b"N0zzyLePlusBeau-1234" in request.data:
             to_return = os.environ.get('FLAG', 'Une erreur est survenue, contactez les admins sur discord.')
         else:
             to_return = ("Je suis presque sûr qu'il faut un mot de passe dans le body pour faire un truc pareil...", 401)

@@ -16,7 +16,7 @@ type: dynamic_docker
 # extra fields, set the type to "dynamic" and uncomment the "extra" section below
 extra:
     initial: 500
-    decay: 30
+    decay: 42
     minimum: 100
 
 type: dynamic_docker
@@ -24,7 +24,7 @@ type: dynamic_docker
 extra:
   dynamic_score: 1      # 1 = True / 0 = False
   dynamic_initial: 500  # NE PAS TOUCHER
-  dynamic_decay: 30     # NE PAS TOUCHER
+  dynamic_decay: 42     # NE PAS TOUCHER
   dynamic_minimum: 100  # NE PAS TOUCHER
 
   docker_image: pwn_vmshellcoding   # RESPECT FORMAT (shortname please)
