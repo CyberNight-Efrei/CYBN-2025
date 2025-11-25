@@ -1,29 +1,36 @@
-`eq1sSFTiQKW6JeYj56IcqWVCpIxDvrawAW9+yTut+ZlrGvnJcHiDawHQV7laHtfV`
+Deux solves : statiques et dynamiques
+
+La dynamique étant la façon prévue, voici le solve :
+
+- Dans une VM fraîchement créée, installer Firefox.
+- Chercher les fichiers de profils correspondant au dump donné en source du chall : ``C:\Users\<USER>\AppData\Roaming\Mozilla\Firefox\Profiles\<dossier du profil par défaut>``
+- On peut alors arrêter Firefox, copier l'ensemble de nos données dans ce dossier pour les remplacer, et démarrer firefox
+- Cela chargera les données du profil ayant été récupéré
 
 Part 1 :
-- historique
-- facebook
-- autofill
-- mettre un caractère dans mdp, puis retirer, ouvrir oeil
-- mdp : `eq1sSFTiQKW6JeYj56IcqWVCpIxDvra`
+- historique -> facebook
+- ouvrir facebook.com/login
+- autofill les identifiants, les afficher pour récupérer le mot de passe
+- mdp : `eq1sSFTiQKW6JeYj56IcqWVCpIxDvra` (base64, chiffré, ne donne rien décodé)
 
 Part 2 :
-- historique
-- cookies
-- `FLAG_PART_2 : wAW9+yTut+ZlrGvnJcHiDawHQV7laHtfV`
+- historique -> flagpedia
+- ouvrir les cookies de flagpedia
+- Trovuer : `FLAG_PART_2 : wAW9+yTut+ZlrGvnJcHiDawHQV7laHtfV`
 
-Flag chiffré : `zvHKebC9t0yAgDOa7RxxLcgXzVv+gERawOL+ytI9hZs=`
+Flag chiffré : `wAW9+yTut+ZlrGvnJcHiDawHQV7laHtfV`
 
 Dans les extensions :
 - violentmonkey
-- script "Un flag ?"
+  - script "Un flag ?"
+  - si pas de script, réinstaller l'extension
 - voir détail : https://chiffrer.info
-- insérer `encryptedFlag = "zvHKebC9t0yAgDOa7RxxLcgXzVv+gERawOL+ytI9hZs="` 
+- insérer `encryptedFlag = "eq1sSFTiQKW6JeYj56IcqWVCpIxDvrawAW9+yTut+ZlrGvnJcHiDawHQV7laHtfV"` 
 - ouvrir le site
 - profit : `CYBN{aM_I_cR4zy_H1dinG_S3Cret5_HER3?}`
 
 
-Script : 
+Script de base : 
 ```js
 // ==UserScript==
 // @name        Un flag ?
