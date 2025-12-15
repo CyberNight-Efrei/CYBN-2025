@@ -1,4 +1,4 @@
-# Cybernight 2025 - Challlenges
+# Cybernight 2025 - Challenges
 
 ## Créer un challenge :
 
